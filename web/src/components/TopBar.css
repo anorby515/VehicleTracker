@@ -1,0 +1,29 @@
+.topbar {
+  flex-shrink: 0;
+  padding: var(--safe-top) calc(var(--safe-right) + 4px) 0 calc(var(--safe-left) + 4px);
+  background: var(--bg);
+  border-bottom: 0.5px solid var(--separator);
+  position: relative; z-index: 5;
+}
+.topbar-row {
+  display: grid; grid-template-columns: var(--tap) 1fr var(--tap); align-items: center; gap: 4px;
+  min-height: var(--topbar-height);
+}
+.topbar-center { min-width: 0; display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
+.topbar-title {
+  font-size: 17px; font-weight: 600; margin: 0; max-width: 100%; text-align: center; line-height: 22px;
+}
+.dots { display: flex; justify-content: center; flex-wrap: nowrap; }
+/* Each dot is a full-height tap target; the visible mark is small, like iOS page controls. */
+.dot {
+  position: relative; border: 0; background: none; padding: 0;
+  width: 44px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
+}
+.dot::after { content: ''; position: absolute; inset: -9px 0; } /* extends the tap area to 44pt tall */
+.dots-mid .dot { width: 32px; }
+.dots-many .dot { width: 22px; }
+.dot-mark {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--fill-strong);
+  transition: background 0.2s, transform 0.2s;
+}
+.dot[aria-current='true'] .dot-mark { background: var(--label); transform: scale(1.15); }

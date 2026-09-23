@@ -1,0 +1,11 @@
+.scans-row { color: inherit; }
+.scans-row .row-title, .scans-row .row-sub { display: block; }
+.scans-row .badge { flex-shrink: 0; }
+.scans-empty { padding: 20px; background: var(--bg-elevated); border-radius: var(--radius); }
+.scans-status { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 4px; }
+.scans-badge { font-size: 15px; padding: 4px 12px; }
+.scans-detail { margin: 0; font-size: 17px; }
+.scans-fact .row-value { max-width: 60%; }
+.scans-filename { word-break: break-word; }
+.scans-link { color: var(--tint); }
+.scans-danger { color: var(--red); }

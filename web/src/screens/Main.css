@@ -1,0 +1,10 @@
+/* Fixed to the viewport: the top bar, then the pager filling the rest.
+   Each vehicle page scrolls on its own; the document itself never scrolls. */
+.main {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+}
+.main-empty { flex: 1; overflow-y: auto; padding-top: 12px; }
+.main-empty .empty p { margin: 0 0 12px; }

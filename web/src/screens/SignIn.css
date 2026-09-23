@@ -1,0 +1,37 @@
+.app-icon { width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); }
+.splash { gap: 28px; }
+
+.signin { min-height: 100%; display: flex; align-items: center; justify-content: center; }
+.signin-inner {
+  width: 100%; max-width: 420px;
+  padding: calc(var(--safe-top) + 32px) 24px calc(var(--safe-bottom) + 32px);
+  display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
+}
+.signin-title { margin-top: 6px; }
+.signin-lede { margin: 0 0 8px; color: var(--label-2); }
+.signin-block { display: flex; justify-content: center; width: 100%; margin: 8px 0; }
+.signin-message {
+  margin: 0; padding: 10px 14px; border-radius: var(--radius); background: var(--amber-bg); color: var(--label);
+  width: 100%;
+}
+.signin-note {
+  margin: 0; padding: 12px 14px; border-radius: var(--radius); background: var(--neutral-bg); color: var(--label);
+  font-size: 15px; width: 100%;
+}
+.signin-note code { font-size: 14px; }
+
+.signin-mock { width: 100%; text-align: left; margin-top: 8px; }
+.signin-mock-heading { margin: 0; }
+.signin-mock .row { flex-direction: column; align-items: flex-start; gap: 0; }
+.signin-mock .row .row-sub { margin-top: 0; font-size: 13px; }
+.signin-mock-other { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.signin-mock-row { display: flex; gap: 8px; }
+.signin-mock-row .field { flex: 1; min-width: 0; }
+
+.signin-code { width: 100%; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.signin-code p { margin: 0; }
+.code-field {
+  text-align: center; font-size: 26px !important; letter-spacing: 0.2em; font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  text-transform: uppercase;
+}
+.signin-install { font-size: 15px; }

@@ -1,0 +1,15 @@
+{
+  "name": "vehicle-tracker",
+  "private": true,
+  "description": "Vehicle maintenance home-screen web app: front end (web/), App API (apps-script/), Push Worker (push-worker/).",
+  "workspaces": ["web", "push-worker"],
+  "scripts": {
+    "test": "npm run test:api && npm run test:worker && npm run test:web",
+    "test:api": "cd apps-script && npm test",
+    "test:worker": "cd push-worker && npm test",
+    "test:web": "npm test -w web",
+    "build": "npm run build -w web",
+    "fixture": "cd apps-script && npm run fixture"
+  },
+  "engines": { "node": ">=22" }
+}

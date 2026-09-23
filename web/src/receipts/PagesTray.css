@@ -1,0 +1,17 @@
+/* Page / file review trays (scan pages, digital files). */
+.tray { list-style: none; margin: 0 var(--pad) 12px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.tray-item {
+  display: flex; gap: 12px; padding: 10px; border-radius: var(--radius); background: var(--bg-elevated); align-items: flex-start;
+}
+.tray-thumb {
+  width: 72px; height: 96px; object-fit: cover; border-radius: 6px; flex-shrink: 0; background: var(--fill);
+  border: 0.5px solid var(--separator);
+}
+.tray-thumb-icon { display: inline-flex; align-items: center; justify-content: center; color: var(--label-3); }
+.tray-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.tray-name { display: block; }
+.tray-buttons { display: flex; gap: 2px; margin-left: -10px; }
+.tray-delete { color: var(--red); }
+.tray-error { color: var(--red); }
+.tray-straighten { align-self: flex-start; margin-top: 2px; min-height: var(--tap); }
+.icon-btn[disabled] { opacity: 0.3; }

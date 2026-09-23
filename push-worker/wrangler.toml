@@ -1,0 +1,18 @@
+# Cloudflare Worker config for the Push Worker. Deploy with `npx wrangler deploy`
+# from push-worker/ (or paste dist/worker.js into the dashboard; see README.md).
+name = "vehicles-push"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Public values only: this file is in a public repo.
+[vars]
+# base64url, 65-byte uncompressed P-256 point (the "Public Key" from
+# `npx web-push generate-vapid-keys`). Same value as vapidPublicKey in web/app.config.json.
+VAPID_PUBLIC_KEY = "REPLACE_WITH_VAPID_PUBLIC_KEY"
+# Contact for the push services: must start with mailto: or https:. The app's
+# public URL keeps a personal email out of the repo.
+VAPID_SUBJECT = "https://anorby515.github.io/VehicleTracker/"
+
+# Secrets, set with `npx wrangler secret put <NAME>` (or the dashboard), never here:
+#   PUSH_SECRET        shared with the App API (Script Property PUSH_WORKER_SECRET)
+#   VAPID_PRIVATE_KEY  base64url 32-byte private key (the "Private Key" from web-push)

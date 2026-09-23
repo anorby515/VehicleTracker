@@ -1,0 +1,118 @@
+/* Shared styles for the vehicle sheets (visit, upcoming item, panels). */
+
+.vsheet-hero { padding: 4px var(--pad) 16px; }
+.vsheet-hero h3 { margin: 0; }
+.vsheet-hero p { margin: 4px 0 0; }
+.vsheet-hero .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+.vsheet-text { margin: 0; padding: 12px var(--pad); font-size: 16px; }
+.vsheet-text + .vsheet-text { padding-top: 0; }
+.vsheet-actions { display: flex; flex-direction: column; gap: 10px; margin: 0 var(--pad) 24px; }
+
+/* label + value rows */
+.kv-row { align-items: flex-start; }
+.kv-label { color: var(--label); flex: 1 1 auto; min-width: 35%; }
+.kv-value { color: var(--label-2); text-align: right; flex: 0 1 auto; max-width: 65%; overflow-wrap: anywhere; }
+.kv-value.copyable { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; cursor: copy; border-radius: 6px; transition: background 0.15s; }
+.kv-value.copy-armed { background: var(--fill-strong); }
+.kv-unset { color: var(--label-3); font-style: italic; }
+.kv-row .icon-btn { margin: -10px -10px -10px 0; flex-shrink: 0; }
+
+/* stacked sub-lines inside a row */
+.stack > span, .stack > div { display: block; }
+
+/* callouts */
+.callout {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin: 0 var(--pad) 16px; padding: 12px 14px; border-radius: var(--radius);
+  font-size: 15px;
+}
+.callout > svg { flex-shrink: 0; margin-top: 1px; }
+.callout p { margin: 0; }
+.callout p + p { margin-top: 4px; }
+.callout-covered { background: var(--green-bg); color: var(--label); }
+.callout-covered > svg { color: var(--green); }
+.callout-covered strong { color: var(--green); }
+.callout-danger { background: var(--red-bg); color: var(--label); box-shadow: inset 5px 0 0 var(--red); }
+.callout-danger > svg, .callout-danger strong { color: var(--red); }
+.callout-warn { background: var(--amber-bg); color: var(--label); }
+.callout-warn > svg { color: var(--amber); }
+.callout-info { background: var(--neutral-bg); color: var(--label); }
+
+
+/* documents */
+.doc-row .row-main > span { display: block; }
+.doc-icon { color: var(--tint); flex-shrink: 0; display: inline-flex; }
+.badge-missing { background: var(--amber-bg); color: var(--amber); }
+
+/* details disclosure ("Details" for notes) */
+.vdetails { margin: 0 var(--pad) 24px; }
+.vdetails summary {
+  min-height: var(--tap); display: flex; align-items: center; gap: 6px;
+  color: var(--tint); font-weight: 600; list-style: none; cursor: pointer;
+}
+.vdetails summary::-webkit-details-marker { display: none; }
+.vdetails summary svg { transition: transform 0.2s; }
+.vdetails[open] summary svg { transform: rotate(180deg); }
+.vdetails .vdetails-body { background: var(--bg-elevated); border-radius: var(--radius); padding: 12px var(--pad); font-size: 15px; white-space: pre-wrap; color: var(--label-2); }
+
+/* stats (costs) */
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 var(--pad) 8px; }
+.stat { background: var(--bg-elevated); border-radius: var(--radius); padding: 12px 14px; }
+.stat-label { font-size: 13px; color: var(--label-2); }
+.stat-value { font-size: 22px; font-weight: 600; margin-top: 2px; }
+
+/* charts */
+.chart { margin: 0; }
+.chart-card { background: var(--bg-elevated); border-radius: var(--radius); padding: 12px 12px 8px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 4px 2px; font-size: 13px; color: var(--label-2); }
+.chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.chart-legend .key { display: inline-block; width: 16px; height: 0; border-top: 2px solid var(--tint); }
+.chart-legend .key-threshold { border-top: 1.5px solid var(--red); }
+.chart-legend .key-projection { border-top: 1.5px dashed var(--label-3); }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .grid { stroke: var(--separator); stroke-width: 1; }
+.chart .axis-text { fill: var(--label-2); font-size: 11px; font-family: var(--font); font-variant-numeric: tabular-nums; }
+.chart .mark { fill: var(--tint); }
+.chart .mark-dim { fill: var(--tint); opacity: 0.45; }
+.chart .line { stroke: var(--tint); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.chart .dot { fill: var(--tint); stroke: var(--bg-elevated); stroke-width: 2; }
+.chart .threshold { stroke: var(--red); stroke-width: 1.5; }
+.chart .projection { stroke: var(--label-3); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart-readout { font-size: 15px; min-height: 22px; margin: 2px 4px 8px; }
+.chart-readout strong { font-variant-numeric: tabular-nums; }
+
+/* proportion bars (cost breakdown) */
+.share-bar { height: 6px; border-radius: 3px; background: var(--fill); margin-top: 6px; overflow: hidden; }
+.share-bar > span { display: block; height: 100%; border-radius: 3px; background: var(--tint); }
+
+/* forms */
+.field-label { display: block; font-size: 13px; color: var(--label-2); text-transform: uppercase; letter-spacing: 0.02em; margin: 0 4px 6px; }
+.field-hint { font-size: 13px; color: var(--label-2); margin: 6px 4px 0; }
+input.odo-input { font-size: 28px; font-weight: 600; text-align: center; font-variant-numeric: tabular-nums; min-height: 56px; }
+.form-message { margin: 12px 0 0; padding: 12px 14px; border-radius: var(--radius); font-size: 15px; }
+.form-error { background: var(--red-bg); }
+.form-warn { background: var(--amber-bg); }
+.form-info { background: var(--neutral-bg); }
+.form-message .btn { margin-top: 10px; }
+.form-message .btn + .btn { margin-left: 8px; }
+.odo-actions { margin-top: 16px; }
+
+/* costs */
+.costs-footnote { margin: 0 var(--pad) 24px; padding: 6px 4px 0; }
+.costs-type-line { display: flex; justify-content: space-between; gap: 12px; }
+.wear-chart { margin-top: 10px; }
+.wear-value { font-size: 22px; font-weight: 600; }
+.link-text { color: var(--tint); }
+.doc-row .row-main > span.badge { display: inline-flex; margin-top: 4px; }
+.reading-rating { color: var(--label-2); }
+.recall-card + .recall-card { margin-top: 16px; }
+.recall-card .callout { margin: 0 0 8px; }
+.recall-remedy summary { list-style: none; }
+.recall-remedy summary::-webkit-details-marker { display: none; }
+.recall-remedy[open] summary svg { transform: rotate(180deg); }
+.plan-head { display: flex !important; justify-content: space-between; align-items: baseline; gap: 8px; }
+.plan-name { font-weight: 600; }
+.plan-ended .plan-name { color: var(--label-2); }
+.up-sheet-subtitle { color: var(--label); }

@@ -1,0 +1,29 @@
+.settings-sheet .sheet-body { padding-top: 8px; }
+.settings-avatar {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  background: var(--tint); color: var(--tint-contrast); font-weight: 600; font-size: 18px;
+}
+.settings-email { overflow-wrap: anywhere; }
+.settings-icon { color: var(--tint); flex-shrink: 0; }
+.settings-action { color: var(--tint); }
+.settings-explain { align-items: flex-start; }
+.settings-explain .settings-icon { color: var(--label-3); margin-top: 2px; }
+.settings-error { color: var(--red); margin: 0; }
+.settings-subheader { margin-top: 18px; }
+.settings-subheader h3 { font: inherit; margin: 0; }
+.settings-gap { margin-top: 16px; }
+.settings-footer-link { font-size: 13px; min-height: 0; padding: 4px 0; }
+
+.pair-panel { padding: 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.pair-panel p { margin: 0; }
+.pair-label { text-transform: uppercase; letter-spacing: 0.04em; }
+.pair-code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 38px; font-weight: 700; letter-spacing: 0.12em;
+  user-select: all; -webkit-user-select: all;
+}
+.pair-help { color: var(--label-2); max-width: 320px; }
+
+.signout-danger { color: var(--red); }
+.signout-danger .settings-icon { color: var(--red); }
+.signout-confirm { padding-top: 4px; }
+.signout-msg { margin: 0; padding: 12px var(--pad) 8px; font-size: 15px; color: var(--label); }

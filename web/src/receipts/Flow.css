@@ -1,0 +1,149 @@
+/* Add Receipt: a full-screen overlay over the app (never a route). */
+.ar-overlay {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; flex-direction: column;
+  background: var(--bg); color: var(--label);
+  animation: slide-up 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+  outline: none;
+}
+.ar-overlay.ar-dark { background: #000; }
+
+.ar-bar {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  min-height: 52px; padding: var(--safe-top) 8px 0; flex-shrink: 0;
+  background: var(--bg);
+}
+.ar-bar-title { margin: 0; font-size: 17px; font-weight: 600; text-align: center; grid-column: 2; }
+.ar-bar-left { justify-self: start; }
+.ar-bar-right { justify-self: end; }
+
+.ar-body {
+  flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  padding: 8px 0 calc(var(--safe-bottom) + 24px);
+}
+.ar-center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding-left: 24px; padding-right: 24px; }
+.ar-center-row { display: flex; justify-content: center; padding: 8px var(--pad); }
+.ar-lead { margin: 4px var(--pad) 16px; font-size: 17px; color: var(--label-2); }
+.ar-pad { padding-left: calc(var(--pad) + 4px); padding-right: calc(var(--pad) + 4px); }
+.ar-pad-x { margin: 0 var(--pad) 16px; }
+.ar-note { margin: 12px 0 0; font-size: 15px; color: var(--label-2); }
+.ar-inline-link { min-height: 0; padding: 0; font-size: inherit; }
+
+/* Choose */
+.ar-choices { display: flex; flex-direction: column; gap: 12px; margin: 0 var(--pad) 12px; }
+.ar-choice {
+  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 14px 16px;
+  border: 0; border-radius: var(--radius-lg); background: var(--bg-elevated); color: var(--label); text-align: left;
+}
+.ar-choice:active { background: var(--fill); }
+.ar-choice-primary { background: var(--tint); color: var(--tint-contrast); }
+.ar-choice-primary:active { background: var(--tint); opacity: 0.85; }
+.ar-choice-icon {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--fill); color: var(--tint);
+}
+.ar-choice-primary .ar-choice-icon { background: rgba(255, 255, 255, 0.2); color: inherit; }
+.ar-choice-text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ar-choice-title { font-size: 18px; font-weight: 600; }
+.ar-choice-sub { font-size: 15px; opacity: 0.8; }
+.ar-choice-chevron { opacity: 0.5; flex-shrink: 0; }
+
+/* Cards */
+.ar-card {
+  margin: 0 var(--pad) 16px; padding: 16px; border-radius: var(--radius-lg); background: var(--bg-elevated);
+}
+.ar-card p { margin: 8px 0 0; }
+.ar-card > p:first-child { margin-top: 0; }
+.ar-steps, .ar-tips { margin: 12px 0 0; padding-left: 24px; }
+.ar-steps li, .ar-tips li { margin: 6px 0; }
+.ar-coach { text-align: left; }
+.ar-coach-art { display: flex; justify-content: center; margin-bottom: 12px; }
+.ar-coach-art svg { max-width: 100%; height: auto; }
+.ar-reminder {
+  display: flex; gap: 10px; align-items: flex-start; margin: 0 var(--pad) 16px; padding: 14px 16px;
+  border-radius: var(--radius); background: var(--neutral-bg);
+}
+.ar-reminder p { margin: 0; }
+.ar-reminder svg { flex-shrink: 0; margin-top: 2px; color: var(--tint); }
+
+.ar-actions { display: flex; flex-direction: column; gap: 10px; margin: 8px var(--pad) 0; }
+.ar-file-btn { position: relative; cursor: pointer; }
+.ar-file-btn:focus-within, .cam-file-btn:focus-within { outline: 2px solid var(--tint); outline-offset: 2px; }
+.ar-file-btn.is-disabled { opacity: 0.4; pointer-events: none; }
+
+/* Mail tip */
+.ar-tip { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ar-tip h3 { margin: 0; }
+.ar-tip-art { width: 100%; max-width: 360px; height: auto; align-self: center; }
+.ar-tip-steps { margin: 0; padding-left: 22px; font-size: 15px; color: var(--label-2); }
+.tip-phone { fill: var(--bg); stroke: var(--separator); stroke-width: 1.5; }
+.tip-label { font-size: 10px; fill: var(--label-2); font-family: var(--font); }
+.tip-arrow, .tip-stroke { fill: none; stroke: var(--tint); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tip-ink-fill { fill: var(--tint); }
+.tip-paper-line { fill: none; stroke: #fff; stroke-width: 2; stroke-linejoin: round; }
+.tip-red { fill: #e5484d; }
+.tip-pdf { font-size: 9px; font-weight: 700; fill: #fff; font-family: var(--font); }
+.tip-tap { fill: rgba(10, 132, 255, 0.35); stroke: var(--tint); stroke-width: 1.5; }
+.tip-blue { fill: var(--tint); }
+
+/* Rows with a title over a subtitle. */
+.ar-radio .row-title, .ar-radio .row-sub { display: block; }
+
+/* Which car? */
+.ar-radio { cursor: pointer; }
+.ar-check {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--fill-strong); display: inline-flex; align-items: center; justify-content: center;
+}
+.ar-check-on { background: var(--tint); border-color: var(--tint); color: var(--tint-contrast); }
+
+/* Upload + confirmation */
+.ar-progress-wrap { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 12px; }
+.ar-progress-wrap p { margin: 0; }
+.ar-progress { height: 8px; border-radius: 4px; background: var(--fill); overflow: hidden; }
+.ar-progress-bar { height: 100%; background: var(--tint); transition: width 0.3s; }
+.ar-done { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 32px; }
+.ar-done-icon {
+  width: 76px; height: 76px; border-radius: 50%; margin-bottom: 16px;
+  display: inline-flex; align-items: center; justify-content: center; background: var(--green-bg); color: var(--green);
+}
+.ar-done-text { margin: 12px 24px 20px; font-size: 17px; max-width: 420px; }
+.ar-done-note { margin: 0 var(--pad) 16px; text-align: left; }
+.ar-done .ar-actions { align-self: stretch; }
+
+/* Confirmation dialog */
+.ar-confirm-backdrop {
+  position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, 0.4);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  animation: fade-in 0.15s ease-out;
+}
+.ar-confirm {
+  width: 100%; max-width: 320px; padding: 20px; border-radius: 14px;
+  background: var(--bg-elevated); color: var(--label); box-shadow: var(--shadow); text-align: center;
+}
+.ar-confirm-title { margin: 0; }
+.ar-confirm-msg { margin: 8px 0 0; color: var(--label-2); }
+.ar-confirm-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+
+/* Work I did myself */
+.owner-fieldset { border: 0; padding: 0; min-width: 0; }
+.owner-fieldset legend { padding: 0 4px 6px; }
+.owner-check { cursor: pointer; }
+.owner-check input, .owner-approx input { width: 22px; height: 22px; margin: 0; accent-color: var(--tint); flex-shrink: 0; }
+.owner-label { display: block; margin: 12px 4px 6px; font-size: 15px; color: var(--label-2); }
+.owner-label-first { margin-top: 0; }
+.owner-pair { margin-bottom: 4px; }
+.owner-approx { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); padding: 0 4px; cursor: pointer; }
+.owner-money { display: flex; align-items: center; gap: 8px; }
+.owner-money span { font-size: 17px; color: var(--label-2); padding-left: 4px; }
+.owner-hint { margin: 0 4px 10px; }
+.owner-photos { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.owner-photo { position: relative; }
+.owner-photo img { width: 76px; height: 96px; object-fit: cover; border-radius: 8px; display: block; background: var(--fill); }
+.owner-photo-remove {
+  position: absolute; top: -10px; right: -10px; width: var(--tap); height: var(--tap); border: 0; background: none; padding: 0;
+  display: flex; align-items: center; justify-content: center; color: #fff;
+}
+.owner-photo-remove svg { width: 24px; height: 24px; padding: 4px; border-radius: 50%; background: rgba(0, 0, 0, 0.7); }
+.owner-photo-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }

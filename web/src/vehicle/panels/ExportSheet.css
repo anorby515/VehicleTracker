@@ -1,0 +1,41 @@
+/* Service history export: an on-screen preview that also prints on desktop. */
+
+.export-preview {
+  margin: 0 var(--pad) 24px; padding: 20px 18px;
+  background: var(--bg-elevated); border-radius: var(--radius);
+  font-size: 15px;
+}
+.export-title { margin: 0; font-size: 22px; font-weight: 700; }
+.export-subtitle { margin: 2px 0 14px; color: var(--label-2); }
+.export-details { margin: 0 0 16px; display: grid; gap: 4px; }
+.export-details > div { display: grid; grid-template-columns: 9.5em 1fr; gap: 8px; }
+.export-details dt { color: var(--label-2); font-weight: 600; font-size: 13px; padding-top: 1px; }
+.export-details dd { margin: 0; overflow-wrap: anywhere; }
+.export-visits { list-style: none; margin: 0; padding: 0; border-top: 0.5px solid var(--separator); }
+.export-visit { padding: 12px 0; border-bottom: 0.5px solid var(--separator); break-inside: avoid; page-break-inside: avoid; }
+.ev-head { display: flex; justify-content: space-between; gap: 12px; }
+.ev-sub { color: var(--label-2); font-size: 14px; margin-top: 2px; }
+.export-visit ul { margin: 6px 0 0; padding-left: 18px; }
+.export-visit ul li { margin: 2px 0; }
+.export-generated { margin-top: 14px; }
+.export-status { text-align: center; margin: 0; }
+
+/* Desktop printing: only the preview, in black on white. */
+@media print {
+  body:has(.export-sheet) #app,
+  body:has(.export-sheet) .sheet-backdrop,
+  body:has(.export-sheet) .toast,
+  .export-sheet .sheet-grabber,
+  .export-sheet .sheet-bar,
+  .export-sheet .export-controls { display: none !important; }
+  /* Hide any other sheet stacked with it. */
+  body:has(.export-sheet) .sheet:not(.export-sheet) { display: none !important; }
+  .export-sheet {
+    position: static !important; box-shadow: none !important; animation: none !important;
+    border-radius: 0; background: #fff; color: #000; overflow: visible !important;
+  }
+  .export-sheet .sheet-body { overflow: visible !important; padding: 0 !important; }
+  .export-preview { margin: 0; padding: 0; background: none; color: #000; font-size: 11pt; }
+  .export-subtitle, .ev-sub, .export-details dt, .export-preview .footnote { color: #444; }
+  .export-visits, .export-visit { border-color: #bbb; }
+}

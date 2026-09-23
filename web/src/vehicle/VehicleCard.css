@@ -1,0 +1,110 @@
+/* Vehicle card (spec 6.1). Not a scroll container: the pager page scrolls. */
+
+/* ---------- header */
+.vcard-header { padding: 4px var(--pad) 12px; text-align: center; }
+.vcard-name { margin-top: 12px; }
+.vcard-meta { margin: 4px 0 0; }
+.vcard-plate { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.vcard-miles { margin: 2px 0 0; font-size: 17px; font-weight: 600; }
+.vcard-miles .secondary { font-weight: 400; }
+
+/*
+ * Photo: studio side profiles are 2.2–2.9:1 (often transparent), one family
+ * snapshot is ~1.5:1. A fixed-height box with object-fit: contain shows every
+ * one whole (wide ones fill the width, the tall one sits centred) on a subtle
+ * floor-light backdrop that reads in light and dark.
+ */
+.vphoto {
+  position: relative;
+  height: clamp(132px, 40vw, 190px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 38% at 50% 86%, var(--fill-strong), transparent 72%),
+    linear-gradient(180deg, var(--bg-elevated), var(--bg-inset));
+}
+.vphoto-img {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; object-position: center;
+  padding: 8px 10px;
+}
+.vphoto-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.vphoto-initial {
+  width: 76px; height: 76px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--fill); color: var(--label-2);
+  font-family: var(--font-rounded); font-size: 38px; font-weight: 600;
+}
+.vphoto-placeholder.is-loading .vphoto-initial { opacity: 0.55; }
+
+/* ---------- quick actions */
+.vcard-actions { padding: 0 var(--pad) 20px; }
+.vcard-actions-row { display: flex; gap: 8px; }
+.qa {
+  flex: 1 1 0; min-width: 0; min-height: 64px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  padding: 8px 6px; border-radius: var(--radius);
+  background: var(--bg-elevated); color: var(--tint);
+  font-size: 13px; font-weight: 600; text-align: center; line-height: 1.2;
+}
+.qa:active { background: var(--fill); }
+.qa span { overflow-wrap: anywhere; }
+.vcard-actions-sub { margin-top: 2px; }
+.vcard-actions-sub > * { flex: 1 1 0; min-width: 0; }
+.qa-oem-links { display: flex; justify-content: center; }
+.qa-store {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  min-height: var(--tap); padding: 0 4px; font-size: 13px; line-height: 1.2;
+}
+.qa-failed { margin: 4px 0 0; font-size: 15px; text-align: center; color: var(--label-2); }
+.qa-failed a { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 600; }
+.vcard-actions:has(.vcard-actions-sub) { padding-bottom: 12px; }
+
+/* ---------- attention banner */
+.vcard-attention .group { background: var(--amber-bg); }
+.attn-row { align-items: center; }
+.attn-icon { color: var(--amber); display: inline-flex; flex-shrink: 0; }
+.attn-text { display: block; font-size: 16px; }
+.attn-row.attn-danger { background: var(--red-bg); box-shadow: inset 5px 0 0 var(--red); }
+.attn-row.attn-danger .attn-icon { color: var(--red); }
+.attn-strong { display: block; font-weight: 700; font-size: 17px; color: var(--red); text-transform: none; }
+.attn-row.attn-warn { box-shadow: inset 5px 0 0 var(--amber); }
+.attn-row.attn-warn .attn-strong { color: var(--label); }
+.attn-row + .attn-row::before { background: var(--separator); }
+
+/* ---------- upcoming */
+.up-row { align-items: center; }
+.up-row .row-main > span { display: block; }
+.up-head { display: flex !important; align-items: baseline; justify-content: space-between; gap: 8px; }
+.up-title { font-weight: 500; min-width: 0; }
+.up-head .badge { flex-shrink: 0; }
+.up-countdown { color: var(--label); font-size: 15px; }
+.up-subtitle { font-size: 14px; }
+.up-covered { display: flex !important; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.nohistory { margin-top: 12px; }
+.nohistory-summary { list-style: none; color: var(--label-2); }
+.nohistory-summary::-webkit-details-marker { display: none; }
+.nohistory-chevron { transition: transform 0.2s; }
+.nohistory[open] .nohistory-chevron { transform: rotate(180deg); }
+.nohistory[open] .nohistory-summary { border-bottom: 0.5px solid var(--separator); }
+
+/* ---------- journal */
+.visit-row .row-main > span { display: block; }
+.visit-head { display: flex !important; justify-content: space-between; gap: 12px; align-items: baseline; }
+.visit-date { font-weight: 500; }
+.visit-total { color: var(--label-2); flex-shrink: 0; }
+.visit-tags { display: flex !important; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.show-all { justify-content: center; }
+.show-all-text { color: var(--tint); font-weight: 600; text-align: center; }
+
+/* ---------- more */
+.more-icon {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--fill); color: var(--tint);
+}
+.more-title { flex: 1 0 auto; }
+.more-value { font-size: 15px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

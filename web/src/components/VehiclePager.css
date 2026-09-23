@@ -1,0 +1,28 @@
+.pager {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; flex-direction: row;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.pager::-webkit-scrollbar { display: none; }
+
+.pager-page {
+  flex: 0 0 100%; width: 100%; height: 100%;
+  overflow-x: hidden; overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/* The floating Add Receipt button never covers the last item. */
+.pager-page-inner {
+  padding-top: 8px;
+  padding-bottom: calc(var(--fab-height) + var(--fab-bottom) + 24px);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}

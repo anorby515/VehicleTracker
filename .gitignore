@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+coverage/
+test-results/
+playwright-report/
+*.local
+.env
+.env.*
+.clasp.json
+.wrangler/
+.dev.vars
+web/public/vendor/opencv/
+.DS_Store
+web/dist-mock/

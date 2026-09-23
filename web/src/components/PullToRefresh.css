@@ -1,0 +1,12 @@
+.ptr { position: relative; min-height: 100%; }
+/* No will-change or resting transform here: either would trap position:fixed descendants. */
+.ptr-indicator {
+  position: absolute; top: 0; left: 0; right: 0; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  transform: translateY(-52px); opacity: 0; pointer-events: none; color: var(--label-2);
+}
+.ptr-arrow {
+  display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
+  font-size: 18px; transform: rotate(var(--turn, 0deg)); transition: transform 0.15s;
+}
+.ptr-ready .ptr-arrow { color: var(--tint); }

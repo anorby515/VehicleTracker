@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "robert@example.com",
+      "name": "Robert",
+      "file": "bootstrap.robert.json"
+    },
+    {
+      "email": "leo@example.com",
+      "name": "Leo",
+      "file": "bootstrap.leo.json"
+    },
+    {
+      "email": "maya@example.com",
+      "name": "Maya",
+      "file": "bootstrap.maya.json"
+    },
+    {
+      "email": "nina@example.com",
+      "name": "Nina",
+      "file": "bootstrap.nina.json"
+    }
+  ]
+}

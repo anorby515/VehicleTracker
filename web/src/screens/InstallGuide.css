@@ -1,0 +1,31 @@
+.install-guide {
+  position: fixed; inset: 0; z-index: 80; background: var(--bg); overflow-y: auto;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  animation: fade-in 0.2s ease-out;
+}
+.install-guide:focus { outline: none; }
+.install-inner {
+  max-width: 480px; margin: 0 auto;
+  padding: calc(var(--safe-top) + 28px) 24px calc(var(--safe-bottom) + 28px);
+  display: flex; flex-direction: column; gap: 16px;
+}
+.install-icon { width: 72px; height: 72px; border-radius: 16px; align-self: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); }
+.install-inner h1 { text-align: center; }
+.install-lede { margin: 0; text-align: center; color: var(--label-2); }
+.install-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.install-step { display: flex; gap: 12px; align-items: flex-start; background: var(--bg-elevated); border-radius: var(--radius); padding: 14px; }
+.install-num {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  background: var(--tint); color: var(--tint-contrast); font-weight: 700; font-size: 15px;
+}
+.install-step-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.install-step-text, .install-step-main .footnote { margin: 0; }
+.install-note { margin: 0; text-align: center; }
+
+.install-art { width: 100%; height: auto; display: block; }
+.art-bar { fill: var(--bg-inset); stroke: var(--separator); }
+.art-muted { stroke: var(--label-3); }
+.art-label { stroke: var(--label); }
+.art-tint { stroke: var(--tint); }
+.art-highlight { fill: none; stroke: var(--tint); stroke-width: 2.5; stroke-dasharray: 4 4; }
+.art-text { fill: var(--label); font-family: var(--font); font-size: 16px; }

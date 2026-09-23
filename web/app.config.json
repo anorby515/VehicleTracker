@@ -1,0 +1,12 @@
+{
+  "$comment": "The only configuration the front end needs. Everything here is safe to publish. Fill in after following SETUP.md; commit; GitHub Actions redeploys.",
+  "appName": "Vehicles",
+  "familyName": "Norby",
+  "oauthClientId": "",
+  "apiUrl": "",
+  "vapidPublicKey": "",
+  "pushWorkerUrl": "",
+  "googleDriveAppUrl": "googledrive://",
+  "googleDriveAppStoreUrl": "https://apps.apple.com/us/app/google-drive/id507874739",
+  "nhtsaRecallsUrl": "https://www.nhtsa.gov/recalls"
+}

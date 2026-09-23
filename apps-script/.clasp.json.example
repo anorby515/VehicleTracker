@@ -1,0 +1,6 @@
+{
+  "scriptId": "PASTE_THE_SCRIPT_ID_FROM_PROJECT_SETTINGS",
+  "rootDir": ".",
+  "fileExtension": "js",
+  "filePushOrder": ["Config.js", "Dates.js"]
+}

@@ -1,0 +1,4572 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-22T09:30:00-05:00",
+  "today": "2026-09-22",
+  "user": {
+    "email": "leo@example.com",
+    "name": "Leo",
+    "driverName": "Leo",
+    "defaultVehicle": "2023 Toyota 4Runner",
+    "prefs": {},
+    "isOwner": false
+  },
+  "vehicles": [
+    {
+      "name": "2014 Toyota Highlander",
+      "shortName": "Highlander",
+      "year": 2014,
+      "make": "Toyota",
+      "model": "Highlander",
+      "vin": "TESTVIN0000000001",
+      "plate": "SAMPLE1",
+      "primaryDriver": "Maya",
+      "isMine": false,
+      "photoFileId": "fake-photo-hl",
+      "originalInServiceDate": "2014-05-17",
+      "purchaseDate": "2014-05-17",
+      "purchaseMileage": 7,
+      "estMileage": 143469,
+      "avgMilesPerDay": 31.8,
+      "latestOdometer": 134120,
+      "latestOdometerDate": "2025-12-02",
+      "lastMileageEvidenceDate": "2025-12-02",
+      "basics": {
+        "oilSpec": "0W-20 full synthetic",
+        "oilCapacity": "6.4 qt",
+        "oilFilter": "SAMPLE-OF-100",
+        "engineAirFilter": null,
+        "cabinAirFilter": null,
+        "tireSize": "245/55R19",
+        "tirePressure": "35 psi front / 35 psi rear",
+        "wiperFrontDriver": "26 in",
+        "wiperFrontPassenger": "20 in",
+        "wiperRear": "16 in",
+        "batteryGroup": "24F"
+      },
+      "registration": {
+        "expires": "2026-09-01",
+        "fileId": "fake-reg-hl",
+        "daysLeft": -21
+      },
+      "oemApp": null,
+      "upcoming": [
+        {
+          "id": "schedule:2014 Toyota Highlander:Tire Rotation",
+          "kind": "schedule",
+          "title": "Tire Rotation",
+          "subtitle": null,
+          "dueBy": "2026-07-06",
+          "dueMiles": 141000,
+          "status": "Overdue",
+          "serviceType": "Tire Rotation",
+          "coveredBy": [
+            "Tire Warehouse road hazard"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2025-09-13",
+            "lastDoneMiles": 133000,
+            "lastDoneVisitId": "hl-20250913-T2005",
+            "nextDueDate": "2026-09-13",
+            "nextDueMiles": 141000,
+            "estDateForMiles": "2026-07-06",
+            "sheetStatus": "Overdue"
+          }
+        },
+        {
+          "id": "schedule:2014 Toyota Highlander:Oil Change",
+          "kind": "schedule",
+          "title": "Oil Change",
+          "subtitle": null,
+          "dueBy": "2026-07-07",
+          "dueMiles": 141005,
+          "status": "Overdue",
+          "serviceType": "Oil Change",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2025-09-13",
+            "lastDoneMiles": 133005,
+            "lastDoneVisitId": "hl-20250913-owner",
+            "nextDueDate": "2026-09-13",
+            "nextDueMiles": 141005,
+            "estDateForMiles": "2026-07-07",
+            "sheetStatus": "Overdue"
+          }
+        },
+        {
+          "id": "registration:2014 Toyota Highlander:2026-09-01",
+          "kind": "registration",
+          "title": "Registration renewal",
+          "subtitle": "Expired",
+          "dueBy": "2026-09-01",
+          "dueMiles": null,
+          "status": "Overdue",
+          "serviceType": null,
+          "coveredBy": []
+        },
+        {
+          "id": "warranty:2014 Toyota Highlander:Tire Warehouse road hazard",
+          "kind": "warranty",
+          "title": "Tire Warehouse road hazard ends",
+          "subtitle": "Tire warranty",
+          "dueBy": "2026-10-15",
+          "dueMiles": 150000,
+          "status": "Due soon",
+          "serviceType": null,
+          "coveredBy": [],
+          "warranty": {
+            "name": "Tire Warehouse road hazard",
+            "endsBy": "date"
+          }
+        },
+        {
+          "id": "recommendation:2014 Toyota Highlander:REC-HL-003",
+          "kind": "recommendation",
+          "title": "Air filter",
+          "subtitle": "Declined at last visit",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Declined",
+          "serviceType": "Engine Air Filter",
+          "coveredBy": [],
+          "recommendation": {
+            "recId": "REC-HL-003",
+            "status": "Open",
+            "estimate": null,
+            "visitId": "hl-20220113-M3002",
+            "date": "2022-01-13",
+            "mileage": 91100
+          }
+        },
+        {
+          "id": "recommendation:2014 Toyota Highlander:REC-HL-002",
+          "kind": "recommendation",
+          "title": "Fog light assembly",
+          "subtitle": "Declined at last visit · $139.00",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Declined",
+          "serviceType": null,
+          "coveredBy": [],
+          "recommendation": {
+            "recId": "REC-HL-002",
+            "status": "Open",
+            "estimate": 139,
+            "visitId": "hl-20200519-M3001",
+            "date": "2020-05-19",
+            "mileage": 81400
+          }
+        }
+      ],
+      "noHistory": [],
+      "coverage": [
+        {
+          "name": "Tire Warehouse road hazard",
+          "type": "Tire warranty",
+          "startDate": "2022-04-20",
+          "endDate": "2026-10-15",
+          "startMiles": 95300,
+          "endMiles": 150000,
+          "endMilesDate": "2027-04-15",
+          "endsOn": "2026-10-15",
+          "endsBy": "date",
+          "covers": [
+            "Tires",
+            "Tire Rotation"
+          ],
+          "active": true,
+          "notes": "Covers the 2022 tire set"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "hl-20251202-R1008",
+          "date": "2025-12-02",
+          "mileage": 134120,
+          "location": "Riverside Toyota",
+          "roNumber": "R1008",
+          "summary": "Rear brake service (pads, shim kit)",
+          "invoiceTotal": 412.5,
+          "amountPaid": 412.5,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Brake Service",
+              "description": "REAR BRAKE PADS, SHIM KIT",
+              "lineCost": 398.2,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2025 12 02 - Riverside Toyota.png",
+              "fileId": "fake-doc-hl-1202-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Payment",
+              "fileName": "2014 Toyota Highlander - 2025 12 02 - Riverside Toyota (payment receipt).png",
+              "fileId": "fake-doc-hl-1202-pay",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Brake Pad — Front",
+              "value": 5,
+              "unit": "mm",
+              "rating": "Caution"
+            },
+            {
+              "item": "Brake Pad — Rear",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20250913-owner",
+          "date": "2025-09-13",
+          "mileage": 133005,
+          "location": "Quick Lube Express",
+          "roNumber": null,
+          "summary": "Synthetic oil change (from the owner's log)",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Owner journal",
+          "sourceTag": "Owner",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Synthetic oil change, per owner's log",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20250913-T2005",
+          "date": "2025-09-13",
+          "mileage": 133000,
+          "location": "Tire Warehouse",
+          "roNumber": "T2005",
+          "summary": "Tire rotation",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tire rotation (tire warranty)",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": "Caution"
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20241027-T2004",
+          "date": "2024-10-27",
+          "mileage": 124700,
+          "location": "Tire Warehouse",
+          "roNumber": "T2004",
+          "summary": "Tire rotation",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tire rotation",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 7,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 7,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 7,
+              "unit": "/32 in",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20240924-R1007",
+          "date": "2024-09-24",
+          "mileage": 123400,
+          "location": "Riverside Toyota",
+          "roNumber": "R1007",
+          "summary": "Basic maintenance; two bulbs; rear wiper insert (pages 1 and 3 missing)",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Other",
+              "description": "BASIC MAINTENANCE (no charge)",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "REAR HATCH BULB",
+              "lineCost": 17.85,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "FRONT SIDE MARKER BULB",
+              "lineCost": 17.85,
+              "notes": null
+            },
+            {
+              "serviceType": "Wiper Blades",
+              "description": "REAR WIPER INSERT",
+              "lineCost": 16.95,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Brake Pad — Front",
+              "value": 6,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Rear",
+              "value": 3,
+              "unit": "mm",
+              "rating": "Caution"
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20240314-Q4001",
+          "date": "2024-03-14",
+          "mileage": 114800,
+          "location": "Quick Lube Express",
+          "roNumber": "Q4001",
+          "summary": "Oil change (0W-20 full synthetic)",
+          "invoiceTotal": 96.2,
+          "amountPaid": 96.2,
+          "cardSurcharge": null,
+          "dealerNextDueDate": "2024-08-20",
+          "dealerNextDueMiles": 119800,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil change, 0W-20 full synthetic",
+              "lineCost": 88.75,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20230328-T2003",
+          "date": "2023-03-28",
+          "mileage": 101300,
+          "location": "Tire Warehouse",
+          "roNumber": "T2003",
+          "summary": "Tire rotation and balance",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tire rotation; balance",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 9,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20220420-T2002",
+          "date": "2022-04-20",
+          "mileage": 95300,
+          "location": "Tire Warehouse",
+          "roNumber": "T2002",
+          "summary": "Four new tires installed",
+          "invoiceTotal": 905.16,
+          "amountPaid": 905.16,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tires",
+              "description": "4 new tires, mount and balance",
+              "lineCost": 850,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2022 04 20 - Tire Warehouse.pdf",
+              "fileId": "fake-doc-hl-2204-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "pdf"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20220113-M3002",
+          "date": "2022-01-13",
+          "mileage": 91100,
+          "location": "Main Street Auto Care",
+          "roNumber": "M3002",
+          "summary": "Oil and filter change; air filter declined",
+          "invoiceTotal": 71.3,
+          "amountPaid": 71.3,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Drain oil, replace filter, 0W20",
+              "lineCost": 66.1,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [
+            {
+              "recId": "REC-HL-003",
+              "item": "Air filter",
+              "estimate": null,
+              "status": "Open",
+              "resolvedByVisit": null,
+              "notes": "Declined"
+            }
+          ],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20200519-M3001",
+          "date": "2020-05-19",
+          "mileage": 81400,
+          "location": "Main Street Auto Care",
+          "roNumber": "M3001",
+          "summary": "Oil change; rear brake pads and rotors; fog light declined",
+          "invoiceTotal": 486.25,
+          "amountPaid": 486.25,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Full synthetic oil change",
+              "lineCost": 79.65,
+              "notes": null
+            },
+            {
+              "serviceType": "Brake Service",
+              "description": "Rear brake pads, rotors, caliper kit",
+              "lineCost": 377.4,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [
+            {
+              "recId": "REC-HL-002",
+              "item": "Fog light assembly",
+              "estimate": 139,
+              "status": "Open",
+              "resolvedByVisit": null,
+              "notes": "Declined by customer"
+            }
+          ],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20180927-R1006",
+          "date": "2018-09-27",
+          "mileage": 61300,
+          "location": "Riverside Toyota",
+          "roNumber": "R1006",
+          "summary": "Oil change, front brake pads, complimentary tire rotation",
+          "invoiceTotal": 309.8,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "0W20 SYNTHETIC OIL AND FILTER CHANGE",
+              "lineCost": 61.85,
+              "notes": null
+            },
+            {
+              "serviceType": "Brake Service",
+              "description": "FRONT BRAKE PADS",
+              "lineCost": 219.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "COMPLIMENTARY TIRE ROTATION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [
+            {
+              "recId": "REC-HL-004",
+              "item": "Rear brakes starting to show wear",
+              "estimate": null,
+              "status": "Done",
+              "resolvedByVisit": "hl-20251202-R1008",
+              "notes": null
+            }
+          ],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20180406-R1005",
+          "date": "2018-04-06",
+          "mileage": 50900,
+          "location": "Riverside Toyota",
+          "roNumber": "R1005",
+          "summary": "Oil change; brake noise investigated",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": "Invoice total deliberately blank: the totals page is lost.",
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "0W20 SYNTHETIC OIL AND FILTER CHANGE",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Brake Service",
+              "description": "BRAKES SQUEAKING: inspected, no concerns",
+              "lineCost": 0,
+              "notes": "Inspection only"
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2018 04 06 - Riverside Toyota.png",
+              "fileId": "fake-doc-hl-1804-inv",
+              "pages": 2,
+              "complete": false,
+              "notes": "Totals page lost",
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 7,
+              "unit": "mm",
+              "rating": null
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 7,
+              "unit": "mm",
+              "rating": null
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 8,
+              "unit": "mm",
+              "rating": null
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 8,
+              "unit": "mm",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Front",
+              "value": 8,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 8,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 8,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 8,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tire Pressure — Left Front",
+              "value": 35,
+              "unit": "PSI",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20170711-R1004",
+          "date": "2017-07-11",
+          "mileage": 41250,
+          "location": "Riverside Toyota",
+          "roNumber": "R1004",
+          "summary": "Synthetic oil change, multi-point inspection",
+          "invoiceTotal": 64.1,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "0W20 SYNTHETIC OIL AND FILTER CHANGE",
+              "lineCost": 57.45,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2017 07 11 - Riverside Toyota (p1 of 3).png",
+              "fileId": "fake-doc-hl-1707-p1",
+              "pages": 2,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2017 07 11 - Riverside Toyota (p2 of 3).png",
+              "fileId": "fake-doc-hl-1707-p2",
+              "pages": 2,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Inspection",
+              "fileName": "2014 Toyota Highlander - 2017 07 11 - Riverside Toyota (p3 of 3).png",
+              "fileId": "fake-doc-hl-1707-p3",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tire Pressure — Left Front",
+              "value": 36,
+              "unit": "PSI",
+              "rating": null
+            },
+            {
+              "item": "Tire Pressure — Right Front",
+              "value": 36,
+              "unit": "PSI",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20170505-T2001",
+          "date": "2017-05-05",
+          "mileage": 37700,
+          "location": "Tire Warehouse",
+          "roNumber": "T2001",
+          "summary": "Four new tires installed",
+          "invoiceTotal": 812.4,
+          "amountPaid": 812.4,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tires",
+              "description": "4 new tires, mount and balance",
+              "lineCost": 760,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20161026-R1003",
+          "date": "2016-10-26",
+          "mileage": 32140,
+          "location": "Riverside Toyota",
+          "roNumber": "R1003",
+          "summary": "Tire rotation and brake inspection; page 1 of 2 missing",
+          "invoiceTotal": 76.15,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "4 WHEEL TIRE ROTATION AND BRAKE INSPECTION",
+              "lineCost": 22.45,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "COMPLIMENTARY INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Detail",
+              "description": "COMPLIMENTARY WASH",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2014 Toyota Highlander - 2016 10 26 - Riverside Toyota.png",
+              "fileId": "fake-doc-hl-1610-inv",
+              "pages": 2,
+              "complete": false,
+              "notes": "Page 1 of 2 missing",
+              "kind": "image"
+            }
+          ],
+          "recommendations": [
+            {
+              "recId": "REC-HL-001",
+              "item": "Spare tire carrier binding",
+              "estimate": null,
+              "status": "Done",
+              "resolvedByVisit": "hl-20170711-R1004",
+              "notes": null
+            }
+          ],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "hl-20160108-R1002",
+          "date": "2016-01-08",
+          "mileage": 20540,
+          "location": "Riverside Toyota",
+          "roNumber": "R1002",
+          "summary": "20,000 mile service with tire rotation (prepaid plan)",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "20,000 MILE SYNTHETIC OIL CHANGE",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "ROTATION (part of the 20k service)",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20150310-R1001",
+          "date": "2015-03-10",
+          "mileage": 9650,
+          "location": "Riverside Toyota",
+          "roNumber": "R1001",
+          "summary": "10,000 mile synthetic oil change (prepaid plan)",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "10,000 MILE SYNTHETIC OIL CHANGE",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "hl-20140517-purchase",
+          "date": "2014-05-17",
+          "mileage": 7,
+          "location": "Riverside Toyota",
+          "roNumber": null,
+          "summary": "Purchased new — odometer baseline for our ownership",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Purchase",
+          "sourceTag": "Purchase",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [],
+          "documents": [
+            {
+              "documentType": "Window sticker",
+              "fileName": "2014 Toyota Highlander - Window sticker (MSRP).png",
+              "fileId": "fake-doc-hl-sticker",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        }
+      ],
+      "costs": {
+        "thisYear": 0,
+        "last12Months": 412.5,
+        "sincePurchase": 3233.86,
+        "costPerMile": 0.0241,
+        "visitsWithoutTotal": 5,
+        "byYear": [
+          {
+            "year": 2014,
+            "total": 0
+          },
+          {
+            "year": 2015,
+            "total": 0
+          },
+          {
+            "year": 2016,
+            "total": 76.15
+          },
+          {
+            "year": 2017,
+            "total": 876.5
+          },
+          {
+            "year": 2018,
+            "total": 309.8
+          },
+          {
+            "year": 2019,
+            "total": 0
+          },
+          {
+            "year": 2020,
+            "total": 486.25
+          },
+          {
+            "year": 2021,
+            "total": 0
+          },
+          {
+            "year": 2022,
+            "total": 976.46
+          },
+          {
+            "year": 2023,
+            "total": 0
+          },
+          {
+            "year": 2024,
+            "total": 96.2
+          },
+          {
+            "year": 2025,
+            "total": 412.5
+          },
+          {
+            "year": 2026,
+            "total": 0
+          }
+        ],
+        "byServiceType": [
+          {
+            "serviceType": "Tires",
+            "total": 1610
+          },
+          {
+            "serviceType": "Brake Service",
+            "total": 995.55
+          },
+          {
+            "serviceType": "Oil Change",
+            "total": 353.8
+          },
+          {
+            "serviceType": "Other",
+            "total": 35.7
+          },
+          {
+            "serviceType": "Tire Rotation",
+            "total": 22.45
+          },
+          {
+            "serviceType": "Wiper Blades",
+            "total": 16.95
+          }
+        ]
+      },
+      "wear": {
+        "tread": {
+          "label": "Tire tread",
+          "unit": "/32 in",
+          "replacementPoint": 4,
+          "latest": {
+            "value": 5,
+            "date": "2025-09-13",
+            "mileage": 133000,
+            "rating": "Caution",
+            "visitId": "hl-20250913-T2005"
+          },
+          "readings": [
+            {
+              "value": 5,
+              "date": "2016-10-26",
+              "mileage": 32140,
+              "visitId": "hl-20161026-R1003"
+            },
+            {
+              "value": 11,
+              "date": "2017-07-11",
+              "mileage": 41250,
+              "visitId": "hl-20170711-R1004"
+            },
+            {
+              "value": 8,
+              "date": "2018-04-06",
+              "mileage": 50900,
+              "visitId": "hl-20180406-R1005"
+            },
+            {
+              "value": 9,
+              "date": "2023-03-28",
+              "mileage": 101300,
+              "visitId": "hl-20230328-T2003"
+            },
+            {
+              "value": 6,
+              "date": "2024-10-27",
+              "mileage": 124700,
+              "visitId": "hl-20241027-T2004"
+            },
+            {
+              "value": 5,
+              "date": "2025-09-13",
+              "mileage": 133000,
+              "visitId": "hl-20250913-T2005"
+            }
+          ],
+          "projection": {
+            "mileage": 140726,
+            "date": "2026-06-28"
+          },
+          "note": null
+        },
+        "brakeFront": {
+          "label": "Front brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 5,
+            "date": "2025-12-02",
+            "mileage": 134120,
+            "rating": "Caution",
+            "visitId": "hl-20251202-R1008"
+          },
+          "readings": [
+            {
+              "value": 7,
+              "date": "2018-04-06",
+              "mileage": 50900,
+              "visitId": "hl-20180406-R1005"
+            },
+            {
+              "value": 6,
+              "date": "2024-09-24",
+              "mileage": 123400,
+              "visitId": "hl-20240924-R1007"
+            },
+            {
+              "value": 5,
+              "date": "2025-12-02",
+              "mileage": 134120,
+              "visitId": "hl-20251202-R1008"
+            }
+          ],
+          "projection": {
+            "mileage": 250568,
+            "date": "2035-12-12"
+          },
+          "note": null
+        },
+        "brakeRear": {
+          "label": "Rear brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 10,
+            "date": "2025-12-02",
+            "mileage": 134120,
+            "rating": "Good",
+            "visitId": "hl-20251202-R1008"
+          },
+          "readings": [
+            {
+              "value": 8,
+              "date": "2018-04-06",
+              "mileage": 50900,
+              "visitId": "hl-20180406-R1005"
+            },
+            {
+              "value": 3,
+              "date": "2024-09-24",
+              "mileage": 123400,
+              "visitId": "hl-20240924-R1007"
+            },
+            {
+              "value": 10,
+              "date": "2025-12-02",
+              "mileage": 134120,
+              "visitId": "hl-20251202-R1008"
+            }
+          ],
+          "projection": null,
+          "note": "One reading so far"
+        }
+      },
+      "recalls": [],
+      "attention": [
+        {
+          "kind": "registration",
+          "text": "Registration expired Sep 1",
+          "href": "#/v/2014%20Toyota%20Highlander/registration"
+        }
+      ]
+    },
+    {
+      "name": "2016 Jeep Wrangler",
+      "shortName": "Wrangler",
+      "year": 2016,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "vin": "TESTVIN0000000002",
+      "plate": null,
+      "primaryDriver": "Bob",
+      "isMine": false,
+      "photoFileId": "fake-photo-jp",
+      "originalInServiceDate": null,
+      "purchaseDate": "2016-08-12",
+      "purchaseMileage": 3150,
+      "estMileage": 83199,
+      "avgMilesPerDay": 21.7,
+      "latestOdometer": 82700,
+      "latestOdometerDate": "2026-08-30",
+      "lastMileageEvidenceDate": "2026-08-30",
+      "basics": {
+        "oilSpec": "5W-20",
+        "oilCapacity": null,
+        "oilFilter": null,
+        "engineAirFilter": null,
+        "cabinAirFilter": null,
+        "tireSize": null,
+        "tirePressure": null,
+        "wiperFrontDriver": null,
+        "wiperFrontPassenger": null,
+        "wiperRear": null,
+        "batteryGroup": null
+      },
+      "registration": {
+        "expires": "2026-10-15",
+        "fileId": "fake-reg-jp",
+        "daysLeft": 23
+      },
+      "oemApp": null,
+      "upcoming": [
+        {
+          "id": "schedule:2016 Jeep Wrangler:Tire Rotation",
+          "kind": "schedule",
+          "title": "Tire Rotation",
+          "subtitle": null,
+          "dueBy": "2025-09-29",
+          "dueMiles": 75420,
+          "status": "Overdue",
+          "serviceType": "Tire Rotation",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2025-12-20",
+            "lastDoneMiles": 67420,
+            "lastDoneVisitId": "jp-20251220-rot",
+            "nextDueDate": "2026-12-20",
+            "nextDueMiles": 75420,
+            "estDateForMiles": "2025-09-29",
+            "sheetStatus": "Overdue"
+          }
+        },
+        {
+          "id": "registration:2016 Jeep Wrangler:2026-10-15",
+          "kind": "registration",
+          "title": "Registration renewal",
+          "subtitle": null,
+          "dueBy": "2026-10-15",
+          "dueMiles": null,
+          "status": "Due soon",
+          "serviceType": null,
+          "coveredBy": []
+        },
+        {
+          "id": "schedule:2016 Jeep Wrangler:Oil Change",
+          "kind": "schedule",
+          "title": "Oil Change",
+          "subtitle": null,
+          "dueBy": "2026-12-20",
+          "dueMiles": 85900,
+          "status": "OK",
+          "serviceType": "Oil Change",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2025-12-20",
+            "lastDoneMiles": 77900,
+            "lastDoneVisitId": "jp-20251220-oil",
+            "nextDueDate": "2026-12-20",
+            "nextDueMiles": 85900,
+            "estDateForMiles": "2027-01-24",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "recall:2016 Jeep Wrangler:26V901000",
+          "kind": "recall",
+          "title": "Recall: Air bags",
+          "subtitle": "May apply to this model",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Recall",
+          "serviceType": null,
+          "coveredBy": [],
+          "recall": {
+            "campaignNumber": "26V901000"
+          }
+        },
+        {
+          "id": "recommendation:2016 Jeep Wrangler:REC-JP-001",
+          "kind": "recommendation",
+          "title": "Battery tested weak — recheck at next visit",
+          "subtitle": "Keep an eye on",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Watch",
+          "serviceType": null,
+          "coveredBy": [],
+          "recommendation": {
+            "recId": "REC-JP-001",
+            "status": "Watch",
+            "estimate": null,
+            "visitId": "jp-20241127-P8001",
+            "date": "2024-11-27",
+            "mileage": 68300
+          }
+        }
+      ],
+      "noHistory": [
+        {
+          "id": "schedule:2016 Jeep Wrangler:Transmission Fluid",
+          "kind": "schedule",
+          "title": "Transmission Fluid",
+          "subtitle": null,
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "No history",
+          "serviceType": "Transmission Fluid",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 60,
+            "intervalMiles": 60000,
+            "intervalSource": "Assumed — verify in owner's guide",
+            "lastDoneDate": null,
+            "lastDoneMiles": null,
+            "lastDoneVisitId": null,
+            "nextDueDate": null,
+            "nextDueMiles": null,
+            "estDateForMiles": null,
+            "sheetStatus": "No history"
+          }
+        }
+      ],
+      "coverage": [
+        {
+          "name": "Dealer prepaid maintenance",
+          "type": "Prepaid plan",
+          "startDate": "2018-07-20",
+          "endDate": "2020-07-20",
+          "startMiles": 27700,
+          "endMiles": null,
+          "endMilesDate": null,
+          "endsOn": "2020-07-20",
+          "endsBy": "date",
+          "covers": [
+            "Oil Change",
+            "Tire Rotation"
+          ],
+          "active": false,
+          "notes": "Expired"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "jp-20251220-oil",
+          "date": "2025-12-20",
+          "mileage": 77900,
+          "location": null,
+          "roNumber": null,
+          "summary": "Oil change — shop not recorded",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Owner-reported",
+          "sourceTag": "Owner",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil change, per owner's log",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20251220-rot",
+          "date": "2025-12-20",
+          "mileage": null,
+          "location": "Main Street Auto Care",
+          "roNumber": null,
+          "summary": "Tire rotation (mileage not recorded)",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Owner-reported",
+          "sourceTag": "Owner",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tire rotation, per owner's log",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20241127-P8001",
+          "date": "2024-11-27",
+          "mileage": 68300,
+          "location": "Prairie Jeep RAM",
+          "roNumber": "P8001",
+          "summary": "Thermostat replaced (check engine light); multi-point inspection",
+          "invoiceTotal": 642.75,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Other",
+              "description": "Thermostat housing replaced (check engine light)",
+              "lineCost": 598.4,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "Express lane inspection",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2016 Jeep Wrangler - 2024 11 27 - Prairie Jeep RAM.png",
+              "fileId": "fake-doc-jp-2411-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [
+            {
+              "recId": "REC-JP-001",
+              "item": "Battery tested weak — recheck at next visit",
+              "estimate": null,
+              "status": "Watch",
+              "resolvedByVisit": null,
+              "notes": null
+            }
+          ],
+          "readings": [
+            {
+              "item": "Tread — Left Front (outside edge)",
+              "value": 9,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Left Front (inside edge)",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Front (outside edge)",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Front (inside edge)",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 5,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 5,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            }
+          ]
+        },
+        {
+          "visitId": "jp-20241105-Q4002",
+          "date": "2024-11-05",
+          "mileage": 67420,
+          "location": "Quick Lube Express",
+          "roNumber": "Q4002",
+          "summary": "Oil change (5W-20 blend), tire rotation",
+          "invoiceTotal": 142.3,
+          "amountPaid": 142.3,
+          "cardSurcharge": null,
+          "dealerNextDueDate": "2025-04-10",
+          "dealerNextDueMiles": 72420,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil change, 5W-20 synthetic blend",
+              "lineCost": 84.5,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tire rotate",
+              "lineCost": 27.5,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "Engine oil additive",
+              "lineCost": 16,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20230801-B7001",
+          "date": "2023-08-01",
+          "mileage": 54800,
+          "location": "Stop Right Brakes",
+          "roNumber": "B7001",
+          "summary": "Rear brake pads and rotors, brake inspection",
+          "invoiceTotal": 488.1,
+          "amountPaid": 488.1,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Brake Service",
+              "description": "Rear brake pads and rotors",
+              "lineCost": 452.8,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "Brake inspection (no charge)",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2016 Jeep Wrangler - 2023 08 01 - Stop Right Brakes.png",
+              "fileId": "fake-doc-jp-2308-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Front (outside edge)",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 11,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 6,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 6,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            }
+          ]
+        },
+        {
+          "visitId": "jp-20220809-owner",
+          "date": "2022-08-09",
+          "mileage": 49000,
+          "location": "Main Street Auto Care",
+          "roNumber": null,
+          "summary": "Four new tires",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Owner-reported",
+          "sourceTag": "Owner",
+          "beforeOwnership": false,
+          "notes": "From the owner's log; mileage approximate.",
+          "services": [
+            {
+              "serviceType": "Tires",
+              "description": "New tires (set), per owner's log",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20201014-N6005",
+          "date": "2020-10-14",
+          "mileage": 42600,
+          "location": "Northside Chrysler Jeep",
+          "roNumber": "N6005",
+          "summary": "Oil change and rotation (plan), battery, engine air filter, tire repair",
+          "invoiceTotal": 395.6,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "PREPAID PLAN OIL CHANGE WITH ROTATION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "PREPAID PLAN OIL CHANGE WITH ROTATION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "PREPAID MAINTENANCE PLAN PURCHASE",
+              "lineCost": 139.5,
+              "notes": null
+            },
+            {
+              "serviceType": "Battery Replacement",
+              "description": "BATTERY REPLACEMENT",
+              "lineCost": 164.8,
+              "notes": null
+            },
+            {
+              "serviceType": "Engine Air Filter",
+              "description": "AIR FILTER ELEMENT REPLACED",
+              "lineCost": 33.45,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "TIRE REPAIR",
+              "lineCost": 17.5,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2016 Jeep Wrangler - 2020 10 14 - Northside Chrysler Jeep (p1 of 3).png",
+              "fileId": "fake-doc-jp-2010-p1",
+              "pages": 2,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2016 Jeep Wrangler - 2020 10 14 - Northside Chrysler Jeep (p2 of 3).png",
+              "fileId": "fake-doc-jp-2010-p2",
+              "pages": 2,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Inspection",
+              "fileName": "2016 Jeep Wrangler - 2020 10 14 - Northside Chrysler Jeep (p3 of 3).png",
+              "fileId": "fake-doc-jp-2010-p3",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front (outside edge)",
+              "value": 5,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Front (inside edge)",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Front (outside edge)",
+              "value": 4,
+              "unit": "/32 in",
+              "rating": "Replace"
+            },
+            {
+              "item": "Tread — Right Front (inside edge)",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 9,
+              "unit": "/32 in",
+              "rating": null
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 9,
+              "unit": "/32 in",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "jp-20190301-N6004",
+          "date": "2019-03-01",
+          "mileage": 32550,
+          "location": "Northside Chrysler Jeep",
+          "roNumber": "N6004",
+          "summary": "Five-tire rotation; airbag recall completed",
+          "invoiceTotal": 26.49,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "5 TIRE ROTATION",
+              "lineCost": 22.5,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "SAFETY RECALL: PASSENGER AIRBAG INFLATOR (warranty)",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20180720-N6003",
+          "date": "2018-07-20",
+          "mileage": 27700,
+          "location": "Northside Chrysler Jeep",
+          "roNumber": "N6003",
+          "summary": "Oil change and rotation, prepaid plan purchased, engine air filter",
+          "invoiceTotal": 168.2,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "PREPAID PLAN OIL CHANGE WITH ROTATION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "PREPAID PLAN OIL CHANGE WITH ROTATION",
+              "lineCost": 0,
+              "notes": "Cost included in oil change line"
+            },
+            {
+              "serviceType": "Other",
+              "description": "PREPAID MAINTENANCE PLAN PURCHASE",
+              "lineCost": 125,
+              "notes": "Plan purchase, not a service"
+            },
+            {
+              "serviceType": "Engine Air Filter",
+              "description": "AIR FILTER ELEMENT REPLACED",
+              "lineCost": 29.95,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Battery — Cold Cranking Amps (actual; factory spec 600)",
+              "value": 604,
+              "unit": "CCA",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "jp-20170930-N6002",
+          "date": "2017-09-30",
+          "mileage": 19480,
+          "location": "Northside Chrysler Jeep",
+          "roNumber": "N6002",
+          "summary": "Oil change and tire rotation under warranty",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "OIL AND FILTER CHANGE (warranty)",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "TIRE ROTATION (warranty)",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20170210-N6001",
+          "date": "2017-02-10",
+          "mileage": 11020,
+          "location": "Northside Chrysler Jeep",
+          "roNumber": "N6001",
+          "summary": "Oil change and tire rotation under warranty",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "LUBE OIL AND FILTER (warranty)",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "TIRE ROTATION (warranty)",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Battery — Cold Cranking Amps (actual; factory spec 600)",
+              "value": 634,
+              "unit": "CCA",
+              "rating": null
+            }
+          ]
+        },
+        {
+          "visitId": "jp-20160812-purchase",
+          "date": "2016-08-12",
+          "mileage": 3150,
+          "location": "County Line Ford",
+          "roNumber": null,
+          "summary": "Purchased used with 3,150 miles — odometer baseline",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Purchase",
+          "sourceTag": "Purchase",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [],
+          "documents": [
+            {
+              "documentType": "Purchase paperwork",
+              "fileName": "2016 Jeep Wrangler - 2016 08 12 - Purchase agreement.png",
+              "fileId": "fake-doc-jp-purchase",
+              "pages": null,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Window sticker",
+              "fileName": "2016 Jeep Wrangler - Window sticker (MSRP)",
+              "fileId": "fake-doc-jp-sticker",
+              "pages": null,
+              "complete": null,
+              "notes": "No file extension recorded",
+              "kind": "other"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "jp-20160628-F5001",
+          "date": "2016-06-28",
+          "mileage": 3140,
+          "location": "County Line Ford",
+          "roNumber": "F5001",
+          "summary": "Selling dealer's pre-delivery inspection: oil and filter change",
+          "invoiceTotal": 0,
+          "amountPaid": 0,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil and filter change, used vehicle inspection",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "PERFORM USED VEHICLE INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        }
+      ],
+      "costs": {
+        "thisYear": 0,
+        "last12Months": 0,
+        "sincePurchase": 1863.44,
+        "costPerMile": 0.0234,
+        "visitsWithoutTotal": 3,
+        "byYear": [
+          {
+            "year": 2016,
+            "total": 0
+          },
+          {
+            "year": 2017,
+            "total": 0
+          },
+          {
+            "year": 2018,
+            "total": 168.2
+          },
+          {
+            "year": 2019,
+            "total": 26.49
+          },
+          {
+            "year": 2020,
+            "total": 395.6
+          },
+          {
+            "year": 2021,
+            "total": 0
+          },
+          {
+            "year": 2022,
+            "total": 0
+          },
+          {
+            "year": 2023,
+            "total": 488.1
+          },
+          {
+            "year": 2024,
+            "total": 785.05
+          },
+          {
+            "year": 2025,
+            "total": 0
+          },
+          {
+            "year": 2026,
+            "total": 0
+          }
+        ],
+        "byServiceType": [
+          {
+            "serviceType": "Other",
+            "total": 896.4
+          },
+          {
+            "serviceType": "Brake Service",
+            "total": 452.8
+          },
+          {
+            "serviceType": "Battery Replacement",
+            "total": 164.8
+          },
+          {
+            "serviceType": "Oil Change",
+            "total": 84.5
+          },
+          {
+            "serviceType": "Engine Air Filter",
+            "total": 63.4
+          },
+          {
+            "serviceType": "Tire Rotation",
+            "total": 50
+          }
+        ]
+      },
+      "wear": {
+        "tread": {
+          "label": "Tire tread",
+          "unit": "/32 in",
+          "replacementPoint": 4,
+          "latest": {
+            "value": 9,
+            "date": "2024-11-27",
+            "mileage": 68300,
+            "rating": "Caution",
+            "visitId": "jp-20241127-P8001"
+          },
+          "readings": [
+            {
+              "value": 4,
+              "date": "2020-10-14",
+              "mileage": 42600,
+              "visitId": "jp-20201014-N6005"
+            },
+            {
+              "value": 11,
+              "date": "2023-08-01",
+              "mileage": 54800,
+              "visitId": "jp-20230801-B7001"
+            },
+            {
+              "value": 9,
+              "date": "2024-11-27",
+              "mileage": 68300,
+              "visitId": "jp-20241127-P8001"
+            }
+          ],
+          "projection": {
+            "mileage": 102050,
+            "date": "2029-02-07"
+          },
+          "note": null
+        },
+        "brakeFront": {
+          "label": "Front brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 5,
+            "date": "2024-11-27",
+            "mileage": 68300,
+            "rating": "Good",
+            "visitId": "jp-20241127-P8001"
+          },
+          "readings": [
+            {
+              "value": 6,
+              "date": "2023-08-01",
+              "mileage": 54800,
+              "visitId": "jp-20230801-B7001"
+            },
+            {
+              "value": 5,
+              "date": "2024-11-27",
+              "mileage": 68300,
+              "visitId": "jp-20241127-P8001"
+            }
+          ],
+          "projection": {
+            "mileage": 95300,
+            "date": "2028-04-02"
+          },
+          "note": null
+        },
+        "brakeRear": {
+          "label": "Rear brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 9,
+            "date": "2024-11-27",
+            "mileage": 68300,
+            "rating": "Good",
+            "visitId": "jp-20241127-P8001"
+          },
+          "readings": [
+            {
+              "value": 10,
+              "date": "2023-08-01",
+              "mileage": 54800,
+              "visitId": "jp-20230801-B7001"
+            },
+            {
+              "value": 9,
+              "date": "2024-11-27",
+              "mileage": 68300,
+              "visitId": "jp-20241127-P8001"
+            }
+          ],
+          "projection": {
+            "mileage": 149300,
+            "date": "2035-01-24"
+          },
+          "note": null
+        }
+      },
+      "recalls": [
+        {
+          "campaignNumber": "26V901000",
+          "reportDate": "2026-08-20",
+          "component": "AIR BAGS:FRONTAL",
+          "summary": "Sample recall summary.",
+          "consequence": "Sample consequence.",
+          "remedy": "Dealers will replace the part.",
+          "status": "New",
+          "firstSeen": "2026-08-21",
+          "notes": null,
+          "parkIt": true,
+          "parkOutside": false
+        },
+        {
+          "campaignNumber": "19V902000",
+          "reportDate": "2019-01-15",
+          "component": "ELECTRICAL SYSTEM",
+          "summary": "Sample recall summary.",
+          "consequence": null,
+          "remedy": null,
+          "status": "Reviewed",
+          "firstSeen": "2026-08-21",
+          "notes": "Done at the dealer in 2019",
+          "parkIt": false,
+          "parkOutside": false
+        }
+      ],
+      "attention": [
+        {
+          "kind": "recall",
+          "text": "New recall may apply to the Wrangler",
+          "href": "#/v/2016%20Jeep%20Wrangler/recalls"
+        },
+        {
+          "kind": "registration",
+          "text": "Registration expires Oct 15",
+          "href": "#/v/2016%20Jeep%20Wrangler/registration"
+        }
+      ]
+    },
+    {
+      "name": "2023 BMW X7",
+      "shortName": "X7",
+      "year": 2023,
+      "make": "BMW",
+      "model": "X7",
+      "vin": "TESTVIN0000000003",
+      "plate": null,
+      "primaryDriver": "Bob",
+      "isMine": false,
+      "photoFileId": "fake-photo-x7",
+      "originalInServiceDate": "2023-02-20",
+      "purchaseDate": "2024-11-30",
+      "purchaseMileage": 20480,
+      "estMileage": 48388,
+      "avgMilesPerDay": 42.2,
+      "latestOdometer": 39020,
+      "latestOdometerDate": "2026-02-12",
+      "lastMileageEvidenceDate": "2026-02-12",
+      "basics": {
+        "oilSpec": "0W-20",
+        "oilCapacity": null,
+        "oilFilter": null,
+        "engineAirFilter": null,
+        "cabinAirFilter": null,
+        "tireSize": "275/45R21 front, 315/40R21 rear",
+        "tirePressure": null,
+        "wiperFrontDriver": null,
+        "wiperFrontPassenger": null,
+        "wiperRear": null,
+        "batteryGroup": null
+      },
+      "registration": {
+        "expires": null,
+        "fileId": null,
+        "daysLeft": null
+      },
+      "oemApp": {
+        "name": "My BMW",
+        "link": "mybmw://",
+        "storeLink": "https://apps.apple.com/app/id0000000003"
+      },
+      "upcoming": [
+        {
+          "id": "schedule:2023 BMW X7:Oil Change",
+          "kind": "schedule",
+          "title": "Oil Change",
+          "subtitle": null,
+          "dueBy": "2026-08-21",
+          "dueMiles": 47020,
+          "status": "Overdue",
+          "serviceType": "Oil Change",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-02-12",
+            "lastDoneMiles": 39020,
+            "lastDoneVisitId": "x7-20260212-B9002",
+            "nextDueDate": "2027-02-12",
+            "nextDueMiles": 47020,
+            "estDateForMiles": "2026-08-21",
+            "sheetStatus": "Overdue"
+          }
+        },
+        {
+          "id": "schedule:2023 BMW X7:Tire Rotation",
+          "kind": "schedule",
+          "title": "Tire Rotation",
+          "subtitle": null,
+          "dueBy": "2026-08-21",
+          "dueMiles": 47020,
+          "status": "Overdue",
+          "serviceType": "Tire Rotation",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-02-12",
+            "lastDoneMiles": 39020,
+            "lastDoneVisitId": "x7-20260212-B9002",
+            "nextDueDate": "2027-02-12",
+            "nextDueMiles": 47020,
+            "estDateForMiles": "2026-08-21",
+            "sheetStatus": "Overdue"
+          }
+        },
+        {
+          "id": "warranty:2023 BMW X7:New vehicle limited warranty",
+          "kind": "warranty",
+          "title": "New vehicle limited warranty ends",
+          "subtitle": "Warranty",
+          "dueBy": "2026-10-30",
+          "dueMiles": 50000,
+          "status": "OK",
+          "serviceType": null,
+          "coveredBy": [],
+          "warranty": {
+            "name": "New vehicle limited warranty",
+            "endsBy": "miles"
+          }
+        },
+        {
+          "id": "recommendation:2023 BMW X7:REC-X7-003",
+          "kind": "recommendation",
+          "title": "Four wheel alignment",
+          "subtitle": "Declined at last visit · $189.95",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Declined",
+          "serviceType": "Alignment",
+          "coveredBy": [],
+          "recommendation": {
+            "recId": "REC-X7-003",
+            "status": "Open",
+            "estimate": 189.95,
+            "visitId": "x7-20250710-B9001",
+            "date": "2025-07-10",
+            "mileage": 30650
+          }
+        },
+        {
+          "id": "recommendation:2023 BMW X7:REC-X7-001",
+          "kind": "recommendation",
+          "title": "Fuel service",
+          "subtitle": "Declined at last visit",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Declined",
+          "serviceType": null,
+          "coveredBy": [],
+          "recommendation": {
+            "recId": "REC-X7-001",
+            "status": "Open",
+            "estimate": null,
+            "visitId": "x7-20250710-B9001",
+            "date": "2025-07-10",
+            "mileage": 30650
+          }
+        }
+      ],
+      "noHistory": [],
+      "coverage": [
+        {
+          "name": "BMW prepaid maintenance",
+          "type": "Prepaid plan",
+          "startDate": "2023-02-20",
+          "endDate": "2027-02-20",
+          "startMiles": 0,
+          "endMiles": 36000,
+          "endMilesDate": "2025-12-02",
+          "endsOn": "2025-12-02",
+          "endsBy": "miles",
+          "covers": [
+            "Oil Change",
+            "Brake Fluid",
+            "Cabin Air Filter",
+            "Engine Air Filter",
+            "Wiper Blades"
+          ],
+          "active": false,
+          "notes": "Mileage limit already reached"
+        },
+        {
+          "name": "New vehicle limited warranty",
+          "type": "Warranty",
+          "startDate": "2023-02-20",
+          "endDate": "2027-02-20",
+          "startMiles": 0,
+          "endMiles": 50000,
+          "endMilesDate": "2026-10-30",
+          "endsOn": "2026-10-30",
+          "endsBy": "miles",
+          "covers": [],
+          "active": true,
+          "notes": "4 yr / 50k mi"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "x7-20260212-B9002",
+          "date": "2026-02-12",
+          "mileage": 39020,
+          "location": "Metro BMW",
+          "roNumber": "B9002",
+          "summary": "Coolant service, tire rotation, wipers, cabin and engine filters, brake fluid, oil change",
+          "invoiceTotal": 412.18,
+          "amountPaid": 412.18,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": "Most lines no-charge under the prepaid plan.",
+          "services": [
+            {
+              "serviceType": "Coolant",
+              "description": "COOLING SYSTEM SERVICE",
+              "lineCost": 292.4,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "TIRE ROTATION",
+              "lineCost": 51.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Wiper Blades",
+              "description": "REPLACE FRONT WIPERS",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Wiper Blades",
+              "description": "REPLACE REAR WIPER",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Cabin Air Filter",
+              "description": "REPLACE CABIN AIR FILTERS",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Engine Air Filter",
+              "description": "REPLACE ENGINE AIR FILTER",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Brake Fluid",
+              "description": "BRAKE FLUID SERVICE",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "CBS OIL CHANGE",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "KEY FOB BATTERY REPLACED",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2026 02 12 - Metro BMW.pdf",
+              "fileId": "fake-doc-x7-0212-merged",
+              "pages": 4,
+              "complete": true,
+              "notes": "Merged PDF of the four page images",
+              "kind": "pdf"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2026 02 12 - Metro BMW (p1 of 4).png",
+              "fileId": "fake-doc-x7-0212-p1",
+              "pages": 4,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2026 02 12 - Metro BMW (p2 of 4).png",
+              "fileId": "fake-doc-x7-0212-p2",
+              "pages": 4,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2026 02 12 - Metro BMW (p3 of 4).png",
+              "fileId": "fake-doc-x7-0212-p3",
+              "pages": 4,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            },
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2026 02 12 - Metro BMW (p4 of 4).png",
+              "fileId": "fake-doc-x7-0212-p4",
+              "pages": 4,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20250710-B9001",
+          "date": "2025-07-10",
+          "mileage": 30650,
+          "location": "Metro BMW",
+          "roNumber": "B9001",
+          "summary": "Standard scope check, oil change, inspection — all no charge",
+          "invoiceTotal": 0,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "CBS OIL CHANGE",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "STANDARD SCOPE CHECK",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2023 BMW X7 - 2025 07 10 - Metro BMW.png",
+              "fileId": "fake-doc-x7-0710-inv",
+              "pages": 2,
+              "complete": false,
+              "notes": "Page 2 of 2 missing from scan",
+              "kind": "image"
+            }
+          ],
+          "recommendations": [
+            {
+              "recId": "REC-X7-001",
+              "item": "Fuel service",
+              "estimate": null,
+              "status": "Open",
+              "resolvedByVisit": null,
+              "notes": "No estimate printed"
+            },
+            {
+              "recId": "REC-X7-002",
+              "item": "Coolant service (cooling system)",
+              "estimate": null,
+              "status": "Done",
+              "resolvedByVisit": "x7-20260212-B9002",
+              "notes": null
+            },
+            {
+              "recId": "REC-X7-003",
+              "item": "Four wheel alignment",
+              "estimate": 189.95,
+              "status": "Open",
+              "resolvedByVisit": null,
+              "notes": null
+            }
+          ],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20241130-purchase",
+          "date": "2024-11-30",
+          "mileage": 20480,
+          "location": "Prairie Auto Campus",
+          "roNumber": null,
+          "summary": "Purchased used — odometer baseline for our ownership",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Purchase",
+          "sourceTag": "Purchase",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [],
+          "documents": [
+            {
+              "documentType": "CarFax report",
+              "fileName": "2023 BMW X7 - CarFax report.pdf",
+              "fileId": "fake-doc-x7-carfax",
+              "pages": 6,
+              "complete": true,
+              "notes": null,
+              "kind": "pdf"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20241022-carfax",
+          "date": "2024-10-22",
+          "mileage": 20470,
+          "location": "Plains BMW",
+          "roNumber": null,
+          "summary": "Dealer reconditioning: four new tires, oil and filter change",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tires",
+              "description": "Four tires replaced (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil and filter changed (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20231219-carfax",
+          "date": "2023-12-19",
+          "mileage": 11210,
+          "location": "Plains BMW",
+          "roNumber": null,
+          "summary": "Oil and filter change; maintenance inspection",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil and filter changed (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "Maintenance inspection (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20230808-carfax",
+          "date": "2023-08-08",
+          "mileage": 5540,
+          "location": "Plains BMW",
+          "roNumber": null,
+          "summary": "Brake fluid flushed; software update",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Brake Fluid",
+              "description": "Brake fluid flushed (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "Software update (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20230502-carfax",
+          "date": "2023-05-02",
+          "mileage": null,
+          "location": "Plains BMW",
+          "roNumber": null,
+          "summary": "Vehicle serviced — no detail reported",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": "No mileage reported.",
+          "services": [],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "x7-20230220-carfax",
+          "date": "2023-02-20",
+          "mileage": 12,
+          "location": "Plains BMW",
+          "roNumber": null,
+          "summary": "Sold new; delivery inspection",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Other",
+              "description": "Delivery inspection (per CarFax)",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        }
+      ],
+      "costs": {
+        "thisYear": 412.18,
+        "last12Months": 412.18,
+        "sincePurchase": 412.18,
+        "costPerMile": 0.0222,
+        "visitsWithoutTotal": 0,
+        "byYear": [
+          {
+            "year": 2024,
+            "total": 0
+          },
+          {
+            "year": 2025,
+            "total": 0
+          },
+          {
+            "year": 2026,
+            "total": 412.18
+          }
+        ],
+        "byServiceType": [
+          {
+            "serviceType": "Coolant",
+            "total": 292.4
+          },
+          {
+            "serviceType": "Tire Rotation",
+            "total": 51.95
+          }
+        ]
+      },
+      "wear": {
+        "tread": null,
+        "brakeFront": null,
+        "brakeRear": null
+      },
+      "recalls": [
+        {
+          "campaignNumber": "25V903000",
+          "reportDate": "2025-05-02",
+          "component": "FUEL SYSTEM",
+          "summary": "Sample recall summary.",
+          "consequence": null,
+          "remedy": null,
+          "status": "Reviewed",
+          "firstSeen": "2026-08-21",
+          "notes": null,
+          "parkIt": false,
+          "parkOutside": false
+        }
+      ],
+      "attention": []
+    },
+    {
+      "name": "2023 Toyota 4Runner",
+      "shortName": "4Runner",
+      "year": 2023,
+      "make": "Toyota",
+      "model": "4Runner",
+      "vin": "TESTVIN0000000004",
+      "plate": "SAMPLE4",
+      "primaryDriver": "Leo",
+      "isMine": true,
+      "photoFileId": "fake-photo-4r",
+      "originalInServiceDate": "2023-01-25",
+      "purchaseDate": "2026-04-10",
+      "purchaseMileage": 28640,
+      "estMileage": 37704,
+      "avgMilesPerDay": 54.9,
+      "latestOdometer": 37320,
+      "latestOdometerDate": "2026-09-15",
+      "lastMileageEvidenceDate": "2026-09-15",
+      "basics": {
+        "oilSpec": "0W-20 full synthetic",
+        "oilCapacity": "6.6 qt",
+        "oilFilter": "SAMPLE-OF-400",
+        "engineAirFilter": "SAMPLE-AF-400",
+        "cabinAirFilter": "SAMPLE-CF-400",
+        "tireSize": "265/70R17",
+        "tirePressure": "32",
+        "wiperFrontDriver": "22 in",
+        "wiperFrontPassenger": "20 in",
+        "wiperRear": "14 in",
+        "batteryGroup": "24F"
+      },
+      "registration": {
+        "expires": "2027-03-31",
+        "fileId": "fake-reg-4r",
+        "daysLeft": 190
+      },
+      "oemApp": {
+        "name": "Toyota",
+        "link": "toyota://",
+        "storeLink": null
+      },
+      "upcoming": [
+        {
+          "id": "dealer:2023 Toyota 4Runner:next",
+          "kind": "dealer",
+          "title": "Dealer's next service",
+          "subtitle": "Dealer suggested Dec 25, 2026 or 40,000 mi",
+          "dueBy": "2026-11-03",
+          "dueMiles": 40000,
+          "status": "OK",
+          "serviceType": null,
+          "coveredBy": []
+        },
+        {
+          "id": "warranty:2023 Toyota 4Runner:Gold Certified (comprehensive)",
+          "kind": "warranty",
+          "title": "Gold Certified (comprehensive) ends",
+          "subtitle": "Warranty",
+          "dueBy": "2026-11-14",
+          "dueMiles": 40640,
+          "status": "OK",
+          "serviceType": null,
+          "coveredBy": [],
+          "warranty": {
+            "name": "Gold Certified (comprehensive)",
+            "endsBy": "miles"
+          }
+        },
+        {
+          "id": "schedule:2023 Toyota 4Runner:Oil Change",
+          "kind": "schedule",
+          "title": "Oil Change",
+          "subtitle": null,
+          "dueBy": "2027-01-22",
+          "dueMiles": 44410,
+          "status": "OK",
+          "serviceType": "Oil Change",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-08-24",
+            "lastDoneMiles": 36410,
+            "lastDoneVisitId": "4r-20260824-L1101",
+            "nextDueDate": "2027-08-24",
+            "nextDueMiles": 44410,
+            "estDateForMiles": "2027-01-22",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "schedule:2023 Toyota 4Runner:Tire Rotation",
+          "kind": "schedule",
+          "title": "Tire Rotation",
+          "subtitle": null,
+          "dueBy": "2027-01-22",
+          "dueMiles": 44410,
+          "status": "OK",
+          "serviceType": "Tire Rotation",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-08-24",
+            "lastDoneMiles": 36410,
+            "lastDoneVisitId": "4r-20260824-L1101",
+            "nextDueDate": "2027-08-24",
+            "nextDueMiles": 44410,
+            "estDateForMiles": "2027-01-22",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "schedule:2023 Toyota 4Runner:Wiper Blades",
+          "kind": "schedule",
+          "title": "Wiper Blades",
+          "subtitle": null,
+          "dueBy": "2027-09-01",
+          "dueMiles": null,
+          "status": "OK",
+          "serviceType": "Wiper Blades",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": null,
+            "intervalSource": "Assumed — verify in owner's guide",
+            "lastDoneDate": "2026-09-01",
+            "lastDoneMiles": 36500,
+            "lastDoneVisitId": "4r-20260901-owner",
+            "nextDueDate": "2027-09-01",
+            "nextDueMiles": null,
+            "estDateForMiles": null,
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "schedule:2023 Toyota 4Runner:Cabin Air Filter",
+          "kind": "schedule",
+          "title": "Cabin Air Filter",
+          "subtitle": null,
+          "dueBy": "2027-10-08",
+          "dueMiles": 58630,
+          "status": "OK",
+          "serviceType": "Cabin Air Filter",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "schedule": {
+            "intervalMonths": 36,
+            "intervalMiles": 30000,
+            "intervalSource": "Assumed — verify in owner's guide",
+            "lastDoneDate": "2026-03-28",
+            "lastDoneMiles": 28630,
+            "lastDoneVisitId": "4r-20260328-carfax",
+            "nextDueDate": "2029-03-28",
+            "nextDueMiles": 58630,
+            "estDateForMiles": "2027-10-08",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "schedule:2023 Toyota 4Runner:Engine Air Filter",
+          "kind": "schedule",
+          "title": "Engine Air Filter",
+          "subtitle": null,
+          "dueBy": "2027-10-08",
+          "dueMiles": 58630,
+          "status": "OK",
+          "serviceType": "Engine Air Filter",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "schedule": {
+            "intervalMonths": 36,
+            "intervalMiles": 30000,
+            "intervalSource": "Assumed — verify in owner's guide",
+            "lastDoneDate": "2026-03-28",
+            "lastDoneMiles": 28630,
+            "lastDoneVisitId": "4r-20260328-carfax",
+            "nextDueDate": "2029-03-28",
+            "nextDueMiles": 58630,
+            "estDateForMiles": "2027-10-08",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "recommendation:2023 Toyota 4Runner:REC-4R-006",
+          "kind": "recommendation",
+          "title": "Brake pads — 6 mm front / 5 mm rear",
+          "subtitle": "Keep an eye on",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Watch",
+          "serviceType": "Brake Service",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "recommendation": {
+            "recId": "REC-4R-006",
+            "status": "Watch",
+            "estimate": null,
+            "visitId": "4r-20260824-L1101",
+            "date": "2026-08-24",
+            "mileage": 36410
+          }
+        },
+        {
+          "id": "recommendation:2023 Toyota 4Runner:REC-4R-003",
+          "kind": "recommendation",
+          "title": "Cabin air filter",
+          "subtitle": "Keep an eye on",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Watch",
+          "serviceType": "Cabin Air Filter",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "recommendation": {
+            "recId": "REC-4R-003",
+            "status": "Watch",
+            "estimate": null,
+            "visitId": "4r-20260824-L1101",
+            "date": "2026-08-24",
+            "mileage": 36410
+          }
+        },
+        {
+          "id": "recommendation:2023 Toyota 4Runner:REC-4R-004",
+          "kind": "recommendation",
+          "title": "Engine air filter",
+          "subtitle": "Keep an eye on",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Watch",
+          "serviceType": "Engine Air Filter",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "recommendation": {
+            "recId": "REC-4R-004",
+            "status": "Watch",
+            "estimate": null,
+            "visitId": "4r-20260824-L1101",
+            "date": "2026-08-24",
+            "mileage": 36410
+          }
+        },
+        {
+          "id": "recommendation:2023 Toyota 4Runner:REC-4R-005",
+          "kind": "recommendation",
+          "title": "Tires — tread 6/32\" all four",
+          "subtitle": "Keep an eye on",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Watch",
+          "serviceType": "Tires",
+          "coveredBy": [
+            "Gold Certified (comprehensive)"
+          ],
+          "recommendation": {
+            "recId": "REC-4R-005",
+            "status": "Watch",
+            "estimate": null,
+            "visitId": "4r-20260824-L1101",
+            "date": "2026-08-24",
+            "mileage": 36410
+          }
+        }
+      ],
+      "noHistory": [],
+      "coverage": [
+        {
+          "name": "Gold Certified (comprehensive)",
+          "type": "Warranty",
+          "startDate": "2026-04-10",
+          "endDate": "2027-04-10",
+          "startMiles": 28640,
+          "endMiles": 40640,
+          "endMilesDate": "2026-11-14",
+          "endsOn": "2026-11-14",
+          "endsBy": "miles",
+          "covers": [
+            "All"
+          ],
+          "active": true,
+          "notes": "12 mo / 12k mi from purchase"
+        },
+        {
+          "name": "Toyota powertrain",
+          "type": "Warranty",
+          "startDate": "2023-01-25",
+          "endDate": "2030-01-25",
+          "startMiles": 0,
+          "endMiles": 100000,
+          "endMilesDate": "2029-10-31",
+          "endsOn": "2029-10-31",
+          "endsBy": "miles",
+          "covers": [],
+          "active": true,
+          "notes": "7 yr / 100k mi from in-service date"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "4r-20260903-L1102",
+          "date": "2026-09-03",
+          "mileage": 36690,
+          "location": "Lakeview Toyota",
+          "roNumber": "L1102",
+          "summary": "Windshield replaced (rock chip); windshield camera recalibrated",
+          "invoiceTotal": 1642.1,
+          "amountPaid": 1683.15,
+          "cardSurcharge": 41.05,
+          "dealerNextDueDate": "2026-12-25",
+          "dealerNextDueMiles": 40000,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": "Invoice pages 3-4 of 4 not in scan.",
+          "services": [
+            {
+              "serviceType": "Windshield Replacement",
+              "description": "REPLACE WINDSHIELD",
+              "lineCost": 1150.1,
+              "notes": null
+            },
+            {
+              "serviceType": "Windshield Calibration",
+              "description": "RECALIBRATE WINDSHIELD CAMERA",
+              "lineCost": 372,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice + Payment",
+              "fileName": "2023 Toyota 4Runner - 2026 09 03 - Lakeview Toyota.pdf",
+              "fileId": "fake-doc-4r-0903-inv",
+              "pages": 3,
+              "complete": false,
+              "notes": "Pages 3-4 of 4 missing from scan",
+              "kind": "pdf"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20260901-owner",
+          "date": "2026-09-01",
+          "mileage": 36500,
+          "location": "Owner-performed (Leo)",
+          "roNumber": null,
+          "summary": "Front wiper blades replaced by owner",
+          "invoiceTotal": 32.5,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Owner-reported",
+          "sourceTag": "Owner",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Wiper Blades",
+              "description": "Front wiper blades replaced by owner",
+              "lineCost": 32.5,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20260824-L1101",
+          "date": "2026-08-24",
+          "mileage": 36410,
+          "location": "Lakeview Toyota",
+          "roNumber": "L1101",
+          "summary": "Oil change (0W-20), tire rotation, multi-point inspection",
+          "invoiceTotal": 158.4,
+          "amountPaid": 163.15,
+          "cardSurcharge": 4.75,
+          "dealerNextDueDate": "2026-12-06",
+          "dealerNextDueMiles": 40000,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": "Declined: windshield ($1,480.00), front wipers ($54.00).",
+          "services": [
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "PERFORM MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "ENGINE OIL CHANGE AND TIRE ROTATE (0W-20)",
+              "lineCost": 138.4,
+              "notes": "Combined line with tire rotation"
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "ENGINE OIL CHANGE AND TIRE ROTATE",
+              "lineCost": null,
+              "notes": "Cost included in oil change line"
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice + Inspection",
+              "fileName": "2023 Toyota 4Runner - 2026 08 24 - Lakeview Toyota.pdf",
+              "fileId": "fake-doc-4r-0824-inv",
+              "pages": 8,
+              "complete": true,
+              "notes": "Invoice 5/5, inspection 3/3",
+              "kind": "pdf"
+            },
+            {
+              "documentType": "Payment",
+              "fileName": "2023 Toyota 4Runner - 2026 08 24 - Lakeview Toyota (Payment).png",
+              "fileId": "fake-doc-4r-0824-pay",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [
+            {
+              "recId": "REC-4R-001",
+              "item": "Replace windshield + calibrate camera",
+              "estimate": 1480,
+              "status": "Done",
+              "resolvedByVisit": "4r-20260903-L1102",
+              "notes": "Declined 8/24"
+            },
+            {
+              "recId": "REC-4R-002",
+              "item": "Front wiper blades",
+              "estimate": 54,
+              "status": "Done",
+              "resolvedByVisit": "4r-20260901-owner",
+              "notes": "Declined 8/24"
+            },
+            {
+              "recId": "REC-4R-003",
+              "item": "Cabin air filter",
+              "estimate": null,
+              "status": "Watch",
+              "resolvedByVisit": null,
+              "notes": "Inspection caution"
+            },
+            {
+              "recId": "REC-4R-004",
+              "item": "Engine air filter",
+              "estimate": null,
+              "status": "Watch",
+              "resolvedByVisit": null,
+              "notes": "Inspection caution"
+            },
+            {
+              "recId": "REC-4R-005",
+              "item": "Tires — tread 6/32\" all four",
+              "estimate": null,
+              "status": "Watch",
+              "resolvedByVisit": null,
+              "notes": "Inspection caution"
+            },
+            {
+              "recId": "REC-4R-006",
+              "item": "Brake pads — 6 mm front / 5 mm rear",
+              "estimate": null,
+              "status": "Watch",
+              "resolvedByVisit": null,
+              "notes": "Inspection caution"
+            }
+          ],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 6,
+              "unit": "/32 in",
+              "rating": "Caution"
+            },
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 6,
+              "unit": "mm",
+              "rating": "Caution"
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 6,
+              "unit": "mm",
+              "rating": "Caution"
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 5,
+              "unit": "mm",
+              "rating": "Caution"
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 5,
+              "unit": "mm",
+              "rating": "Caution"
+            }
+          ]
+        },
+        {
+          "visitId": "4r-20260410-purchase",
+          "date": "2026-04-10",
+          "mileage": 28640,
+          "location": "Lakeview Toyota",
+          "roNumber": null,
+          "summary": "Purchased used — odometer baseline for our ownership",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Purchase",
+          "sourceTag": "Purchase",
+          "beforeOwnership": false,
+          "notes": "Cost left blank so the vehicle price does not distort maintenance totals.",
+          "services": [],
+          "documents": [
+            {
+              "documentType": "Window sticker",
+              "fileName": "2023 Toyota 4Runner - Window sticker (MSRP).pdf",
+              "fileId": "fake-doc-4r-sticker",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "pdf"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20260328-carfax",
+          "date": "2026-03-28",
+          "mileage": 28630,
+          "location": "Lakeview Toyota",
+          "roNumber": null,
+          "summary": "Pre-sale reconditioning: air and cabin filters, oil and filter, battery service",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "Pre-sale inspection",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Engine Air Filter",
+              "description": "Air filter replaced",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Battery Service",
+              "description": "Battery serviced",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Cabin Air Filter",
+              "description": "Cabin air filter replaced",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil and filter changed",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20260220-carfax",
+          "date": "2026-02-20",
+          "mileage": 28100,
+          "location": "Cedar Valley Toyota",
+          "roNumber": null,
+          "summary": "25k mile service",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Scheduled Maintenance",
+              "description": "25k mile service",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20250722-carfax",
+          "date": "2025-07-22",
+          "mileage": 22180,
+          "location": "Cedar Valley Toyota",
+          "roNumber": null,
+          "summary": "20k mile service; oil change",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Scheduled Maintenance",
+              "description": "20k mile service",
+              "lineCost": null,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "Oil change",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20240420-carfax",
+          "date": "2024-04-20",
+          "mileage": 10050,
+          "location": "Cedar Valley Toyota",
+          "roNumber": null,
+          "summary": "10k mile service",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Scheduled Maintenance",
+              "description": "10k mile service",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20230905-carfax",
+          "date": "2023-09-05",
+          "mileage": 5300,
+          "location": "Cedar Valley Toyota",
+          "roNumber": null,
+          "summary": "Tire rotation",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Tire Rotation",
+              "description": "Tires rotated",
+              "lineCost": null,
+              "notes": null
+            }
+          ],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "4r-20230125-carfax",
+          "date": "2023-01-25",
+          "mileage": 15,
+          "location": "Cedar Valley Toyota",
+          "roNumber": null,
+          "summary": "Sold new to first owner",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "CarFax",
+          "sourceTag": "CarFax",
+          "beforeOwnership": true,
+          "notes": "From CarFax; no receipt on file.",
+          "services": [],
+          "documents": [],
+          "recommendations": [],
+          "readings": []
+        }
+      ],
+      "costs": {
+        "thisYear": 1833,
+        "last12Months": 1833,
+        "sincePurchase": 1833,
+        "costPerMile": 0.2112,
+        "visitsWithoutTotal": 0,
+        "byYear": [
+          {
+            "year": 2026,
+            "total": 1833
+          }
+        ],
+        "byServiceType": [
+          {
+            "serviceType": "Windshield Replacement",
+            "total": 1150.1
+          },
+          {
+            "serviceType": "Windshield Calibration",
+            "total": 372
+          },
+          {
+            "serviceType": "Oil Change",
+            "total": 138.4
+          },
+          {
+            "serviceType": "Wiper Blades",
+            "total": 32.5
+          }
+        ]
+      },
+      "wear": {
+        "tread": {
+          "label": "Tire tread",
+          "unit": "/32 in",
+          "replacementPoint": 4,
+          "latest": {
+            "value": 6,
+            "date": "2026-08-24",
+            "mileage": 36410,
+            "rating": "Caution",
+            "visitId": "4r-20260824-L1101"
+          },
+          "readings": [
+            {
+              "value": 6,
+              "date": "2026-08-24",
+              "mileage": 36410,
+              "visitId": "4r-20260824-L1101"
+            }
+          ],
+          "projection": null,
+          "note": "One reading so far"
+        },
+        "brakeFront": {
+          "label": "Front brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 6,
+            "date": "2026-08-24",
+            "mileage": 36410,
+            "rating": "Caution",
+            "visitId": "4r-20260824-L1101"
+          },
+          "readings": [
+            {
+              "value": 6,
+              "date": "2026-08-24",
+              "mileage": 36410,
+              "visitId": "4r-20260824-L1101"
+            }
+          ],
+          "projection": null,
+          "note": "One reading so far"
+        },
+        "brakeRear": {
+          "label": "Rear brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 5,
+            "date": "2026-08-24",
+            "mileage": 36410,
+            "rating": "Caution",
+            "visitId": "4r-20260824-L1101"
+          },
+          "readings": [
+            {
+              "value": 5,
+              "date": "2026-08-24",
+              "mileage": 36410,
+              "visitId": "4r-20260824-L1101"
+            }
+          ],
+          "projection": null,
+          "note": "One reading so far"
+        }
+      },
+      "recalls": [],
+      "attention": []
+    },
+    {
+      "name": "2025 Kia Telluride SX Prestige",
+      "shortName": "Telluride",
+      "year": 2025,
+      "make": "Kia",
+      "model": "Telluride SX Prestige",
+      "vin": "TESTVIN0000000005",
+      "plate": null,
+      "primaryDriver": "Nina",
+      "isMine": false,
+      "photoFileId": "fake-photo-tl",
+      "originalInServiceDate": "2025-11-14",
+      "purchaseDate": "2025-11-14",
+      "purchaseMileage": 12,
+      "estMileage": 12028,
+      "avgMilesPerDay": 38.5,
+      "latestOdometer": 10180,
+      "latestOdometerDate": "2026-08-05",
+      "lastMileageEvidenceDate": "2026-08-05",
+      "basics": {
+        "oilSpec": "5W-30 full synthetic",
+        "oilCapacity": null,
+        "oilFilter": null,
+        "engineAirFilter": null,
+        "cabinAirFilter": null,
+        "tireSize": null,
+        "tirePressure": null,
+        "wiperFrontDriver": null,
+        "wiperFrontPassenger": null,
+        "wiperRear": null,
+        "batteryGroup": null
+      },
+      "registration": {
+        "expires": "2026-11-30",
+        "fileId": "fake-reg-tl",
+        "daysLeft": 69
+      },
+      "oemApp": null,
+      "upcoming": [
+        {
+          "id": "schedule:2025 Kia Telluride SX Prestige:Oil Change",
+          "kind": "schedule",
+          "title": "Oil Change",
+          "subtitle": null,
+          "dueBy": "2027-01-30",
+          "dueMiles": 17050,
+          "status": "OK",
+          "serviceType": "Oil Change",
+          "coveredBy": [
+            "Dealer prepaid maintenance"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-07-10",
+            "lastDoneMiles": 9050,
+            "lastDoneVisitId": "tl-20260710-K2202",
+            "nextDueDate": "2027-07-10",
+            "nextDueMiles": 17050,
+            "estDateForMiles": "2027-01-30",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "schedule:2025 Kia Telluride SX Prestige:Tire Rotation",
+          "kind": "schedule",
+          "title": "Tire Rotation",
+          "subtitle": null,
+          "dueBy": "2027-01-30",
+          "dueMiles": 17050,
+          "status": "OK",
+          "serviceType": "Tire Rotation",
+          "coveredBy": [
+            "Dealer prepaid maintenance"
+          ],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 8000,
+            "intervalSource": "Household rule: every 12 months or 8,000 miles, whichever comes first",
+            "lastDoneDate": "2026-07-10",
+            "lastDoneMiles": 9050,
+            "lastDoneVisitId": "tl-20260710-K2202",
+            "nextDueDate": "2027-07-10",
+            "nextDueMiles": 17050,
+            "estDateForMiles": "2027-01-30",
+            "sheetStatus": "OK"
+          }
+        },
+        {
+          "id": "recall:2025 Kia Telluride SX Prestige:26V904000",
+          "kind": "recall",
+          "title": "Recall: Electrical system",
+          "subtitle": "May apply to this model",
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "Recall",
+          "serviceType": null,
+          "coveredBy": [],
+          "recall": {
+            "campaignNumber": "26V904000"
+          }
+        }
+      ],
+      "noHistory": [
+        {
+          "id": "schedule:2025 Kia Telluride SX Prestige:Cabin Air Filter",
+          "kind": "schedule",
+          "title": "Cabin Air Filter",
+          "subtitle": null,
+          "dueBy": null,
+          "dueMiles": null,
+          "status": "No history",
+          "serviceType": "Cabin Air Filter",
+          "coveredBy": [],
+          "schedule": {
+            "intervalMonths": 12,
+            "intervalMiles": 15000,
+            "intervalSource": "Assumed — verify in owner's guide",
+            "lastDoneDate": null,
+            "lastDoneMiles": null,
+            "lastDoneVisitId": null,
+            "nextDueDate": null,
+            "nextDueMiles": null,
+            "estDateForMiles": null,
+            "sheetStatus": "No history"
+          }
+        }
+      ],
+      "coverage": [
+        {
+          "name": "Dealer prepaid maintenance",
+          "type": "Prepaid plan",
+          "startDate": "2025-11-14",
+          "endDate": "2028-11-14",
+          "startMiles": 12,
+          "endMiles": 30000,
+          "endMilesDate": "2028-01-02",
+          "endsOn": "2028-01-02",
+          "endsBy": "miles",
+          "covers": [
+            "Oil Change",
+            "Tire Rotation"
+          ],
+          "active": true,
+          "notes": "3 yr / 30k mi"
+        },
+        {
+          "name": "Kia powertrain",
+          "type": "Warranty",
+          "startDate": "2025-11-14",
+          "endDate": "2035-11-14",
+          "startMiles": 12,
+          "endMiles": 100000,
+          "endMilesDate": "2032-12-24",
+          "endsOn": "2032-12-24",
+          "endsBy": "miles",
+          "covers": [],
+          "active": true,
+          "notes": "10 yr / 100k mi"
+        },
+        {
+          "name": "Kia basic",
+          "type": "Warranty",
+          "startDate": "2025-11-14",
+          "endDate": "2030-11-14",
+          "startMiles": 12,
+          "endMiles": 60000,
+          "endMilesDate": "2030-02-19",
+          "endsOn": "2030-02-19",
+          "endsBy": "miles",
+          "covers": [],
+          "active": true,
+          "notes": "5 yr / 60k mi"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "tl-20260805-K2203",
+          "date": "2026-08-05",
+          "mileage": 10180,
+          "location": "Hometown Kia",
+          "roNumber": "K2203",
+          "summary": "Tire repair (patch/plug), multi-point inspection",
+          "invoiceTotal": 27.4,
+          "amountPaid": 27.4,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Other",
+              "description": "REPAIR TIRE W/ PATCH PLUG",
+              "lineCost": 22.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "MULTI-POINT INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2025 Kia Telluride SX Prestige - 2026 08 05 - Hometown Kia.png",
+              "fileId": "fake-doc-tl-0805-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        },
+        {
+          "visitId": "tl-20260710-K2202",
+          "date": "2026-07-10",
+          "mileage": 9050,
+          "location": "Hometown Kia",
+          "roNumber": "K2202",
+          "summary": "Oil change, tire rotation with brake inspection",
+          "invoiceTotal": 151.2,
+          "amountPaid": 151.2,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Oil Change",
+              "description": "CHANGE ENGINE OIL AND FILTER (5W30 FULL SYN)",
+              "lineCost": 92.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Tire Rotation",
+              "description": "FOUR WHEEL TIRE ROTATION WITH BRAKE INSPECTION",
+              "lineCost": 36.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "VIDEO INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2025 Kia Telluride SX Prestige - 2026 07 10 - Hometown Kia.png",
+              "fileId": "fake-doc-tl-0710-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            }
+          ]
+        },
+        {
+          "visitId": "tl-20260330-K2201",
+          "date": "2026-03-30",
+          "mileage": 5020,
+          "location": "Hometown Kia",
+          "roNumber": "K2201",
+          "summary": "Oil change, service campaign (software update), video inspection",
+          "invoiceTotal": 104.8,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Receipt",
+          "sourceTag": null,
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [
+            {
+              "serviceType": "Multi-Point Inspection",
+              "description": "VIDEO INSPECTION",
+              "lineCost": 0,
+              "notes": null
+            },
+            {
+              "serviceType": "Oil Change",
+              "description": "CHANGE ENGINE OIL AND FILTER (5W30 FULL SYN)",
+              "lineCost": 92.95,
+              "notes": null
+            },
+            {
+              "serviceType": "Other",
+              "description": "SERVICE CAMPAIGN: ENGINE SOFTWARE UPDATE",
+              "lineCost": 0,
+              "notes": null
+            }
+          ],
+          "documents": [
+            {
+              "documentType": "Invoice",
+              "fileName": "2025 Kia Telluride SX Prestige - 2026 03 30 - Hometown Kia.png",
+              "fileId": "fake-doc-tl-0330-inv",
+              "pages": 1,
+              "complete": true,
+              "notes": null,
+              "kind": "image"
+            }
+          ],
+          "recommendations": [],
+          "readings": [
+            {
+              "item": "Tread — Left Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Front",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Left Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Tread — Right Rear",
+              "value": 10,
+              "unit": "/32 in",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Front",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Front",
+              "value": 10,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Left Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            },
+            {
+              "item": "Brake Pad — Right Rear",
+              "value": 9,
+              "unit": "mm",
+              "rating": "Good"
+            }
+          ]
+        },
+        {
+          "visitId": "tl-20251114-purchase",
+          "date": "2025-11-14",
+          "mileage": 12,
+          "location": "Sunflower Kia",
+          "roNumber": null,
+          "summary": "Purchased new — odometer baseline",
+          "invoiceTotal": null,
+          "amountPaid": null,
+          "cardSurcharge": null,
+          "dealerNextDueDate": null,
+          "dealerNextDueMiles": null,
+          "source": "Purchase",
+          "sourceTag": "Purchase",
+          "beforeOwnership": false,
+          "notes": null,
+          "services": [],
+          "documents": [
+            {
+              "documentType": "Purchase paperwork",
+              "fileName": "2025 Kia Telluride SX Prestige - 2025 11 14 - Sunflower Kia (Purchase paperwork).pdf",
+              "fileId": "fake-doc-tl-purchase",
+              "pages": null,
+              "complete": true,
+              "notes": null,
+              "kind": "pdf"
+            }
+          ],
+          "recommendations": [],
+          "readings": []
+        }
+      ],
+      "costs": {
+        "thisYear": 283.4,
+        "last12Months": 283.4,
+        "sincePurchase": 283.4,
+        "costPerMile": 0.0279,
+        "visitsWithoutTotal": 0,
+        "byYear": [
+          {
+            "year": 2025,
+            "total": 0
+          },
+          {
+            "year": 2026,
+            "total": 283.4
+          }
+        ],
+        "byServiceType": [
+          {
+            "serviceType": "Oil Change",
+            "total": 185.9
+          },
+          {
+            "serviceType": "Tire Rotation",
+            "total": 36.95
+          },
+          {
+            "serviceType": "Other",
+            "total": 22.95
+          }
+        ]
+      },
+      "wear": {
+        "tread": {
+          "label": "Tire tread",
+          "unit": "/32 in",
+          "replacementPoint": 4,
+          "latest": {
+            "value": 10,
+            "date": "2026-07-10",
+            "mileage": 9050,
+            "rating": "Good",
+            "visitId": "tl-20260710-K2202"
+          },
+          "readings": [
+            {
+              "value": 10,
+              "date": "2026-03-30",
+              "mileage": 5020,
+              "visitId": "tl-20260330-K2201"
+            },
+            {
+              "value": 10,
+              "date": "2026-07-10",
+              "mileage": 9050,
+              "visitId": "tl-20260710-K2202"
+            }
+          ],
+          "projection": null,
+          "note": "Not wearing measurably yet"
+        },
+        "brakeFront": {
+          "label": "Front brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 10,
+            "date": "2026-07-10",
+            "mileage": 9050,
+            "rating": "Good",
+            "visitId": "tl-20260710-K2202"
+          },
+          "readings": [
+            {
+              "value": 10,
+              "date": "2026-03-30",
+              "mileage": 5020,
+              "visitId": "tl-20260330-K2201"
+            },
+            {
+              "value": 10,
+              "date": "2026-07-10",
+              "mileage": 9050,
+              "visitId": "tl-20260710-K2202"
+            }
+          ],
+          "projection": null,
+          "note": "Not wearing measurably yet"
+        },
+        "brakeRear": {
+          "label": "Rear brake pads",
+          "unit": "mm",
+          "replacementPoint": 3,
+          "latest": {
+            "value": 9,
+            "date": "2026-07-10",
+            "mileage": 9050,
+            "rating": "Good",
+            "visitId": "tl-20260710-K2202"
+          },
+          "readings": [
+            {
+              "value": 9,
+              "date": "2026-03-30",
+              "mileage": 5020,
+              "visitId": "tl-20260330-K2201"
+            },
+            {
+              "value": 9,
+              "date": "2026-07-10",
+              "mileage": 9050,
+              "visitId": "tl-20260710-K2202"
+            }
+          ],
+          "projection": null,
+          "note": "Not wearing measurably yet"
+        }
+      },
+      "recalls": [
+        {
+          "campaignNumber": "26V904000",
+          "reportDate": "2026-09-10",
+          "component": "ELECTRICAL SYSTEM",
+          "summary": "Sample recall summary.",
+          "consequence": "Sample consequence.",
+          "remedy": "Software update.",
+          "status": "New",
+          "firstSeen": "2026-09-12",
+          "notes": null,
+          "parkIt": false,
+          "parkOutside": true
+        },
+        {
+          "campaignNumber": "26V905000",
+          "reportDate": "2026-03-03",
+          "component": "SEAT BELTS",
+          "summary": "Sample recall summary.",
+          "consequence": null,
+          "remedy": null,
+          "status": "Not applicable",
+          "firstSeen": "2026-08-21",
+          "notes": null,
+          "parkIt": false,
+          "parkOutside": false
+        }
+      ],
+      "attention": [
+        {
+          "kind": "recall",
+          "text": "New recall may apply to the Telluride",
+          "href": "#/v/2025%20Kia%20Telluride%20SX%20Prestige/recalls"
+        }
+      ]
+    }
+  ],
+  "serviceTypes": [
+    "Oil Change",
+    "Tire Rotation",
+    "Cabin Air Filter",
+    "Engine Air Filter",
+    "Wiper Blades",
+    "Windshield Replacement",
+    "Windshield Calibration",
+    "Battery Service",
+    "Battery Replacement",
+    "Brake Service",
+    "Brake Fluid",
+    "Tires",
+    "Alignment",
+    "Coolant",
+    "Transmission Fluid",
+    "Multi-Point Inspection",
+    "Scheduled Maintenance",
+    "Fluid Check",
+    "Detail",
+    "Other",
+    "Unknown"
+  ],
+  "myScans": [
+    {
+      "scanId": "scan-0001",
+      "kind": "Receipt",
+      "vehicleHint": "2023 Toyota 4Runner",
+      "fileId": "fake-scan-0001",
+      "fileName": "App scan - 2023 Toyota 4Runner - 2026-09-21 1805 - Leo.pdf",
+      "pages": 2,
+      "uploadedAt": "2026-09-21T18:05:00-05:00",
+      "status": "Waiting",
+      "statusLabel": "Waiting to be filed",
+      "statusDetail": "It's in the pile. Receipts are usually filed within a few hours.",
+      "visitId": null,
+      "filedVehicle": null,
+      "lastChecked": "2026-09-22T07:30:00-05:00"
+    },
+    {
+      "scanId": "scan-0002",
+      "kind": "Receipt",
+      "vehicleHint": "2023 Toyota 4Runner",
+      "fileId": "fake-doc-4r-0903-inv",
+      "fileName": "App scan - 2023 Toyota 4Runner - 2026-09-04 0810 - Leo.pdf",
+      "pages": 3,
+      "uploadedAt": "2026-09-04T08:10:00-05:00",
+      "status": "Filed",
+      "statusLabel": "Filed on the 4Runner",
+      "statusDetail": "It's in the 4Runner's service journal.",
+      "visitId": "4r-20260903-L1102",
+      "filedVehicle": "2023 Toyota 4Runner",
+      "lastChecked": "2026-09-04T12:00:00-05:00"
+    },
+    {
+      "scanId": "scan-0009",
+      "kind": "Upload",
+      "vehicleHint": "2023 Toyota 4Runner",
+      "fileId": "fake-scan-0009",
+      "fileName": "App upload - 2023 Toyota 4Runner - 2026-08-23 1640 - Leo.pdf",
+      "pages": 1,
+      "uploadedAt": "2026-08-23T16:40:00-05:00",
+      "status": "Check with owner",
+      "statusLabel": "Check with Robert",
+      "statusDetail": "We couldn't tell where this scan went. Robert can look into it.",
+      "visitId": null,
+      "filedVehicle": null,
+      "lastChecked": "2026-08-24T17:00:00-05:00"
+    }
+  ],
+  "ownerName": "Robert"
+}

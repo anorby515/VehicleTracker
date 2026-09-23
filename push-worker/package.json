@@ -1,0 +1,13 @@
+{
+  "name": "vehicles-push",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker that signs (VAPID) and encrypts (RFC 8291) Web Push messages for the App API. No runtime dependencies; tests use node:test and Node's WebCrypto.",
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'",
+    "bundle": "node scripts/bundle.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
