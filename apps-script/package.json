@@ -4,6 +4,7 @@
   "description": "App API (standalone Apps Script). Plain JavaScript files shared in one global scope; tests run in Node.",
   "scripts": {
     "test": "TZ=America/Chicago node --test 'test/*.test.js'",
-    "fixture": "TZ=America/Chicago node test/make-fixture.js"
+    "fixture": "TZ=America/Chicago node test/make-fixture.js",
+    "paste": "node tools/paste-bundle.js"
   }
 }
