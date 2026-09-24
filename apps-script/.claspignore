@@ -3,3 +3,4 @@
 !*.js
 test/**
 package.json
+tools/**

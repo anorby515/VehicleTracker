@@ -56,11 +56,11 @@ The app signs people in with Google once and then keeps its own session for abou
 1. Go to <https://console.cloud.google.com/> signed in with your own Google account (the one that owns the journal Sheet). Use the project picker at the top: **New project** › name `Vehicles app` › **Create**, then select it.
 2. Open **☰** › **APIs & Services** › **OAuth consent screen**. The console may call this **Google Auth Platform**. Click **Get started**.
    - **App name:** `Vehicles`. **User support email:** yours. **Audience:** **External**. **Contact email:** yours. Agree and **Create**.
-   - **Data Access** › **Add or remove scopes**: tick only `openid`, `.../auth/userinfo.email` and `.../auth/userinfo.profile` › **Update** › **Save**.
-3. **Audience** (publishing status). Pick **Publish app** and move it to **In production**, confirming the prompt. This is the recommended choice.
-   - **Why production:** Google doesn't require verification for an app that only asks for name, email and profile. Sign-ins then never expire because of "Testing" rules.
-   - **Who can get in:** the app itself decides who is allowed, using the **App Users** tab. Anyone else who signs in just sees "This app is for the Norby family" and gets no data.
-   - **If you'd rather stay in Testing:** under **Test users**, add the four family accounts. Sign-in-only apps aren't subject to the 7-day expiry, but you'd have to add every new driver there as well as on App Users.
+   - On a phone, the section menu (Branding, Audience, Clients, Data Access) is behind the **shield icon ▾** next to "Google Auth Platform".
+   - You can skip **Data Access**: `openid`, email and profile are basic scopes, and sign-in works without listing them.
+3. **Audience.** Leave the publishing status on **Testing**. Under **Test users** › **Add users**, add the four family Google accounts and **Save**.
+   - **Why Testing:** **Publish app** stays greyed out until the Branding page has a home page and a privacy policy link, which this app doesn't have. Testing's 7-day expiry doesn't apply to sign-in-only apps, and the app keeps its own 60-day session anyway.
+   - **Who can get in:** a Google account must be a test user here **and** active on the **App Users** tab. Anyone else sees "This app is for the Norby family" and gets no data. A new driver needs adding in both places.
 4. Open **Clients** › **Create client** › **Application type: Web application** › **Name** `Vehicles web`.
    - **Authorized JavaScript origins:** add `https://anorby515.github.io`. This is the host only, with no path and no trailing slash.
    - **Authorized redirect URIs:** add `https://anorby515.github.io/VehicleTracker/`. Use exactly that, **with** the trailing slash.
@@ -96,8 +96,8 @@ openssl rand -base64 32
 **3c. Deploy the Worker.** Choose one of these:
 - *Dashboard, no tools:*
   1. Sign up at <https://dash.cloudflare.com/sign-up>. The free plan is enough.
-  2. Go to **Workers & Pages** › **Create** › **Create Worker** › name `vehicles-push` › **Deploy**.
-  3. **Edit code**. Delete the sample and paste the whole of `push-worker/dist/worker.js` from the repo. Build it first with `npm run bundle` in `push-worker/`, or ask Claude Code. Then **Deploy**.
+  2. On the dashboard home, under **Workers**, click **Ship something new** › **Start with Hello World!**. (Older dashboards: **Workers & Pages** › **Create** › **Create Worker**.) Name it `vehicles-push` › **Deploy**.
+  3. **Edit code**. Delete the sample and paste the whole of `push-worker/dist/worker.js`. That file is built, not committed: run `npm run bundle` in `push-worker/`, or ask Claude Code for it. Then **Deploy**.
 - *Command line:*
   ```sh
   cd push-worker
@@ -110,7 +110,7 @@ openssl rand -base64 32
 | Name | Type | Value |
 | --- | --- | --- |
 | `VAPID_PUBLIC_KEY` | Text | the public key from 3a |
-| `VAPID_SUBJECT` | Text | `mailto:` followed by your email address (Apple rejects anything else) |
+| `VAPID_SUBJECT` | Text | `mailto:` followed by your email address (it must start with `mailto:` or `https:`) |
 | `VAPID_PRIVATE_KEY` | **Secret** | the private key from 3a |
 | `PUSH_SECRET` | **Secret** | the shared secret from 3b |
 
@@ -126,14 +126,12 @@ With wrangler, use `npx wrangler secret put VAPID_PRIVATE_KEY` and `npx wrangler
 
 1. Go to <https://script.google.com/> › **New project**. Rename it (top left) to `Vehicles App API`.
 2. Click **Project Settings** (the gear) and tick **Show "appsscript.json" manifest file in editor**. Also set **Time zone** to `(GMT-06:00) Central Time - Chicago`.
-3. Back in **Editor**, create one script file per `.js` file in the repo's `apps-script/` folder, **except** anything under `test/`. For each file:
-   1. Click **+** › **Script** and give it the same name without `.js` (for example `Config`).
-   2. Delete the placeholder code, paste the file's contents and save.
-   3. Delete the default `Code.gs`, unless you've pasted into it.
+3. Copy the code in. The easiest way is three pastes:
+   1. Get the paste files: run `npm run paste` in `apps-script/`, or ask Claude Code for them. You get `paste/Part1.gs`, `Part2.gs`, `Part3.gs` and `appsscript.json`. Together they are every `.js` file in `apps-script/` except the tests.
+   2. Back in **Editor**, replace the contents of `appsscript.json` with `paste/appsscript.json`.
+   3. Replace the contents of `Code.gs` with `Part1.gs`. Then click **+** › **Script**, name it `Part2`, and paste `Part2.gs`. Do the same for `Part3`. Save.
 
-   Replace the contents of `appsscript.json` with the repo's `apps-script/appsscript.json`.
-
-   *Alternative:* with Node.js, install [clasp](https://github.com/google/clasp) and use `.clasp.json.example`. Then `clasp push` copies everything.
+   *Alternatives:* create one script file per source file (same name without `.js`), or, with Node.js, install [clasp](https://github.com/google/clasp), use `.clasp.json.example`, and run `clasp push`.
 4. **Project Settings** › **Script Properties** › **Add script property** for each of these:
 
 | Property | Value |
@@ -376,6 +374,7 @@ Tick these on a real iPhone installed to the home screen.
 ## Updating later
 
 - **Front end:** commit to `main`; GitHub Actions tests and deploys. Phones show "New version available. Tap to refresh."
-- **App API:** paste the changed files, then Deploy › Manage deployments › edit › **New version**, which keeps the same URL. If `appsscript.json` scopes change, run any function once to re-authorize.
+- **App API:** run `npm run paste` in `apps-script/` (or ask Claude Code) and replace the contents of `Code.gs`, `Part2` and `Part3` with the new parts. If it now makes a different number of parts, add or delete files to match. Then Deploy › Manage deployments › edit › **New version**, which keeps the same URL. If `appsscript.json` scopes change, run any function once to re-authorize.
 - **Push Worker:** paste the new `dist/worker.js` in the dashboard, or run `npx wrangler deploy`.
 - **New vehicle:** add a Vehicles row (Active = Yes) with its Drive folder. Then run `setupSchemaApply` once, which fills its Latest Odometer formulas and photo. Also fill NHTSA Make/Model.
+- **New driver:** add their Google account under **Test users** in Google Cloud (step 2.3) and a row on **App Users** (Active = Yes).

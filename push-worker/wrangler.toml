@@ -8,7 +8,7 @@ compatibility_date = "2026-09-01"
 [vars]
 # base64url, 65-byte uncompressed P-256 point (the "Public Key" from
 # `npx web-push generate-vapid-keys`). Same value as vapidPublicKey in web/app.config.json.
-VAPID_PUBLIC_KEY = "REPLACE_WITH_VAPID_PUBLIC_KEY"
+VAPID_PUBLIC_KEY = "BJlrvmNaefNgx07DbODp044o-VztucaYDQItAaPzP2wThU7gUMALPStjiiQuiY796ZkUzZMym7rZQARt8FrGuMQ"
 # Contact for the push services: must start with mailto: or https:. The app's
 # public URL keeps a personal email out of the repo.
 VAPID_SUBJECT = "https://anorby515.github.io/VehicleTracker/"

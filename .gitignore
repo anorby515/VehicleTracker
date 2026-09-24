@@ -13,3 +13,4 @@ playwright-report/
 web/public/vendor/opencv/
 .DS_Store
 web/dist-mock/
+apps-script/paste/
