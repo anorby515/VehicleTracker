@@ -448,6 +448,7 @@ function formulaLetters_(vehicleHeaders, visitHeaders, odometerHeaders) {
  * The expected formula texts for Vehicles row r. Pure.
  *   oldAvg / oldEst  the live Avg Miles/Day and Est. Current Mileage formulas
  *   lo / ld          the new Latest Odometer / Latest Odometer Date formulas
+ *   ldV1             the first Latest Odometer Date formula, upgraded to ld
  *   newAvg / newEst  the replacements, reading Latest Odometer (Date)
  */
 function vehicleFormulas_(L, r) {
@@ -461,7 +462,12 @@ function vehicleFormulas_(L, r) {
     oldEst: `=IFERROR(IF(OR(${LKM}="",${AVG}=""),${LKM},ROUND(${LKM}+${AVG}*(TODAY()-${LVD}),0)),"")`,
     lo: `=IFERROR(LET(v,MAXIFS(${V}${col('VM')},${V}${col('VV')},${veh}),` +
       `o,MAXIFS(${O}${col('OM')},${O}${col('OV')},${veh}),m,MAX(v,o),IF(m=0,"",m)),"")`,
+    // INT: journal dates are stored at noon, and Est. Current Mileage counts
+    // whole days from TODAY(), so a reading entered today must count as day 0.
     ld: `=IFERROR(IF(${LO}="","",LET(d,MAX(MAXIFS(${V}${col('VD')},${V}${col('VV')},${veh},${V}${col('VM')},${LO}),` +
+      `MAXIFS(${O}${col('OD')},${O}${col('OV')},${veh},${O}${col('OM')},${LO})),IF(d=0,"",INT(d)))),"")`,
+    // Kept the noon time, so the estimate ran half a day behind (below today's reading).
+    ldV1: `=IFERROR(IF(${LO}="","",LET(d,MAX(MAXIFS(${V}${col('VD')},${V}${col('VV')},${veh},${V}${col('VM')},${LO}),` +
       `MAXIFS(${O}${col('OD')},${O}${col('OV')},${veh},${O}${col('OM')},${LO})),IF(d=0,"",d))),"")`,
     newAvg: `=IFERROR(IF(OR(${PD}="",${PM}="",${LO}="",${LD}=""),"",ROUND((${LO}-${PM})/(${LD}-${PD}),1)),"")`,
     newEst: `=IFERROR(IF(OR(${LO}="",${AVG}=""),${LO},ROUND(${LO}+${AVG}*(TODAY()-${LD}),0)),"")`,
@@ -502,7 +508,7 @@ function setupMileageFormulas_(run) {
     const lo = setupNewFormulaCell_(run, sh, v, 'Latest Odometer', L.LOCol, f.lo,
       NEW_COLUMN_FORMATS['Latest Odometer'], cell(v.row, L.LOCol));
     const ld = setupNewFormulaCell_(run, sh, v, 'Latest Odometer Date', L.LDCol, f.ld,
-      NEW_COLUMN_FORMATS['Latest Odometer Date'], cell(v.row, L.LDCol));
+      NEW_COLUMN_FORMATS['Latest Odometer Date'], cell(v.row, L.LDCol), f.ldV1);
     ready[v.row] = lo && ld;
   });
 
@@ -549,12 +555,18 @@ function setupReadCells_(sh, rows, cols) {
 
 /**
  * A new formula cell (Latest Odometer / Latest Odometer Date): set when
- * blank; nothing when it already holds the formula; anything else is
+ * blank; nothing when it already holds the formula; updated when it holds
+ * exactly the `previous` version this setup wrote; anything else is
  * SKIPPED. Returns true when the cell holds (or would hold) the formula.
  */
-function setupNewFormulaCell_(run, sh, v, header, col, formula, numberFormat, current) {
+function setupNewFormulaCell_(run, sh, v, header, col, formula, numberFormat, current, previous) {
   const where = header + ' ' + colLetter_(col) + v.row + ' (' + v.name + ')';
   if (sameFormula_(current.formula, formula)) return true;
+  if (previous && sameFormula_(current.formula, previous)) {
+    if (run.apply) setupWriteFormula_(run, sh, v.row, col, header, formula, numberFormat);
+    setupChange_(run, 'update ' + where + ' from: ' + current.formula + ' ; to: ' + formula);
+    return true;
+  }
   const blank = !current.formula && (current.value === '' || current.value === null || current.value === undefined);
   if (blank) {
     if (run.apply) setupWriteFormula_(run, sh, v.row, col, header, formula, numberFormat);
