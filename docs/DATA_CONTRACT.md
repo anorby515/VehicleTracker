@@ -73,7 +73,7 @@ One row per vehicle. `Vehicle` is the key used on every other tab.
 | NHTSA Make, NHTSA Model | Andrew | API | Daily recall lookup (e.g. `TOYOTA` / `4RUNNER`, `JEEP` / `WRANGLER`). |
 | OEM App Name, OEM App Link, OEM App Store Link | Andrew | API | "Open \<app>" button and its App Store fallback. |
 | Latest Odometer | F (new) | F, API | Highest of Visits Mileage and Odometer Readings Mileage for the vehicle. |
-| Latest Odometer Date | F (new) | F, API | Date of that reading. |
+| Latest Odometer Date | F (new) | F, API | Date of that reading, as a whole day (journal dates are stored at noon; the estimate counts whole days from today). |
 
 ### Visits
 

@@ -26,7 +26,9 @@ const NEW_AO2 = '=IFERROR(LET(v,MAXIFS(Visits!$D:$D,Visits!$B:$B,$A2),o,MAXIFS(\
   '\'Odometer Readings\'!$B:$B,$A2),m,MAX(v,o),IF(m=0,"",m)),"")';
 const NEW_AP2 = '=IFERROR(IF(AO2="","",LET(d,MAX(MAXIFS(Visits!$C:$C,Visits!$B:$B,$A2,Visits!$D:$D,AO2),' +
   'MAXIFS(\'Odometer Readings\'!$C:$C,\'Odometer Readings\'!$B:$B,$A2,\'Odometer Readings\'!$D:$D,AO2)),' +
-  'IF(d=0,"",d))),"")';
+  'IF(d=0,"",INT(d)))),"")';
+// The first Latest Odometer Date formula (kept the noon time), which setupSchemaApply() upgrades.
+const V1_AP2 = NEW_AP2.replace('INT(d)))),"")', 'd))),"")');
 const NEW_P2 = '=IFERROR(IF(OR(L2="",M2="",AO2="",AP2=""),"",ROUND((AO2-M2)/(AP2-L2),1)),"")';
 const NEW_Q2 = '=IFERROR(IF(OR(AO2="",P2=""),AO2,ROUND(AO2+P2*(TODAY()-AP2),0)),"")';
 
@@ -244,6 +246,33 @@ test('a second setupSchemaApply() changes nothing and logs "No changes needed"',
   vehicles.getRange('V5').setValue('photo-4r');
   env.gas.setupSchemaApply();
   assert.equal(env.messages().pop(), 'No changes needed');
+});
+
+test('the first Latest Odometer Date formula is updated to whole days, and only that one', () => {
+  const env = setup();
+  env.gas.setupSchemaApply();
+  const vehicles = env.sheet('Vehicles');
+  // As the live Sheet was set up: the first version on every row except row 6, which was hand-edited.
+  for (const r of [2, 3, 4, 5]) vehicles.getRange('AP' + r).setFormula(forRow(V1_AP2, r));
+  const custom = '=MAX(Visits!$C:$C)';
+  vehicles.getRange('AP6').setFormula(custom);
+  const logLen = env.logRows().length;
+
+  const dry = env.gas.setupSchema();
+  assert.equal(dry.changes, 4);
+  const msgs = env.messages().slice(logLen);
+  assert.ok(msgs.includes('WOULD update Latest Odometer Date AP2 (' + V.highlander + ') from: ' + V1_AP2 +
+    ' ; to: ' + NEW_AP2));
+  assert.equal(env.cell('Vehicles', 'AP2').formula, V1_AP2, 'dry run changes nothing');
+
+  env.gas.setupSchemaApply();
+  for (const r of [2, 3, 4, 5]) assert.equal(env.cell('Vehicles', 'AP' + r).formula, forRow(NEW_AP2, r), 'AP' + r);
+  assert.equal(env.cell('Vehicles', 'AP6').formula, custom, 'a hand-edited formula is left alone');
+  assert.ok(env.logRows().some(r => r[2] === 'WARN' && r[3].startsWith('SKIPPED Latest Odometer Date AP6')));
+  // Avg Miles/Day and Est. Current Mileage were already the new formulas: untouched.
+  assert.equal(env.cell('Vehicles', 'Q2').formula, NEW_Q2);
+
+  assert.equal(env.gas.setupSchema().changes, 0);
 });
 
 test('a hand-edited Avg Miles/Day formula is SKIPPED with a WARN, never guessed at', () => {
