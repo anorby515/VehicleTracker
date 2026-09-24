@@ -2,7 +2,9 @@ import { Blob as NodeBlob } from 'node:buffer';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { setTransport } from '../api/client';
 import { db } from './db';
-import { loadPhotoBlob, prunePhotos, resetPhotoMemo } from './photos';
+import { h, render } from 'preact';
+import { act } from 'preact/test-utils';
+import { loadPhotoBlob, prunePhotos, resetPhotoMemo, usePhoto, type PhotoState } from './photos';
 
 const PNG_B64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 
@@ -71,5 +73,50 @@ describe('loadPhotoBlob', () => {
     expect(await prunePhotos(['keep-me'])).toBe(1);
     const keys = await (await db()).getAllKeys('photos');
     expect(keys).toEqual(['keep-me']);
+  });
+});
+
+describe('usePhoto', () => {
+  let states: PhotoState[] = [];
+  function Probe(props: { fileId: string; retryKey: number }) {
+    states.push(usePhoto(props.fileId, props.retryKey).state);
+    return null;
+  }
+  const container = document.createElement('div');
+  const show = (retryKey: number) => act(() => { render(h(Probe, { fileId: 'photo-e', retryKey }), container); });
+  /** Lets the fetch, IndexedDB and state updates settle. */
+  async function settle(): Promise<void> {
+    for (let i = 0; i < 20; i++) await act(() => new Promise<void>(r => setTimeout(r, 0)));
+  }
+
+  beforeAll(() => {
+    URL.createObjectURL = () => 'blob:photo';
+    URL.revokeObjectURL = () => {};
+  });
+  beforeEach(() => { states = []; });
+  afterEach(() => { render(null, container); });
+
+  it('tries a failed photo again when the retry key changes, and leaves a loaded one alone', async () => {
+    offline = true;
+    await show(1);
+    await settle();
+    expect(states.at(-1)).toBe('error');
+    expect(calls).toHaveLength(1);
+
+    // Same key (a re-render without a refresh): no retry.
+    await show(1);
+    await settle();
+    expect(calls).toHaveLength(1);
+
+    offline = false;
+    await show(2); // e.g. a data refresh
+    await settle();
+    expect(states.at(-1)).toBe('ready');
+    expect(calls).toHaveLength(2);
+
+    await show(3);
+    await settle();
+    expect(states.at(-1)).toBe('ready');
+    expect(calls).toHaveLength(2);
   });
 });

@@ -11,6 +11,7 @@ import type { AttentionItem, OemApp, UpcomingItem, Vehicle, Visit } from '../api
 import { countdown, formatDate, formatMiles, formatMoney, formatMoneyWhole } from '../lib/format';
 import { usePhoto } from '../lib/photos';
 import { href } from '../state/router';
+import { bootstrapFetchedAt } from '../state/store';
 import { CoveredBadge, StatusBadge, Tag } from '../ui/Badge';
 import { Icon, type IconName } from '../ui/Icon';
 import { RouteLink, presentToday } from './common';
@@ -45,7 +46,8 @@ export function VehicleCard(props: VehicleCardProps): JSX.Element {
 
 export function VehiclePhoto(props: { vehicle: Vehicle; class?: string }): JSX.Element {
   const v = props.vehicle;
-  const photo = usePhoto(v.photoFileId);
+  // Retry a photo that failed to load on each data refresh (pull down, or back to the app).
+  const photo = usePhoto(v.photoFileId, bootstrapFetchedAt.value);
   return (
     <div class={`vphoto${props.class ? ' ' + props.class : ''}`}>
       {photo.url

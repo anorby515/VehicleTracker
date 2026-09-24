@@ -6,7 +6,7 @@
  * cache never needs invalidating: entries for IDs no longer in use are pruned.
  */
 
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { base64ToBlob, call } from '../api/client';
 import { db, type CachedPhoto } from './db';
 
@@ -81,11 +81,25 @@ export type PhotoState = 'none' | 'loading' | 'ready' | 'error';
 /**
  * Object URL for a vehicle photo, or null while loading / when there is none.
  * The URL is revoked when the component unmounts or the file ID changes.
+ *
+ * A failed load (a dropped request, the API busy) is tried again whenever
+ * `retryKey` changes, e.g. on each data refresh, so the photo doesn't stay
+ * missing until the app is closed. Loaded photos are left alone.
  */
-export function usePhoto(fileId: string | null | undefined): { url: string | null; state: PhotoState } {
+export function usePhoto(fileId: string | null | undefined, retryKey?: unknown): { url: string | null; state: PhotoState } {
   const [result, setResult] = useState<{ url: string | null; state: PhotoState }>(
     fileId ? { url: null, state: 'loading' } : { url: null, state: 'none' },
   );
+  const [attempt, setAttempt] = useState(0);
+  const failed = useRef(false);
+  failed.current = result.state === 'error';
+  const seenKey = useRef(retryKey);
+
+  useEffect(() => {
+    if (Object.is(retryKey, seenKey.current)) return;
+    seenKey.current = retryKey;
+    if (failed.current) setAttempt(n => n + 1);
+  }, [retryKey]);
 
   useEffect(() => {
     if (!fileId) {
@@ -109,7 +123,7 @@ export function usePhoto(fileId: string | null | undefined): { url: string | nul
       cancelled = true;
       if (url) URL.revokeObjectURL(url);
     };
-  }, [fileId]);
+  }, [fileId, attempt]);
 
   return result;
 }
