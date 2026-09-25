@@ -19,16 +19,25 @@ import { Icon } from '../ui/Icon';
 import { toast } from '../ui/toast';
 import './Banners.css';
 
-/** "Offline: showing data from 2:14 PM" (with the date when it isn't today). */
-export function offlineText(fetchedAt: number | null, now: number = Date.now()): string {
-  if (!fetchedAt) return 'Offline';
+/**
+ * "Offline: showing data from 2:14 PM" (with the date when it isn't today).
+ * When the phone has a connection but the server couldn't be reached, it
+ * says "Couldn't connect" instead: the app keeps retrying on its own.
+ */
+export function offlineText(
+  fetchedAt: number | null,
+  now: number = Date.now(),
+  deviceOnline: boolean = typeof navigator === 'undefined' || navigator.onLine !== false,
+): string {
+  const label = deviceOnline ? 'Couldn’t connect' : 'Offline';
+  if (!fetchedAt) return label;
   const d = new Date(fetchedAt);
   const day = todayYmd(d);
   const today = todayYmd(new Date(now));
   const time = formatTime(d);
-  if (day === today) return `Offline: showing data from ${time}`;
+  if (day === today) return `${label}: showing data from ${time}`;
   const date = day.slice(0, 4) === today.slice(0, 4) ? formatDateShort(day) : formatDate(day);
-  return `Offline: showing data from ${date}, ${time}`;
+  return `${label}: showing data from ${date}, ${time}`;
 }
 
 export function plural(n: number, one: string, many: string): string {
