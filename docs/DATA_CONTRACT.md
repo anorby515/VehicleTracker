@@ -26,7 +26,7 @@ This page was checked against the live Sheet, its formulas, and the ingestion sc
 | Vehicles (existing columns) | Andrew, Formulas, Ingestion (`vehicle_updates`) | Read only. `setupSchema()` replaces the two formulas in §5.3 once, when Andrew runs it. |
 | Vehicles (new columns, §5.2) | Andrew by hand; Formulas for Latest Odometer and Latest Odometer Date; `setupSchema()` seeds Photo File ID once | Read only, apart from those one-time seeds |
 | Warranties (existing columns + new `Type`, `Covers`) | Andrew | Read only |
-| App Users, Odometer Readings, App Scans, Recalls, Push Subscriptions, Notification Log | App API (Andrew may edit App Users, and Recalls › Status) | Read and write |
+| App Users, Odometer Readings, App Scans, Recalls, Push Subscriptions, Notification Log | App API (Andrew may edit App Users, and Recalls › Status and Notes) | Read and write |
 | Drive `Inbox` | Family (Drive scanner) and the App API (new files only) | Creates new files; never modifies or deletes |
 | Drive vehicle folders, `_Needs Review` | Cowork (renames and moves, keeping the file ID) | Reads location and metadata; streams files listed below |
 | Drive `_System/Queue` | Cowork writes; Ingestion reads, then trashes | None |
@@ -197,7 +197,8 @@ One row per shop visit. Rows are not sorted.
 
 `Vehicle, Campaign Number, Report Date, Component, Summary, Consequence, Remedy, Status, First Seen, Notes, Park It, Park Outside`.
 - **Rows** come from the daily NHTSA lookup.
-- **Status** is `New`, `Reviewed`, `Done` or `Not applicable`. Andrew edits it by hand, and only `New` appears in Upcoming.
+- **Status** is `New`, `Reviewed`, `Done` or `Not applicable`. Only `New` appears in Upcoming. The app's **Done**, **Doesn't apply** and **Mark as new** buttons set `Done`, `Not applicable` or `New` (API `setRecallStatus`); `Reviewed` is only ever typed by hand.
+- **Notes** is Andrew's. When the app changes a Status it adds a line, `Marked <status> by <Name> on <date>`, and keeps what was there.
 - **Park It / Park Outside** are NHTSA's "do not drive" and "park outside" flags. They were added after the spec's columns.
 
 ### Push Subscriptions (app-owned)

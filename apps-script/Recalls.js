@@ -209,3 +209,38 @@ function runRecalls_(now, opts) {
   if (summary.added) invalidateBootstrapCache_();
   return summary;
 }
+
+// ---------------------------------------------------------------- setRecallStatus
+
+/**
+ * setRecallStatus {vehicle, campaignNumber, status} → {recall}
+ * status is New, Done or Not applicable (Api.js checks); Reviewed stays a
+ * hand-edited, Sheet-only value.
+ * The app's Done / Doesn't apply buttons (and Undo, back to New). Any family
+ * member can use them. Notes keeps what was there and gains one line saying
+ * who changed it and when, so a mistaken tap is easy to spot and undo.
+ */
+function setRecallStatus_(ctx, params) {
+  const vehicle = String(params.vehicle).trim();
+  const campaign = String(params.campaignNumber).trim();
+  const status = params.status;
+  const who = (ctx.appUser && ctx.appUser.name) || ctx.email;
+  const recall = withLock_(() => {
+    const rec = normRecalls_(readTab_(TAB.RECALLS, true))
+      .filter(r => r.vehicle === vehicle && r.campaignNumber === campaign)[0];
+    if (!rec) throw apiError_(404, 'not_found', "That recall isn't on the list any more.");
+    if (lower_(rec.status) === lower_(status)) return rec;
+    const line = 'Marked ' + status + ' by ' + who + ' on ' + nowParts_().ymd;
+    const notes = rec.notes ? rec.notes + '\n' + line : line;
+    updateAppRow_(TAB.RECALLS, rec._row, { 'Status': status, 'Notes': notes });
+    return Object.assign({}, rec, { status: status, notes: notes });
+  });
+  invalidateBootstrapCache_();
+  return {
+    recall: {
+      campaignNumber: recall.campaignNumber, reportDate: recall.reportDate, component: recall.component,
+      summary: recall.summary, consequence: recall.consequence, remedy: recall.remedy, status: recall.status,
+      firstSeen: recall.firstSeen, notes: recall.notes, parkIt: recall.parkIt, parkOutside: recall.parkOutside,
+    },
+  };
+}

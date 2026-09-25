@@ -109,6 +109,11 @@ input.odo-input { font-size: 28px; font-weight: 600; text-align: center; font-va
 .reading-rating { color: var(--label-2); }
 .recall-card + .recall-card { margin-top: 16px; }
 .recall-card .callout { margin: 0 0 8px; }
+.recall-notes { white-space: pre-line; }
+.recall-actions { padding: 4px var(--pad) 14px; }
+.recall-actions .footnote { margin: 0 0 8px; }
+.recall-actions-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.recall-actions-row .btn { flex: 1 1 0; }
 .recall-remedy summary { list-style: none; }
 .recall-remedy summary::-webkit-details-marker { display: none; }
 .recall-remedy[open] summary svg { transform: rotate(180deg); }

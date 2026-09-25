@@ -27,6 +27,7 @@ export type ApiRequest =
   | { action: 'bootstrap'; session: string }
   | { action: 'getFile'; session: string; fileId: string; purpose?: 'document' | 'photo' }
   | { action: 'addOdometer'; session: string; vehicle: string; mileage: number; date?: YMD; note?: string; clientId: string; confirmHigh?: boolean }
+  | { action: 'setRecallStatus'; session: string; vehicle: string; campaignNumber: string; status: RecallAppStatus }
   | { action: 'uploadStart'; session: string; scanId: string; kind: ScanKind; vehicleHint: string; size: number; pages: number; capturedAt: ISODateTime }
   | { action: 'uploadChunk'; session: string; uploadId: string; offset: number; data: string /* base64 */ }
   | { action: 'subscribePush'; session: string; subscription: PushSubscriptionJSONStrict; deviceLabel: string }
@@ -92,6 +93,11 @@ export interface OdometerResult {
   /** The server's view of the vehicle's mileage after the reading. */
   latestOdometer: number;
   latestOdometerDate: YMD;
+}
+
+export interface RecallStatusResult {
+  /** The recall as it is now on the Recalls tab (Status and Notes updated). */
+  recall: Recall;
 }
 
 export interface UploadStartResult {
@@ -418,6 +424,8 @@ export interface WearItem {
 }
 
 export type RecallStatus = 'New' | 'Reviewed' | 'Done' | 'Not applicable';
+/** What the app's buttons set (Reviewed is only ever typed on the Sheet). */
+export type RecallAppStatus = 'New' | 'Done' | 'Not applicable';
 
 export interface Recall {
   campaignNumber: string;

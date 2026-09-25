@@ -9,7 +9,7 @@
  * ID, the Push Worker URL and secret are Script Properties (see SETUP.md).
  */
 
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const TZ = 'America/Chicago';
 
 /** Script Property names. */

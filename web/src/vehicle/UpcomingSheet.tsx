@@ -231,7 +231,7 @@ function RecallDetails(props: { vehicle: Vehicle; item: UpcomingItem }): JSX.Ele
   return (
     <>
         <p class="vsheet-text secondary">May apply to this model. Recall lookups are by model, not your exact vehicle, so check the VIN.</p>
-        {recall ? <div class="section"><RecallCard recall={recall} /></div> : <p class="empty">This recall isn’t listed any more.</p>}
+        {recall ? <div class="section"><RecallCard recall={recall} vehicle={v} /></div> : <p class="empty">This recall isn’t listed any more.</p>}
         <div class="vsheet-actions"><VinCheckLink vehicle={v} /></div>
     </>
   );

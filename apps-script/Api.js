@@ -126,6 +126,15 @@ function routes_() {
       },
       run: (ctx, p) => addOdometer_(ctx, p),
     },
+    setRecallStatus: {
+      auth: true,
+      params: {
+        vehicle: { type: 'string', required: true, max: 200 },
+        campaignNumber: { type: 'string', required: true, max: 40, pattern: /\S/ },
+        status: { type: 'string', required: true, oneOf: ['New', 'Done', 'Not applicable'] },
+      },
+      run: (ctx, p) => setRecallStatus_(ctx, p),
+    },
     uploadStart: {
       auth: true,
       params: {

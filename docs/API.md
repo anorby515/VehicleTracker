@@ -47,6 +47,7 @@ The App API is a standalone Apps Script web app (`apps-script/`). The front end 
 | `bootstrap` | session | Returns everything the app shows (`Bootstrap`). See below. |
 | `getFile` | session | Returns a Drive file's bytes (base64). **Only** file IDs that are part of this system; anything else → `403 forbidden`. See Files. |
 | `addOdometer` | session | Validates, then appends a row to **Odometer Readings**. Idempotent on `clientId`. |
+| `setRecallStatus` | session | Sets one **Recalls** row's Status to `New`, `Done` or `Not applicable` and notes who and when. Returns `{recall}`. |
 | `uploadStart` / `uploadChunk` | session | Chunked upload of one PDF into `Inbox` plus a row on **App Scans**. Idempotent on `scanId`. |
 | `subscribePush` | session | Upserts a **Push Subscriptions** row (matched on Endpoint), with Active = Yes. |
 | `unsubscribePush` | session | Sets Active = No on the row with that endpoint (only if it belongs to the caller). |
@@ -161,6 +162,15 @@ The steps, in order:
 4. `latest` is the higher of Vehicles › Latest Odometer and the highest Odometer Readings mileage for the vehicle. If `mileage < latest`, return `409 below_latest` with `detail: {mileage, date}`.
 5. If `mileage > Est. Current Mileage + 5,000` and `confirmHigh` isn't set, return `409 confirm_high` with `detail: {estimate}`.
 6. Append the row. Reading ID = `clientId`; Entered By = the user's Name; Entered At = now; Date is stored as a date at noon, matching the ingestion script's convention.
+
+### setRecallStatus
+
+`{vehicle, campaignNumber, status}` with `status` one of `New`, `Done`, `Not applicable`. These are the app's **Done**, **Doesn't apply** and **Mark as new** buttons. `Reviewed` stays a value only typed on the Sheet.
+
+1. Find the Recalls row for that vehicle and campaign, or return `404 not_found`.
+2. If it already has that status (ignoring case), change nothing.
+3. Otherwise set Status and add a line to Notes, keeping what's there: `Marked <status> by <Name> on <YYYY-MM-DD>`.
+4. Invalidate the bootstrap cache, so Upcoming and the attention banner drop (or regain) the recall on the next refresh. Any family member may do this.
 
 ### Uploads
 

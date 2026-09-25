@@ -81,9 +81,38 @@ export async function boot(): Promise<void> {
   if (authState.value === 'loading') authState.value = bootstrap.value ? 'signedIn' : 'signedOut';
 }
 
-/** Fetches a fresh bootstrap. Offline → keeps cached data, marks offline. */
+/**
+ * After a refresh can't reach the server, try again on its own a few times.
+ * iOS often drops the first request after a home-screen app wakes up, and
+ * the 'online' event never fires because the phone was online all along.
+ */
+const RETRY_DELAYS_MS = [3000, 10000, 30000];
+let retryTimer: ReturnType<typeof setTimeout> | undefined;
+let retryAttempt = 0;
+let autoRetrying = false;
+
+function scheduleRetry(): void {
+  if (retryTimer !== undefined || retryAttempt >= RETRY_DELAYS_MS.length) return;
+  retryTimer = setTimeout(() => {
+    retryTimer = undefined;
+    // In the background: coming back to the app refreshes anyway.
+    if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+    autoRetrying = true;
+    void refresh().finally(() => { autoRetrying = false; });
+  }, RETRY_DELAYS_MS[retryAttempt++]);
+}
+
+function cancelRetry(): void {
+  clearTimeout(retryTimer);
+  retryTimer = undefined;
+  retryAttempt = 0;
+}
+
+/** Fetches a fresh bootstrap. Offline → keeps cached data, marks offline, retries shortly. */
 export async function refresh(): Promise<boolean> {
   if (!session.value || refreshing.value) return false;
+  // A refresh someone asked for (pull down, back to the app) starts the retries over.
+  if (!autoRetrying) retryAttempt = 0;
   refreshing.value = true;
   try {
     const res = await call('bootstrap', {});
@@ -95,10 +124,12 @@ export async function refresh(): Promise<boolean> {
     online.value = true;
     refreshError.value = null;
     authState.value = 'signedIn';
+    cancelRetry();
     return true;
   } catch (e) {
     if (e instanceof NetworkError) {
       online.value = false;
+      scheduleRetry();
     } else if (e instanceof ApiFailure) {
       if (e.status !== 401 && e.code !== 'not_family') refreshError.value = e.message;
     } else {
@@ -141,6 +172,7 @@ async function completeSignIn(fn: () => Promise<{ session: string }>): Promise<v
 
 /** Clears everything on the device. Callers warn first if uploads are pending. */
 export async function resetDevice(): Promise<void> {
+  cancelRetry();
   setSession(null);
   bootstrap.value = null;
   bootstrapFetchedAt.value = null;

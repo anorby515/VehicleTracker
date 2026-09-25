@@ -30,6 +30,7 @@ interface MockState {
   uploads: Map<string, { scanId: string; kind: ScanKind; vehicleHint: string; size: number; pages: number; received: number; email: string }>;
   scans: Map<string, Scan[]>;             // email → extra scans uploaded in this session
   odometer: Map<string, { vehicle: string; mileage: number; date: string }[]>;
+  recalls: Map<string, { status: string; notes: string }>;  // "email|vehicle|campaign" → set in this session
   pairCodes: Map<string, string>;
   failNext: number;
 }
@@ -38,6 +39,7 @@ const state: MockState = {
   uploads: new Map(),
   scans: new Map(),
   odometer: new Map(),
+  recalls: new Map(),
   pairCodes: new Map(),
   failNext: 0,
 };
@@ -48,6 +50,25 @@ export function mockFailNext(n: number): void {
 }
 
 const ok = <T extends object>(data: T) => ({ ok: true, ...data });
+
+/** Recall statuses set in this session, applied the way the real API would (Upcoming and the banner only count New). */
+function applyRecallStatuses(email: string, b: Bootstrap): void {
+  for (const v of b.vehicles) {
+    for (const r of v.recalls) {
+      const set = state.recalls.get(`${email}|${v.name}|${r.campaignNumber}`);
+      if (!set) continue;
+      r.status = set.status;
+      r.notes = set.notes;
+      if (set.status !== 'New') v.upcoming = v.upcoming.filter(u => u.recall?.campaignNumber !== r.campaignNumber);
+    }
+    const fresh = v.recalls.filter(r => (r.status ?? '').toLowerCase() === 'new').length;
+    v.attention = v.attention.flatMap(a => {
+      if (a.kind !== 'recall') return [a];
+      if (!fresh) return [];
+      return [{ ...a, text: `${fresh === 1 ? 'New recall may' : `${fresh} new recalls may`} apply to the ${v.shortName}` }];
+    });
+  }
+}
 const err = (status: number, error: string, message: string, detail?: Record<string, unknown>) =>
   ({ ok: false, status, error, message, detail });
 
@@ -107,6 +128,7 @@ export async function mockTransport(body: Record<string, unknown>): Promise<unkn
           v.attention = v.attention.filter(a => a.kind !== 'odometer');
         }
       }
+      applyRecallStatuses(email, b);
       return ok({ bootstrap: b });
     }
     case 'pairCreate': {
@@ -148,6 +170,21 @@ export async function mockTransport(body: Record<string, unknown>): Promise<unkn
         latestOdometer: mileage,
         latestOdometerDate: date,
       });
+    }
+    case 'setRecallStatus': {
+      const b = bootstrapFor(email)!;
+      applyRecallStatuses(email, b);
+      const v = b.vehicles.find(x => x.name === body.vehicle);
+      const r = v?.recalls.find(x => x.campaignNumber === body.campaignNumber);
+      if (!v || !r) return err(404, 'not_found', 'That recall isn’t on the list any more.');
+      const status = String(body.status);
+      if ((r.status ?? 'New').toLowerCase() !== status.toLowerCase()) {
+        const line = `Marked ${status} by ${b.user.name} on ${b.today}`;
+        r.status = status;
+        r.notes = r.notes ? `${r.notes}\n${line}` : line;
+        state.recalls.set(`${email}|${v.name}|${r.campaignNumber}`, { status, notes: r.notes });
+      }
+      return ok({ recall: r });
     }
     case 'uploadStart': {
       const scanId = String(body.scanId);
