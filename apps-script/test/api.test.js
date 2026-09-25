@@ -54,7 +54,7 @@ test('doGet answers ?health=1 only', () => {
   const { gas } = setup();
   const health = gas.doGet({ parameter: { health: '1' } });
   assert.equal(health.mimeType, 'JSON');
-  assert.deepEqual(JSON.parse(health.getContent()), { ok: true, version: '1.0.0' });
+  assert.deepEqual(JSON.parse(health.getContent()), { ok: true, version: '1.1.0' });
   for (const e of [undefined, {}, { parameter: {} }, { parameter: { health: '0' } }, { parameter: { action: 'bootstrap' } }]) {
     const res = JSON.parse(gas.doGet(e).getContent());
     assert.equal(res.ok, false);
