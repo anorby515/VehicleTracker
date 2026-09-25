@@ -249,6 +249,7 @@ test('guard: only signIn and pairRedeem skip the session; every other action re-
     subscribePush: { subscription: { endpoint: 'https://web.push.apple.com/x', keys: { p256dh: 'k', auth: 'a' } } },
     unsubscribePush: { endpoint: 'https://web.push.apple.com/x' },
     savePrefs: { prefs: {} },
+    setRecallStatus: { vehicle: fx.vehicleNames.telluride, campaignNumber: '26V904000', status: 'Done' },
   };
   const authed = Object.keys(routes).filter(a => routes[a].auth === true).sort();
   assert.deepEqual(authed, Object.keys(valid).sort(), 'every authed action is covered here');

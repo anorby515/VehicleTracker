@@ -13,7 +13,7 @@
 import { config, USE_MOCK } from '../config';
 import type {
   ApiError, ApiRequest, BootstrapResult, FileResult, OdometerResult, OkResult, PairCreateResult,
-  PrefsResult, SignInResult, TestPushResult, UploadChunkResult, UploadStartResult,
+  PrefsResult, RecallStatusResult, SignInResult, TestPushResult, UploadChunkResult, UploadStartResult,
 } from './types';
 
 /** Result type for each action. */
@@ -24,6 +24,7 @@ export interface ResultMap {
   bootstrap: BootstrapResult;
   getFile: FileResult;
   addOdometer: OdometerResult;
+  setRecallStatus: RecallStatusResult;
   uploadStart: UploadStartResult;
   uploadChunk: UploadChunkResult;
   subscribePush: OkResult;

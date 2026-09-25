@@ -28,13 +28,13 @@ export function RecallsSheet(props: { vehicle: Vehicle; onClose: () => void }): 
       {open.length > 0 && (
         <section class="section" aria-labelledby="recalls-new">
           <div class="section-header"><h3 id="recalls-new">New</h3></div>
-          <div class="recall-list">{open.map(r => <RecallCard key={r.campaignNumber} recall={r} />)}</div>
+          <div class="recall-list">{open.map(r => <RecallCard key={r.campaignNumber} recall={r} vehicle={v} />)}</div>
         </section>
       )}
       {rest.length > 0 && (
         <section class="section" aria-labelledby="recalls-old">
           <div class="section-header"><h3 id="recalls-old">Already looked at</h3></div>
-          <div class="recall-list">{rest.map(r => <RecallCard key={r.campaignNumber} recall={r} />)}</div>
+          <div class="recall-list">{rest.map(r => <RecallCard key={r.campaignNumber} recall={r} vehicle={v} />)}</div>
           <p class="section-footer">{ownerName()} updates each recall’s status in the Sheet.</p>
         </section>
       )}

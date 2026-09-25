@@ -409,6 +409,35 @@ test.describe('panels', () => {
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(v.vin);
   });
 
+  test('Recalls: Done moves a recall out of New and off Upcoming; Mark as new puts it back', async ({ page }) => {
+    const v = jeep;
+    const r = v.recalls.find(x => x.status === 'New')!;
+    const item = v.upcoming.find(u => u.recall?.campaignNumber === r.campaignNumber)!;
+    expect(item).toBeTruthy();
+    const c = await openVehicle(page, v, '/recalls');
+    const sheet = page.getByRole('dialog', { name: 'Recalls' });
+    const newList = sheet.locator('section[aria-labelledby="recalls-new"]');
+    const oldList = sheet.locator('section[aria-labelledby="recalls-old"]');
+    const recall = (list: Locator) => list.locator('.recall-card', { hasText: `Campaign ${r.campaignNumber}` });
+
+    await recall(newList).getByRole('button', { name: /recall done$/ }).click();
+    await expect(page.getByRole('status').filter({ hasText: 'Marked done' })).toBeVisible();
+    await expect(recall(newList)).toHaveCount(0);
+    await expect(recall(oldList).locator('.badge')).toHaveText('Done');
+    await expect(recall(oldList)).toContainText(`Marked Done by ${owner.name} on`);
+
+    // Off Upcoming once the refresh comes back.
+    await sheet.getByRole('button', { name: 'Done', exact: true }).click();
+    await expect(upcomingRow(c.getByRole('region', { name: 'Upcoming' }), item.title)).toHaveCount(0);
+
+    // And back again.
+    await c.getByRole('region', { name: 'More' }).getByRole('link', { name: /Recalls/ }).click();
+    await recall(oldList).getByRole('button', { name: /as new again$/ }).click();
+    await expect(page.getByRole('status').filter({ hasText: 'Marked as new' })).toBeVisible();
+    await expect(recall(newList).locator('.badge')).toHaveText('New');
+    await expect(recall(newList).getByRole('button', { name: /as not applying to this vehicle$/ })).toBeVisible();
+  });
+
   test('Coverage lists active plans with what they cover', async ({ page }) => {
     const v = fourRunner;
     const c = await openVehicle(page, v);

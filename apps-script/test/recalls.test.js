@@ -11,6 +11,7 @@ const assert = require('node:assert/strict');
 const { load } = require('./harness');
 const { makeFakes } = require('./fakes');
 const { makeUrlFetchApp, workerHandler } = require('./fakes-jobs');
+const { loadApi } = require('./fakes-services');
 const fx = require('./fixtures/sheet');
 
 const FILES = ['Config.js', 'Dates.js', 'Sheet.js', 'Model.js', 'Logic.js', 'Bootstrap.js', 'Api.js', 'Auth.js',
@@ -311,4 +312,67 @@ test('jobScanStatus: scan check, then scan notifications only; skipped while ano
   assert.deepEqual(plain(busy.gas.jobDaily()), { job: 'jobDaily', skipped: true });
   assert.deepEqual(busy.calls, []);
   assert.equal(busy.lock.released, 0);
+});
+
+// ---------------------------------------------------------------- setRecallStatus
+
+function statusEnv() {
+  const env = loadApi({ tabs: fx.cloneTabs(), files: 'all' });
+  const { gas } = env;
+  env.today = gas.nowParts_().ymd;
+  env.ctx = gas.requireUser_(gas.issueSession_('nina@example.com', Math.floor(Date.now() / 1000)).token);
+  env.set = (params) => JSON.parse(JSON.stringify(gas.setRecallStatus_(env.ctx, params)));
+  env.row = (campaign) => {
+    const [h, ...rows] = env.fakes.spreadsheet.getSheetByName('Recalls').toValues();
+    return rows.map(r => Object.fromEntries(h.map((k, i) => [k, r[i]]))).find(r => r['Campaign Number'] === campaign);
+  };
+  return env;
+}
+
+test('setRecallStatus_ marks a recall Done, notes who and when, and refreshes the bootstrap cache', () => {
+  const env = statusEnv();
+  const cacheKey = env.gas.bootstrapCacheKey_();
+  env.fakes.scriptCache.put(cacheKey, '{"id":"x","n":1}', 300);
+
+  const res = env.set({ vehicle: fx.vehicleNames.telluride, campaignNumber: '26V904000', status: 'Done' });
+  assert.equal(res.recall.campaignNumber, '26V904000');
+  assert.equal(res.recall.status, 'Done');
+  assert.equal(res.recall.notes, 'Marked Done by Nina on ' + env.today);
+  assert.equal(res.recall.parkOutside, true);
+  assert.equal(env.row('26V904000')['Status'], 'Done');
+  assert.equal(env.row('26V904000')['Notes'], 'Marked Done by Nina on ' + env.today);
+  assert.equal(env.fakes.scriptCache.get(cacheKey), null, 'bootstrap cache invalidated');
+
+  // Other rows are untouched.
+  assert.equal(env.row('26V905000')['Status'], 'Not applicable');
+  assert.equal(env.row('26V901000')['Status'], 'New');
+});
+
+test('setRecallStatus_ keeps existing notes, can undo, and does nothing when the status is already set', () => {
+  const env = statusEnv();
+  const JP = fx.vehicleNames.wrangler;
+  env.set({ vehicle: JP, campaignNumber: '19V902000', status: 'Not applicable' });
+  assert.equal(env.row('19V902000')['Notes'], 'Done at the dealer in 2019\nMarked Not applicable by Nina on ' + env.today);
+
+  env.set({ vehicle: JP, campaignNumber: '19V902000', status: 'New' });
+  assert.equal(env.row('19V902000')['Status'], 'New');
+  assert.equal(env.row('19V902000')['Notes'].split('\n').length, 3);
+
+  // Already New: no change, no extra note.
+  const again = env.set({ vehicle: JP, campaignNumber: '19V902000', status: 'New' });
+  assert.equal(again.recall.status, 'New');
+  assert.equal(env.row('19V902000')['Notes'].split('\n').length, 3);
+});
+
+test('setRecallStatus_: an unknown recall is 404, and the route only accepts New, Done or Not applicable', () => {
+  const env = statusEnv();
+  assert.throws(() => env.set({ vehicle: fx.vehicleNames.telluride, campaignNumber: '99V999000', status: 'Done' }),
+    e => e.apiError === true && e.status === 404 && e.error === 'not_found');
+  // Right campaign, wrong vehicle.
+  assert.throws(() => env.set({ vehicle: fx.vehicleNames.x7, campaignNumber: '26V904000', status: 'Done' }),
+    e => e.apiError === true && e.status === 404);
+
+  const spec = env.gas.routes_().setRecallStatus;
+  assert.equal(spec.auth, true);
+  assert.deepEqual(Array.from(spec.params.status.oneOf), ['New', 'Done', 'Not applicable']);
 });

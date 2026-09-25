@@ -72,6 +72,7 @@ These are choices the spec left open, and places where the build departs from it
   - A vehicle with no Recalls rows yet is imported without pushes. Its campaigns are logged on Notification Log as "Silent (first import)" so they're never sent later.
   - This covers the first run and any car added later.
 - **VIN check link:** `https://www.nhtsa.gov/recalls?vin=<VIN>`, with the VIN also copied to the clipboard in case the site ignores the parameter.
+- **No VIN-level lookup.** NHTSA's public API only answers by make, model and year; its VIN lookup asks each manufacturer live through the website and has no API. Instead each recall has **Done** and **Doesn't apply** buttons (and **Mark as new** to undo), which any family member can use after checking the VIN. The change goes to Recalls › Status, with a line in Notes saying who and when.
 
 ## Push Worker
 
