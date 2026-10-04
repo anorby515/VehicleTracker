@@ -59,6 +59,7 @@ export function makeVehicle(over: Partial<Vehicle> = {}): Vehicle {
       batteryGroup: null,
     },
     registration: { expires: null, fileId: null, daysLeft: null },
+    insurance: { fileId: null, expires: null },
     oemApp: null,
     upcoming: [],
     noHistory: [],

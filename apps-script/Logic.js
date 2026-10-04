@@ -808,6 +808,10 @@ function buildVehicleView_(v, D, today) {
       fileId: v.registrationFileId,
       daysLeft: v.registrationExpires ? daysBetween_(today, v.registrationExpires) : null,
     },
+    insurance: {
+      fileId: v.insuranceCardFileId,
+      expires: v.insuranceExpires,
+    },
     oemApp: v.oemAppName && safeAppLink_(v.oemAppLink, false)
       ? { name: v.oemAppName, link: safeAppLink_(v.oemAppLink, false), storeLink: safeAppLink_(v.oemAppStoreLink, true) }
       : null,

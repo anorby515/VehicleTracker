@@ -141,6 +141,8 @@ function normVehicle_(r) {
     oemAppStoreLink: asStr_(r['OEM App Store Link']),
     latestOdometer: asNum_(r['Latest Odometer']),
     latestOdometerDate: asYmd_(r['Latest Odometer Date']),
+    insuranceCardFileId: asStr_(r['Insurance Card File ID']),
+    insuranceExpires: asYmd_(r['Insurance Expires']),
   };
 }
 

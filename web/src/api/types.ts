@@ -201,6 +201,8 @@ export interface Vehicle {
   lastMileageEvidenceDate: YMD | null;
   basics: VehicleBasics;
   registration: Registration;
+  /** Vehicles › Insurance Card File ID and Insurance Expires (filled by hand). */
+  insurance: Insurance;
   oemApp: OemApp | null;
   /** Dated/undated action items, already sorted (Overdue first, then by dueBy). */
   upcoming: UpcomingItem[];
@@ -230,6 +232,12 @@ export interface VehicleBasics {
   wiperFrontPassenger: string | null;
   wiperRear: string | null;
   batteryGroup: string | null;
+}
+
+export interface Insurance {
+  /** Drive ID of the insurance card PDF; served by getFile like Registration File ID. */
+  fileId: string | null;
+  expires: YMD | null;
 }
 
 export interface Registration {

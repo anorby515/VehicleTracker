@@ -168,7 +168,7 @@ test('setupSchemaApply() creates tabs and columns, seeds, and sets the formulas 
   // New columns appended at the end; existing cells untouched (P/Q aside).
   const vehicles = env.sheet('Vehicles').toValues();
   assert.deepEqual(vehicles[0], fx.liveHeaders['Vehicles'].concat(fx.newVehicleColumns));
-  assert.deepEqual(env.sheet('Vehicles').insertedColumns, [{ after: 26, n: 16 }], 'sheet grown at the end only');
+  assert.deepEqual(env.sheet('Vehicles').insertedColumns, [{ after: 26, n: 18 }], 'sheet grown at the end only');
   vehiclesBefore.forEach((row, i) => assert.deepEqual(vehicles[i].slice(0, 21), row, 'Vehicles row ' + (i + 1)));
   assert.deepEqual(env.sheet('Warranties').toValues()[0], fx.liveHeaders['Warranties'].concat(['Type', 'Covers']));
   warrantiesBefore.forEach((row, i) => assert.deepEqual(env.sheet('Warranties').toValues()[i].slice(0, 7), row));
@@ -442,7 +442,7 @@ test('checkSetup reports PASS / FAIL / TODO and never throws', () => {
   assert.ok(lines.includes('PASS  Inbox folder opens: "Inbox"'));
   assert.ok(lines.includes('PASS  Tab Visits headers: 12 checked'));
   assert.ok(lines.includes('TODO  App tab Recalls: missing; run setupSchemaApply()'));
-  assert.ok(lines.includes('TODO  New Vehicles columns: 21 missing; run setupSchemaApply()'));
+  assert.ok(lines.includes('TODO  New Vehicles columns: 23 missing; run setupSchemaApply()'));
   assert.ok(lines.includes('PASS  Drive folder for ' + V.fourRunner + ': "' + V.fourRunner + '"'));
   assert.ok(lines.includes('TODO  Trigger jobDaily: not installed; run installTriggers()'));
   assert.equal(report.fail, 1);
@@ -462,12 +462,12 @@ test('checkSetup reports PASS / FAIL / TODO and never throws', () => {
   assert.ok(Array.from(r.lines).some(l => l.startsWith('FAIL  Inbox folder opens: No item with the given ID')));
 });
 
-test('dry run on the live layout, counted by hand: 55 changes, no warnings, and a second apply finds none', () => {
+test('dry run on the live layout, counted by hand: 57 changes, no warnings, and a second apply finds none', () => {
   // The live Sheet (formulas.md survey): Vehicles A:U with the per-row P/Q formulas, Warranties A:G,
   // no app tabs, every vehicle's photo alone in its folder root. By hand:
-  //   6 app tabs + 21 Vehicles columns (V..AP) + 2 Warranties columns (H, I) + 1 App Users seed
+  //   6 app tabs + 23 Vehicles columns (V..AR) + 2 Warranties columns (H, I) + 1 App Users seed
   //   + 5 Photo File IDs + 5 × (Latest Odometer, Latest Odometer Date) + 5 × (Avg Miles/Day, Est. Current Mileage)
-  //   = 6 + 21 + 2 + 1 + 5 + 10 + 10 = 55.
+  //   = 6 + 23 + 2 + 1 + 5 + 10 + 10 = 57.
   const env = loadApi({ tabs: fx.preSetupTabs(), formulas: fx.liveFormulas(), props: { SEED_APP_USERS: JSON.stringify(SEED) },
     globals: { console: Object.assign(Object.create(console), { log: () => {} }) } });
   const d = env.services.drive;
@@ -477,11 +477,11 @@ test('dry run on the live layout, counted by hand: 55 changes, no warnings, and 
     d.addFile({ id: 'photo-' + folder, name: name + ' - Photo.' + ext, mimeType: 'image/' + (ext === 'jpg' ? 'jpeg' : ext), parentId: folder });
   });
   const dry = env.gas.setupSchema();
-  assert.deepEqual([dry.apply, dry.changes, dry.warnings], [false, 55, 0]);
+  assert.deepEqual([dry.apply, dry.changes, dry.warnings], [false, 57, 0]);
   const msgs = Array.from(dry.lines).map(l => l.message);
   const count = re => msgs.filter(m => re.test(m)).length;
   assert.equal(count(/^WOULD create tab /), 6);
-  assert.equal(count(/^WOULD append column [A-Z]+ ".*" at the end of Vehicles$/), 21);
+  assert.equal(count(/^WOULD append column [A-Z]+ ".*" at the end of Vehicles$/), 23);
   assert.equal(count(/^WOULD append column [HI] ".*" at the end of Warranties$/), 2);
   assert.equal(count(/^WOULD set Photo File ID V[2-6] /), 5);
   assert.equal(count(/^WOULD set Latest Odometer (Date )?A[OP][2-6] /), 10);
@@ -490,7 +490,7 @@ test('dry run on the live layout, counted by hand: 55 changes, no warnings, and 
   assert.ok(!msgs.some(m => /Last Visit Date|Last Known Mileage| N[2-6] | O[2-6] /.test(m) && /^WOULD/.test(m)));
 
   const applied = env.gas.setupSchemaApply();
-  assert.deepEqual([applied.changes, applied.warnings], [55, 0]);
+  assert.deepEqual([applied.changes, applied.warnings], [57, 0]);
   const again = env.gas.setupSchemaApply();
   assert.deepEqual([again.changes, again.warnings], [0, 0]);
   assert.equal(Array.from(again.lines).pop().message, 'No changes needed');

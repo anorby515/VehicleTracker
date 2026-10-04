@@ -75,12 +75,14 @@ const NEW_VEHICLE_COLUMNS = [
   'Tire Size', 'Tire Pressure', 'Wiper Front Driver', 'Wiper Front Passenger', 'Wiper Rear',
   'Battery Group', 'Registration Expires', 'Registration File ID', 'NHTSA Make', 'NHTSA Model',
   'OEM App Name', 'OEM App Link', 'OEM App Store Link', 'Latest Odometer', 'Latest Odometer Date',
+  'Insurance Card File ID', 'Insurance Expires',
 ];
 const NEW_WARRANTY_COLUMNS = ['Type', 'Covers'];
 
 /** Number formats setupSchema applies to the columns it creates. */
 const NEW_COLUMN_FORMATS = {
   'Registration Expires': 'yyyy-mm-dd',
+  'Insurance Expires': 'yyyy-mm-dd',
   'Latest Odometer': '#,##0',
   'Latest Odometer Date': 'yyyy-mm-dd',
   // App-owned tabs
