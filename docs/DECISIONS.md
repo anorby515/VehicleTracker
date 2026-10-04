@@ -118,7 +118,8 @@ These are choices the spec left open, and places where the build departs from it
 ## Insurance cards and accident help
 
 - **Insurance cards are in scope after all** (the spec left them to Apple Wallet). Each vehicle's card is a PDF in its Drive `Documents` folder, referenced by the new Vehicles columns Insurance Card File ID and Insurance Expires (appended at the end, by setupSchema on new installs).
-- **One tap.** The "Insurance card" row under More opens the card straight in the document viewer rather than a panel first, because it's the thing you need at the roadside. It only appears when a file ID is set, and the viewer caches it for offline use like any viewed document.
+- **One tap.** A second quick-actions row holds **Registration** and **Insurance Card**, each opening its document straight in the viewer, because they're what you need at a traffic stop or after an accident. With no registration scan on file, Registration opens the Registration panel; with no insurance card, that button is left out. The viewer caches each one for offline use like any viewed document.
+- **Junk file IDs are ignored.** A Registration or Insurance Card File ID cell that isn't shaped like a Drive ID (for example a make typed into the wrong column) is treated as "no file", so it never produces a button that fails (`driveFileId` in display.ts).
 - **No insurance reminders.** Insurance Expires is display only; State Farm sends renewals.
 - **Settings › If something happens › How to handle an accident** links to State Farm's guide (`ACCIDENT_GUIDE_URL` in Settings.tsx) and opens in Safari.
 

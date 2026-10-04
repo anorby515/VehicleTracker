@@ -14,7 +14,7 @@ import { Icon } from '../ui/Icon';
 import { Sheet } from '../ui/Sheet';
 import { RouteLink, ValueRow, ownerName, presentToday } from './common';
 import { DocumentViewerSheet } from './DocumentViewer';
-import { coverageEndText, coverageLimitText, coversText, dueText, intervalText, registrationDaysText } from './display';
+import { coverageEndText, coverageLimitText, coversText, driveFileId, dueText, intervalText, registrationDaysText } from './display';
 import { RecallCard, VinCheckLink } from './RecallCard';
 
 export function UpcomingSheet(props: { vehicle: Vehicle; item: UpcomingItem; onClose: () => void }): JSX.Element {
@@ -54,8 +54,8 @@ export function UpcomingSheet(props: { vehicle: Vehicle; item: UpcomingItem; onC
         {item.kind === 'registration' && <RegistrationDetails vehicle={v} onOpen={() => setViewRegistration(true)} />}
         {item.kind === 'recall' && <RecallDetails vehicle={v} item={item} />}
       </Sheet>
-      {viewRegistration && v.registration.fileId && (
-        <DocumentViewerSheet fileId={v.registration.fileId} title="Scanned registration" onClose={() => setViewRegistration(false)} />
+      {viewRegistration && driveFileId(v.registration.fileId) && (
+        <DocumentViewerSheet fileId={driveFileId(v.registration.fileId)!} title="Scanned registration" onClose={() => setViewRegistration(false)} />
       )}
     </>
   );
@@ -214,7 +214,7 @@ function RegistrationDetails(props: { vehicle: Vehicle; onOpen: () => void }): J
           </div>
           {!reg.expires && <p class="section-footer">{ownerName()} adds this in the Sheet.</p>}
         </section>
-        {reg.fileId && (
+        {driveFileId(reg.fileId) && (
           <div class="vsheet-actions">
             <button type="button" class="btn btn-block" onClick={props.onOpen}>
               <Icon name="doc" size={20} /> Open registration

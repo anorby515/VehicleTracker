@@ -51,6 +51,10 @@
         "fileId": "fake-reg-hl",
         "daysLeft": -21
       },
+      "insurance": {
+        "fileId": null,
+        "expires": null
+      },
       "oemApp": null,
       "upcoming": [
         {
@@ -1365,6 +1369,10 @@
         "fileId": "fake-reg-jp",
         "daysLeft": 23
       },
+      "insurance": {
+        "fileId": null,
+        "expires": null
+      },
       "oemApp": null,
       "upcoming": [
         {
@@ -2457,6 +2465,10 @@
         "fileId": null,
         "daysLeft": null
       },
+      "insurance": {
+        "fileId": null,
+        "expires": null
+      },
       "oemApp": {
         "name": "My BMW",
         "link": "mybmw://",
@@ -3076,6 +3088,10 @@
         "expires": "2027-03-31",
         "fileId": "fake-reg-4r",
         "daysLeft": 190
+      },
+      "insurance": {
+        "fileId": "fake-ins-4r",
+        "expires": "2026-12-20"
       },
       "oemApp": {
         "name": "Toyota",
@@ -3943,6 +3959,10 @@
         "expires": "2026-11-30",
         "fileId": "fake-reg-tl",
         "daysLeft": 69
+      },
+      "insurance": {
+        "fileId": null,
+        "expires": null
       },
       "oemApp": null,
       "upcoming": [

@@ -13,7 +13,7 @@ import { Icon } from '../../ui/Icon';
 import { Sheet } from '../../ui/Sheet';
 import { ValueRow, ownerName } from '../common';
 import { DocumentViewerSheet } from '../DocumentViewer';
-import { registrationDaysText } from '../display';
+import { driveFileId, registrationDaysText } from '../display';
 
 export function registrationStatus(daysLeft: number | null): UpcomingStatus | null {
   if (daysLeft === null) return null;
@@ -25,6 +25,7 @@ export function registrationStatus(daysLeft: number | null): UpcomingStatus | nu
 export function RegistrationSheet(props: { vehicle: Vehicle; onClose: () => void }): JSX.Element {
   const v = props.vehicle;
   const reg = v.registration;
+  const fileId = driveFileId(reg.fileId);
   const [open, setOpen] = useState(false);
   const status = registrationStatus(reg.daysLeft);
   // The viewer is a sibling, not inside this sheet's portal (see VisitSheet).
@@ -44,7 +45,7 @@ export function RegistrationSheet(props: { vehicle: Vehicle; onClose: () => void
           {!reg.expires && <p class="section-footer">Not set yet. {ownerName()} adds this in the Sheet.</p>}
         </section>
         <div class="vsheet-actions">
-          {reg.fileId
+          {fileId
             ? (
               <button type="button" class="btn btn-block" onClick={() => setOpen(true)}>
                 <Icon name="doc" size={20} /> Open the scanned registration
@@ -53,7 +54,7 @@ export function RegistrationSheet(props: { vehicle: Vehicle; onClose: () => void
             : <p class="footnote">No scanned registration on file. {ownerName()} adds it in the Sheet.</p>}
         </div>
       </Sheet>
-      {open && reg.fileId && <DocumentViewerSheet fileId={reg.fileId} title="Scanned registration" onClose={() => setOpen(false)} />}
+      {open && fileId && <DocumentViewerSheet fileId={fileId} title="Scanned registration" onClose={() => setOpen(false)} />}
     </>
   );
 }

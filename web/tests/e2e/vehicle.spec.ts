@@ -308,6 +308,41 @@ test.describe('card header and quick actions', () => {
     await expect(page).toHaveURL(new RegExp(`#/v/${esc(encodeURIComponent(bmw.name))}$`));
   });
 
+  test('Registration and Insurance Card buttons sit under the quick actions and open the documents', async ({ page }) => {
+    expect(fourRunner.registration.fileId && fourRunner.insurance.fileId).toBeTruthy();
+    const c = await openVehicle(page, fourRunner);
+    const row = c.locator('.vcard-docs-row');
+    // Directly below the Update Odometer / Vehicle Basics row.
+    const qaBox = (await c.locator('.vcard-actions-row').first().boundingBox())!;
+    const docsBox = (await row.boundingBox())!;
+    expect(docsBox.y).toBeGreaterThan(qaBox.y + qaBox.height - 1);
+    await page.screenshot({ path: test.info().outputPath('paperwork-row.png') });
+
+    await row.getByRole('button', { name: 'Insurance Card' }).click();
+    const ins = page.getByRole('dialog', { name: 'Insurance card' });
+    await expect(ins.locator('canvas.dv-canvas')).toHaveCount(1, { timeout: 15_000 });
+    await ins.getByRole('button', { name: 'Done' }).click();
+    await expect(ins).toHaveCount(0);
+
+    await row.getByRole('button', { name: 'Registration' }).click();
+    const reg = page.getByRole('dialog', { name: 'Registration' });
+    await expect(reg.locator('canvas.dv-canvas')).toHaveCount(1, { timeout: 15_000 });
+  });
+
+  test('no insurance card on file: just Registration, which opens the panel when no scan is on file', async ({ page }) => {
+    const v = data.vehicles.find(x => !x.insurance.fileId && !x.registration.fileId)
+      ?? data.vehicles.find(x => !x.insurance.fileId)!;
+    const c = await openVehicle(page, v);
+    const row = c.locator('.vcard-docs-row');
+    await expect(row.getByRole('button', { name: 'Insurance Card' })).toHaveCount(0);
+    if (!v.registration.fileId) {
+      await row.getByRole('link', { name: 'Registration' }).click();
+      await expect(page.getByRole('dialog', { name: 'Registration' })).toBeVisible();
+    } else {
+      await expect(row.getByRole('button', { name: 'Registration' })).toBeVisible();
+    }
+  });
+
   test('OEM app button only where the vehicle has one', async ({ page }) => {
     const withApp = data.vehicles.filter(v => v.oemApp);
     const without = data.vehicles.find(v => !v.oemApp)!;

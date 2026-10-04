@@ -46,7 +46,7 @@
 .qa {
   flex: 1 1 0; min-width: 0; min-height: 64px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-  padding: 8px 6px; border-radius: var(--radius);
+  padding: 8px 6px; border: 0; border-radius: var(--radius);
   background: var(--bg-elevated); color: var(--tint);
   font-size: 13px; font-weight: 600; text-align: center; line-height: 1.2;
 }
@@ -62,6 +62,8 @@
 .qa-failed { margin: 4px 0 0; font-size: 15px; text-align: center; color: var(--label-2); }
 .qa-failed a { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 600; }
 .vcard-actions:has(.vcard-actions-sub) { padding-bottom: 12px; }
+.vcard-docs-row { margin-top: 8px; }
+.qa-doc { min-height: 52px; flex-direction: row; gap: 8px; }
 
 /* ---------- attention banner */
 .vcard-attention .group { background: var(--amber-bg); }

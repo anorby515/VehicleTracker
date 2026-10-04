@@ -15,7 +15,7 @@ import { bootstrapFetchedAt } from '../state/store';
 import { CoveredBadge, StatusBadge, Tag } from '../ui/Badge';
 import { Icon, type IconName } from '../ui/Icon';
 import { RouteLink, presentToday } from './common';
-import { attentionEntries, dueText, formatWearValue, makeInitial, plateText, registrationDaysText } from './display';
+import { attentionEntries, driveFileId, dueText, formatWearValue, makeInitial, plateText, registrationDaysText } from './display';
 import { DocumentViewerSheet } from './DocumentViewer';
 import { launchOemApp } from './oemApp';
 import './VehicleCard.css';
@@ -132,7 +132,55 @@ function QuickActions(props: { vehicle: Vehicle }): JSX.Element {
             : <>Didn’t open? The {app.name} app may not be on this phone.</>}
         </p>
       )}
+      <PaperworkActions vehicle={v} />
     </div>
+  );
+}
+
+/**
+ * Registration and Insurance Card, one tap each, right under the quick
+ * actions: these are what you reach for at a traffic stop or after an
+ * accident. Each opens its document straight in the viewer. With no
+ * registration on file, Registration opens the Registration panel instead
+ * (expiry date, "not on file" note); with no insurance card the button is
+ * left out.
+ */
+function PaperworkActions(props: { vehicle: Vehicle }): JSX.Element {
+  const v = props.vehicle;
+  const [open, setOpen] = useState<'registration' | 'insurance' | null>(null);
+  const regFile = driveFileId(v.registration.fileId);
+  // Optional: a phone may still hold bootstrap data from before Insurance existed.
+  const insFile = driveFileId(v.insurance?.fileId);
+  return (
+    <>
+      <div class="vcard-actions-row vcard-docs-row">
+        {regFile
+          ? (
+            <button type="button" class="qa qa-doc" onClick={() => setOpen('registration')}>
+              <Icon name="doc" />
+              <span>Registration</span>
+            </button>
+          )
+          : (
+            <RouteLink href={href.panel(v.name, 'registration')} class="qa qa-doc">
+              <Icon name="doc" />
+              <span>Registration</span>
+            </RouteLink>
+          )}
+        {insFile && (
+          <button type="button" class="qa qa-doc" onClick={() => setOpen('insurance')}>
+            <Icon name="shield" />
+            <span>Insurance Card</span>
+          </button>
+        )}
+      </div>
+      {open === 'registration' && regFile && (
+        <DocumentViewerSheet fileId={regFile} title="Registration" onClose={() => setOpen(null)} />
+      )}
+      {open === 'insurance' && insFile && (
+        <DocumentViewerSheet fileId={insFile} title="Insurance card" onClose={() => setOpen(null)} />
+      )}
+    </>
   );
 }
 
@@ -312,9 +360,6 @@ function MoreRow(props: { href: string; icon: IconName; title: string; value?: s
 
 function MoreSection(props: { vehicle: Vehicle }): JSX.Element {
   const v = props.vehicle;
-  const [insuranceOpen, setInsuranceOpen] = useState(false);
-  // Optional: a phone may still hold bootstrap data from before Insurance existed.
-  const insurance = v.insurance ?? null;
   const headingId = `more-${slug(v.name)}`;
   const newRecalls = v.recalls.filter(r => (r.status ?? '').toLowerCase() === 'new').length;
   const activePlans = v.coverage.filter(p => p.active).length;
@@ -328,24 +373,12 @@ function MoreSection(props: { vehicle: Vehicle }): JSX.Element {
         <MoreRow href={href.panel(v.name, 'costs')} icon="dollar" title="Costs" value={`${formatMoneyWhole(v.costs.thisYear)} this year`} />
         <MoreRow href={href.panel(v.name, 'wear')} icon="tire" title="Wear" value={wearSummary(v)} />
         <MoreRow href={href.panel(v.name, 'registration')} icon="calendar" title="Registration" value={reg} />
-        {insurance?.fileId && (
-          // Opens the card straight away (no panel in between): this is the one you need at the roadside.
-          <button type="button" class="row tappable more-row" onClick={() => setInsuranceOpen(true)}>
-            <span class="more-icon" aria-hidden="true"><Icon name="doc" size={20} /></span>
-            <span class="row-title more-title">Insurance card</span>
-            {insurance.expires && <span class="row-value more-value">Until {formatDate(insurance.expires)}</span>}
-            <Icon name="chevronRight" class="row-chevron" size={18} />
-          </button>
-        )}
         <MoreRow href={href.panel(v.name, 'recalls')} icon="flag" title="Recalls" value={newRecalls ? `${newRecalls} new` : v.recalls.length ? 'None new' : 'None found'} />
         <MoreRow href={href.panel(v.name, 'coverage')} icon="shield" title="Coverage" value={activePlans ? `${activePlans} active` : 'None active'} />
         <MoreRow href={href.panel(v.name, 'export')} icon="share" title="Service history" value="Export" />
       </div>
       {v.registration.daysLeft !== null && v.registration.daysLeft <= 60 && (
         <p class="section-footer">Registration: {registrationDaysText(v.registration)}</p>
-      )}
-      {insuranceOpen && insurance?.fileId && (
-        <DocumentViewerSheet fileId={insurance.fileId} title="Insurance card" onClose={() => setInsuranceOpen(false)} />
       )}
     </section>
   );
