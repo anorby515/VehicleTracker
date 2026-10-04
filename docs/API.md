@@ -145,7 +145,8 @@ A file ID is allowed only if it appears in one of these places:
 - Documents › Drive File ID;
 - App Scans › Drive File ID;
 - Vehicles › Photo File ID;
-- Vehicles › Registration File ID.
+- Vehicles › Registration File ID;
+- Vehicles › Insurance Card File ID.
 
 The check reads those columns fresh. Only a positive check ("this ID is ours") is cached, for 5 minutes, so a newly added ID works immediately. Anything else gets `403 forbidden`, even if the file exists.
 

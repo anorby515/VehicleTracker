@@ -725,11 +725,14 @@ test('buildVehicleView_: the vehicle-wide Vehicle, per-user fields left for the 
   assert.deepEqual(Object.keys(v), ['name', 'shortName', 'year', 'make', 'model', 'vin', 'plate', 'primaryDriver',
     'isMine', 'photoFileId', 'originalInServiceDate', 'purchaseDate', 'purchaseMileage', 'estMileage',
     'avgMilesPerDay', 'latestOdometer', 'latestOdometerDate', 'lastMileageEvidenceDate', 'basics', 'registration',
-    'oemApp', 'upcoming', 'noHistory', 'coverage', 'visits', 'costs', 'wear', 'recalls', 'attention']);
+    'insurance', 'oemApp', 'upcoming', 'noHistory', 'coverage', 'visits', 'costs', 'wear', 'recalls', 'attention']);
   assert.deepEqual([v.isMine, v.attention, v.shortName, v.estMileage, v.avgMilesPerDay], [false, [], 'X7', 48388, 42.2]);
   assert.deepEqual([v.latestOdometer, v.latestOdometerDate, v.lastMileageEvidenceDate], [39020, '2026-02-12', '2026-02-12']);
   assert.deepEqual(v.oemApp, { name: 'My BMW', link: 'mybmw://', storeLink: 'https://apps.apple.com/app/id0000000003' });
   assert.deepEqual(v.registration, { expires: null, fileId: null, daysLeft: null });
+  assert.deepEqual(v.insurance, { fileId: null, expires: null });
+  assert.deepEqual(plain(gas.buildVehicleView_(vehicle(V.fourRunner), D, TODAY)).insurance,
+    { fileId: 'fake-ins-4r', expires: '2026-12-20' });
   assert.deepEqual(v.basics, { oilSpec: '0W-20', oilCapacity: null, oilFilter: null, engineAirFilter: null,
     cabinAirFilter: null, tireSize: '275/45R21 front, 315/40R21 rear', tirePressure: null, wiperFrontDriver: null,
     wiperFrontPassenger: null, wiperRear: null, batteryGroup: null });

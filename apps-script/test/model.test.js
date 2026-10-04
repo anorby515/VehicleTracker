@@ -48,6 +48,7 @@ test('Vehicles: every column, including the setupSchema ones, typed; blanks are 
     registrationExpires: '2027-03-31', registrationFileId: 'fake-reg-4r', nhtsaMake: 'TOYOTA', nhtsaModel: '4RUNNER',
     oemAppName: 'Toyota', oemAppLink: 'toyota://', oemAppStoreLink: null,
     latestOdometer: 37320, latestOdometerDate: '2026-09-15',
+    insuranceCardFileId: 'fake-ins-4r', insuranceExpires: '2026-12-20',
   });
   const jeep = find(D.vehicles, v => v.name === V.wrangler);
   assert.equal(jeep.plate, null);

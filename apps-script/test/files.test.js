@@ -17,6 +17,7 @@ function setup() {
   drive.addFile({ id: 'fake-scan-0001', name: 'App scan.pdf', mimeType: 'application/pdf', text: PDF });
   drive.addFile({ id: 'fake-photo-4r', name: '2023 Toyota 4Runner - Photo.png', mimeType: 'image/png', text: PNG });
   drive.addFile({ id: 'fake-reg-4r', name: 'Registration.pdf', mimeType: 'application/pdf', text: PDF });
+  drive.addFile({ id: 'fake-ins-4r', name: 'Insurance Card.pdf', mimeType: 'application/pdf', text: PDF });
   // Big photo: getSize() says 2 MB, so the API asks Drive for a thumbnail.
   drive.addFile({ id: 'fake-photo-x7', name: '2023 BMW X7 - Photo.png', mimeType: 'image/png', text: PNG, size: 2 * MB });
   // A real Drive file the script could open, but not part of this system.
@@ -46,7 +47,7 @@ function apiErr(fn) {
 
 const b64 = s => Buffer.from(s, 'latin1').toString('base64');
 
-test('getFile serves IDs from Documents, App Scans, Vehicles Photo File ID and Registration File ID', () => {
+test('getFile serves IDs from Documents, App Scans, Vehicles Photo, Registration and Insurance Card File ID', () => {
   const { getFile } = setup();
   assert.deepEqual(getFile({ fileId: 'fake-doc-4r-0824-inv' }), {
     fileId: 'fake-doc-4r-0824-inv', name: 'invoice.pdf', mimeType: 'application/pdf', size: PDF.length, data: b64(PDF),
@@ -54,6 +55,7 @@ test('getFile serves IDs from Documents, App Scans, Vehicles Photo File ID and R
   assert.equal(getFile({ fileId: 'fake-scan-0001', purpose: 'document' }).name, 'App scan.pdf');
   assert.equal(getFile({ fileId: 'fake-photo-4r', purpose: 'photo' }).mimeType, 'image/png');
   assert.equal(getFile({ fileId: 'fake-reg-4r' }).data, b64(PDF));
+  assert.equal(getFile({ fileId: 'fake-ins-4r' }).name, 'Insurance Card.pdf');
 });
 
 test('getFile refuses a Drive file ID that is not part of this system (403), without opening it', () => {

@@ -15,6 +15,7 @@ function fileIdSources_() {
     [TAB.APP_SCANS, 'Drive File ID'],
     [TAB.VEHICLES, 'Photo File ID'],
     [TAB.VEHICLES, 'Registration File ID'],
+    [TAB.VEHICLES, 'Insurance Card File ID'],
   ];
 }
 

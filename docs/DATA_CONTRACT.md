@@ -70,6 +70,8 @@ One row per vehicle. `Vehicle` is the key used on every other tab.
 | Oil Spec … Battery Group (11 columns) | Andrew | API | Vehicle Basics; blank shows "Not set". |
 | Registration Expires | Andrew | API | Upcoming (≤ 60 days), notifications at 60 and 30 days. |
 | Registration File ID | Andrew | API | Registration row; the file proxy allows this ID. |
+| Insurance Card File ID | Andrew | API | "Insurance card" row under More; opens the card in the document viewer. The file proxy allows this ID. |
+| Insurance Expires | Andrew | API | Shown as "Until \<date>" on the Insurance card row. Display only (no reminders). |
 | NHTSA Make, NHTSA Model | Andrew | API | Daily recall lookup (e.g. `TOYOTA` / `4RUNNER`, `JEEP` / `WRANGLER`). |
 | OEM App Name, OEM App Link, OEM App Store Link | Andrew | API | "Open \<app>" button and its App Store fallback. |
 | Latest Odometer | F (new) | F, API | Highest of Visits Mileage and Odometer Readings Mileage for the vehicle. |
@@ -220,7 +222,8 @@ The document viewer and photo headers go through `getFile`. It only serves IDs f
 - Documents › Drive File ID;
 - App Scans › Drive File ID;
 - Vehicles › Photo File ID;
-- Vehicles › Registration File ID.
+- Vehicles › Registration File ID;
+- Vehicles › Insurance Card File ID.
 
 ## Things that would break the app if changed
 

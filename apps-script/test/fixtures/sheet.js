@@ -61,7 +61,8 @@ const LIVE_HEADERS = {
 const NEW_VEHICLE_COLUMNS = ['Photo File ID', 'Oil Spec', 'Oil Capacity', 'Oil Filter', 'Engine Air Filter',
   'Cabin Air Filter', 'Tire Size', 'Tire Pressure', 'Wiper Front Driver', 'Wiper Front Passenger', 'Wiper Rear',
   'Battery Group', 'Registration Expires', 'Registration File ID', 'NHTSA Make', 'NHTSA Model', 'OEM App Name',
-  'OEM App Link', 'OEM App Store Link', 'Latest Odometer', 'Latest Odometer Date'];
+  'OEM App Link', 'OEM App Store Link', 'Latest Odometer', 'Latest Odometer Date', 'Insurance Card File ID',
+  'Insurance Expires'];
 const NEW_WARRANTY_COLUMNS = ['Type', 'Covers'];
 const APP_TAB_HEADERS = {
   'App Users': ['Email', 'Name', 'Default Vehicle', 'Active', 'Notification Prefs', 'Driver Name'],
@@ -162,6 +163,7 @@ const vehicles = [
     'NHTSA Make': 'TOYOTA', 'NHTSA Model': '4RUNNER',
     'OEM App Name': 'Toyota', 'OEM App Link': 'toyota://',
     'Latest Odometer': 37320, 'Latest Odometer Date': d('2026-09-15'),
+    'Insurance Card File ID': 'fake-ins-4r', 'Insurance Expires': d('2026-12-20'),
   },
   {
     'Vehicle': TL, 'Year': 2025, 'Make': 'Kia', 'Model': 'Telluride SX Prestige', 'VIN': 'TESTVIN0000000005',

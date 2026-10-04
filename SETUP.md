@@ -248,6 +248,7 @@ To add a driver later, add a row. To remove someone, set Active = `No`; that tak
   Blank cells show "Not set" in the app.
 - **Photo File ID:** should already be filled by setupSchema. To change a photo, put a JPG or PNG in the vehicle's folder root and paste its ID here. Wide side-profile shots with transparent backgrounds look best.
 - **Registration Expires** (a date) and **Registration File ID** (the ID of the scanned registration in Drive).
+- **Insurance Card File ID** and **Insurance Expires**: the insurance card PDF (filed in the vehicle's `Documents` folder, never in a year folder or `Inbox`) and its expiration date. When the new cards arrive each renewal, file them the same way and paste the new IDs and date here.
 - **NHTSA Make / NHTSA Model**, used for the recall lookup. NHTSA matches these exactly:
 
   | Vehicle | NHTSA Make | NHTSA Model |

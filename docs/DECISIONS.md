@@ -115,6 +115,13 @@ These are choices the spec left open, and places where the build departs from it
   - The key includes `APP_VERSION`. The gzipped JSON is split into 90 KB chunks, and a small index is written last.
   - Anything that writes data the shared part shows (odometer readings, recalls) calls `invalidateBootstrapCache_()`.
 
+## Insurance cards and accident help
+
+- **Insurance cards are in scope after all** (the spec left them to Apple Wallet). Each vehicle's card is a PDF in its Drive `Documents` folder, referenced by the new Vehicles columns Insurance Card File ID and Insurance Expires (appended at the end, by setupSchema on new installs).
+- **One tap.** The "Insurance card" row under More opens the card straight in the document viewer rather than a panel first, because it's the thing you need at the roadside. It only appears when a file ID is set, and the viewer caches it for offline use like any viewed document.
+- **No insurance reminders.** Insurance Expires is display only; State Farm sends renewals.
+- **Settings › If something happens › How to handle an accident** links to State Farm's guide (`ACCIDENT_GUIDE_URL` in Settings.tsx) and opens in Safari.
+
 ## Known limits
 
 - **Shared origin.** Every GitHub Pages site under `anorby515.github.io` shares one web origin, so any of them could read this app's stored session. Don't publish untrusted pages on other repos in that account. A custom domain for this app would remove the concern.

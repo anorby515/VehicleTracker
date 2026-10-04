@@ -27,6 +27,9 @@ import { toast } from '../ui/toast';
 import { openInstallGuide } from './InstallGuide';
 import './Settings.css';
 
+/** State Farm's step-by-step accident guide (the family's insurer). */
+export const ACCIDENT_GUIDE_URL = 'https://www.statefarm.com/claims/auto/how-to-handle-an-accident';
+
 export function SettingsScreen(): JSX.Element {
   const u = user.value;
   return (
@@ -41,6 +44,17 @@ export function SettingsScreen(): JSX.Element {
               {u?.email && <span class="row-sub settings-email">{u.email}</span>}
             </span>
           </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="set-help">
+        <div class="section-header"><h2 id="set-help">If something happens</h2></div>
+        <div class="group">
+          <a class="row tappable" href={ACCIDENT_GUIDE_URL} target="_blank" rel="noopener">
+            <Icon name="alert" class="settings-icon" />
+            <span class="row-main">How to handle an accident</span>
+            <Icon name="external" size={18} class="row-chevron" />
+          </a>
         </div>
       </section>
 
