@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CoveragePlan, DocumentRef, Recall, WearItem } from '../api/types';
 import {
-  attentionEntries, costPerMileText, coverageEndText, coversText, dueText, formatMonthYear, formatWearValue, intervalText, makeInitial,
+  attentionEntries, costPerMileText, driveFileId, coverageEndText, coversText, dueText, formatMonthYear, formatWearValue, intervalText, makeInitial,
   recommendationStatusText, registrationDaysText, replacementPointText, sortDocuments, visitsWithoutTotalText, wearProjectionText,
 } from './display';
 import { makeVehicle } from './testing';
@@ -170,5 +170,19 @@ describe('attention banner', () => {
   it('says "Park outside" for a fire-risk recall', () => {
     const v = makeVehicle({ recalls: [recall({ parkOutside: true })], attention: [{ kind: 'recall', text: 'New recall', href: recallsHref }] });
     expect(attentionEntries(v, recallsHref)[0]).toMatchObject({ tone: 'warn', strong: 'Park outside, away from buildings' });
+  });
+});
+
+describe('driveFileId', () => {
+  it('keeps real Drive IDs and drops anything else', () => {
+    expect(driveFileId('1YCMLh7odznZ_p3gchwNv2_d0gzdgWMXH')).toBe('1YCMLh7odznZ_p3gchwNv2_d0gzdgWMXH');
+    expect(driveFileId('  1RpfJeWK5Dp1u3f-NAJOGRDr4CafkTBvt ')).toBe('1RpfJeWK5Dp1u3f-NAJOGRDr4CafkTBvt');
+    expect(driveFileId('fake-reg-4r')).toBe('fake-reg-4r');
+    expect(driveFileId('TOYOTA')).toBeNull();
+    expect(driveFileId('HIGHLANDER')).toBeNull();
+    expect(driveFileId('https://drive.google.com/file/d/1YCMLh7odznZ_p3gchwNv2_d0gzdgWMXH/view')).toBeNull();
+    expect(driveFileId('')).toBeNull();
+    expect(driveFileId(null)).toBeNull();
+    expect(driveFileId(undefined)).toBeNull();
   });
 });

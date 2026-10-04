@@ -153,6 +153,18 @@ export function valueText(v: unknown): string | null {
 }
 
 /** "Plate SAMPLE4 · Leo drives it" style second line pieces. */
+/**
+ * A Sheet cell meant to hold a Drive file ID → that ID, or null when it holds
+ * something else (a typo, a make like "TOYOTA" pasted into the wrong column).
+ * Drive IDs are long runs of letters, digits, "-" and "_" (with at least one
+ * that isn't a letter); a word like "TOYOTA" or a pasted link would only give
+ * a button that fails, so it's treated as "no file on record".
+ */
+export function driveFileId(value: string | null | undefined): string | null {
+  const s = (value ?? '').trim();
+  return /^(?=.*[0-9_-])[A-Za-z0-9_-]{10,}$/.test(s) ? s : null;
+}
+
 export function plateText(plate: string | null): string {
   return plate ? plate : 'No plate on file';
 }
